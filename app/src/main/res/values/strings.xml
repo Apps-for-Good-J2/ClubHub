@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ClubHub</string>
+    <string name="clubFinderStr">Club Finder</string>
+    <string name="schoolTextStr">Pick your school</string>
+
+
 </resources>
