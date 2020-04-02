@@ -41,6 +41,7 @@ public class FindAClub extends AppCompatActivity {
                 String yourSchool = schoolSpinner.getSelectedItem().toString();
                 if(!yourSchool.equals("- choose your school -")){
                     schoolText.setText("You choose" + yourSchool);
+
                 }
             }
         });
