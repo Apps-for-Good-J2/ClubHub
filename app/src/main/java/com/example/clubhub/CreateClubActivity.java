@@ -19,17 +19,9 @@ public class CreateClubActivity extends AppCompatActivity {
 
     public void setClubName(View v){
 
-
         EditText nameText = findViewById(R.id.clubEditText);
         String uID = nameText.getText().toString();
-
-        // Find some way to effectively store what school the user is currently in
-        ClubManager.currentClubID = ClubManager.countID;
-
         ClubManager.createClub(uID, SchoolManager.currentSchoolID);
-
-        Log.v("MainActivity", "Added club with id " + ClubManager.currentClubID + " and name " +
-                ClubManager.getClub(ClubManager.currentClubID).getName());
     }
 
     public void progressToDisplay(View v){

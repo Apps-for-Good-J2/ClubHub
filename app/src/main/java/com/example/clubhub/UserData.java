@@ -1,31 +1,48 @@
 package com.example.clubhub;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 public class UserData {
 
 	private String name;
-	private int ID;
-	private ArrayList<Integer> mClubs;
-	private ArrayList<Integer> lClubs;
+	private String ID;
+	private ArrayList<String> mClubs;
+	private ArrayList<String> lClubs;
 	// Implement
-	private int schoolID;
+	private String schoolID;
+
+	public UserData(){
+		this.name = "";
+		ID = "";
+		this.mClubs = new ArrayList<>();
+		this.lClubs = new ArrayList<>();
+		schoolID = "";
+	}
 	
-	public UserData(String name, int iD) {
+	public UserData(String name, String iD, String schoolID) {
 		super();
 		this.name = name;
 		ID = iD;
-		this.mClubs = new ArrayList<Integer>();
-		this.lClubs = new ArrayList<Integer>();
+		this.mClubs = new ArrayList<>();
+		this.lClubs = new ArrayList<>();
+		this.schoolID = schoolID;
 	}
 
-	public void addUserToClubAsMember(int ID, ClubManager manager) {
-		manager.getClub(ID).addMember(this.ID);
+	/**
+	 * Adds a given club reference ID to this users list of member clubs
+	 * @param ID
+	 */
+	public void addUserToClubAsMember(String ID) {
 		this.mClubs.add(ID);
 	}
-	
-	public void addUserToClubAsLeader(int ID, ClubManager manager) {
-		manager.getClub(ID).addLeader(this.ID);
+
+	/**
+	 * Adds a given club reference ID to this users list of leader clubs
+	 * @param ID
+	 */
+	public void addUserToClubAsLeader(String ID) {
 		this.lClubs.add(ID);
 	}
 	
@@ -44,39 +61,46 @@ public class UserData {
 	/**
 	 * @return the iD
 	 */
-	public int getID() {
+	public String getID() {
 		return ID;
 	}
 	/**
 	 * @param iD the iD to set
 	 */
-	public void setID(int iD) {
+	public void setID(String iD) {
 		ID = iD;
 	}
 	/**
 	 * @return the mClubs
 	 */
-	public ArrayList<Integer> getmClubs() {
+	public ArrayList<String> getmClubs() {
 		return mClubs;
 	}
 	/**
 	 * @param mClubs the mClubs to set
 	 */
-	public void setmClubs(ArrayList<Integer> mClubs) {
+	public void setmClubs(ArrayList<String> mClubs) {
 		this.mClubs = mClubs;
 	}
 	/**
 	 * @return the lClubs
 	 */
-	public ArrayList<Integer> getlClubs() {
+	public ArrayList<String> getlClubs() {
 		return lClubs;
 	}
 	/**
 	 * @param lClubs the lClubs to set
 	 */
-	public void setlClubs(ArrayList<Integer> lClubs) {
+	public void setlClubs(ArrayList<String> lClubs) {
 		this.lClubs = lClubs;
 	}
-	
-	
+
+
+	public String getSchoolID() {
+		return schoolID;
+	}
+
+	public void setSchoolID(String schoolID) {
+		this.schoolID = schoolID;
+	}
 }

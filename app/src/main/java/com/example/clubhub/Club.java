@@ -5,48 +5,68 @@ import java.util.ArrayList;
 public class Club {
 
 	
-	private int numID;
+	private String numID;
 	private String name;
 	private String description;
-	private ArrayList<Integer> mIDs;
-	private ArrayList<Integer> lIDs;
-	private int schoolID;
-	
-	/** @TODO Add constructors **/
+	private ArrayList<String> mIDs;
+	private ArrayList<String> lIDs;
+	private String schoolID;
+
+	public Club(){
+	    numID = "";
+	    name = "";
+	    description = "";
+        this.mIDs = new ArrayList<>();
+        this.lIDs = new ArrayList<>();
+        schoolID = "";
+    }
 	
 
-	public Club(String name, int ID, int schoolID) {
+	public Club(String name, String ID, String schoolID, String creatorID) {
 		super();
 		this.numID = ID;
 		this.name = name;
 		this.description = "";
-		this.mIDs = new ArrayList<Integer>();
-		this.lIDs = new ArrayList<Integer>();
-		this.setSchoolID(schoolID);
+		this.mIDs = new ArrayList<>();
+		this.lIDs = new ArrayList<>();
+		lIDs.add(creatorID);
+		this.schoolID = schoolID;
 	}
-	
 
 
-	public void addLeader(Integer ID) {
+	/**
+	 * Adds a given user reference ID as a leader of this club
+	 * @param ID
+	 */
+	public void addLeader(String ID) {
 		lIDs.add(ID);
 	}
-	
-	public void addMember(Integer ID) {
+
+	/**
+	 * Adds a given user reference ID as a member of this club
+	 * @param ID
+	 */
+	public void addMember(String ID) {
 		mIDs.add(ID);
 	}
-	
-	
-	public boolean isLeader(Integer ID) {
-		if(lIDs.contains(ID))
-			return true;
-		return false;
-	}
-	
-	public boolean isMember(Integer ID) {
-		if(mIDs.contains(ID))
-			return true;
-		return false;
-	}
+
+	/**
+	 * Checks if a giver user ID is a leader of this club
+	 * @param ID
+	 * @return
+	 */
+	public boolean isLeader(String ID) {
+        return lIDs.contains(ID);
+    }
+
+	/**
+	 * Checks if a given user ID is a member of this club
+	 * @param ID
+	 * @return
+	 */
+	public boolean isMember(String ID) {
+        return mIDs.contains(ID);
+    }
 	
 	
 	
@@ -58,14 +78,14 @@ public class Club {
 	/**
 	 * @return the numID
 	 */
-	public int getNumID() {
+	public String getNumID() {
 		return numID;
 	}
 
 	/**
 	 * @param numID the numID to set
 	 */
-	public void setNumID(int numID) {
+	public void setNumID(String numID) {
 		this.numID = numID;
 	}
 
@@ -100,28 +120,28 @@ public class Club {
 	/**
 	 * @return the mIDs
 	 */
-	public ArrayList<Integer> getmIDs() {
+	public ArrayList<String> getmIDs() {
 		return mIDs;
 	}
 
 	/**
 	 * @param mIDs the mIDs to set
 	 */
-	public void setmIDs(ArrayList<Integer> mIDs) {
+	public void setmIDs(ArrayList<String> mIDs) {
 		this.mIDs = mIDs;
 	}
 
 	/**
 	 * @return the lIDs
 	 */
-	public ArrayList<Integer> getlIDs() {
+	public ArrayList<String> getlIDs() {
 		return lIDs;
 	}
 
 	/**
 	 * @param lIDs the lIDs to set
 	 */
-	public void setlIDs(ArrayList<Integer> lIDs) {
+	public void setlIDs(ArrayList<String> lIDs) {
 		this.lIDs = lIDs;
 	}
 
@@ -136,7 +156,7 @@ public class Club {
 	/**
 	 * @return the schoolID
 	 */
-	public int getSchoolID() {
+	public String getSchoolID() {
 		return schoolID;
 	}
 
@@ -145,7 +165,7 @@ public class Club {
 	/**
 	 * @param schoolID the schoolID to set
 	 */
-	public void setSchoolID(int schoolID) {
+	public void setSchoolID(String schoolID) {
 		this.schoolID = schoolID;
 	}
 

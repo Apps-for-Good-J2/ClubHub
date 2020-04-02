@@ -1,39 +1,40 @@
 package com.example.clubhub;
 
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.HashMap;
 
 public class ClubManager{
 	
-	// Placeholder variable for the IDs given by firebase
-	public static int countID = 0;
-
-	public static int currentClubID;
+	// PLaceholder(?) for the club the user is currently viewing
+	public static String currentClubID;
 	
-	// This will be stored on firebase cloud storage in real implementation
-	// The will be a 'SchoolController' and serve as the bridge between the logic and database.
-	private static HashMap<Integer, Club> clubs = new HashMap<Integer, Club>();
+	// Local version of the clubs stored in the database to prevent asynch issues
+	private static HashMap<String, Club> clubs = new HashMap<>();
 
-	
+
 	/**
-	 * Creates a new club object with a given name, and under a certain school
-	 * @param name
-	 * @param schoolID
+	 * Creates a new Club object and stores it in the database with
+	 * a random, unique key
+	 * Assigns the club a club school ID
+	 * @param name the name of the new club
+	 * @param schoolID the ID of the school this club belongs to
 	 */
+	public static void createClub(String name, String schoolID) {
 
-	// make static when pulling from firebase?
-	public static void createClub(String name, int schoolID) {
-		Club club = new Club(name, countID, schoolID);
-		clubs.put(countID, club);
+		DatabaseReference clubsRef = FirebaseDatabase.getInstance().getReference("clubs").push();
+		String key = clubsRef.getKey();
+		// Placeholder for user info
+		currentClubID = key;
+		// Put student creator here
+		clubsRef.setValue(new Club(name, key, schoolID, UserManager.currentUserID));
+		SchoolManager.getSchool(schoolID).addClub(key);
 
 
-		SchoolManager.getSchool(schoolID).addClub(countID);
+		UserManager.getUserData(UserManager.currentUserID).addUserToClubAsLeader(key);
 
-		// Currently does not update the list of clubs
-		// under the student creator or the list of students in
-		// this club
-
-		countID++;
 	}
 	
 	/**
@@ -41,7 +42,17 @@ public class ClubManager{
 	 * @param ID The ID used to find the Club
 	 * @return The Club with the given IO
 	 */
-	public static Club getClub(int ID) {
+	public static Club getClub(String ID) {
 		return clubs.get(ID);
+	}
+
+	/**
+	 * Puts a club into the ClubManager's club Hashmap
+	 * ONly to be used by the initiateClubs method
+	 * @param ID
+	 * @param s
+	 */
+	public static void putClub(String ID, Club s) {
+		clubs.put(ID, s);
 	}
 }

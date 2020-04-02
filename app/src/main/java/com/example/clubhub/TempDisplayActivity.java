@@ -27,8 +27,11 @@ public class TempDisplayActivity extends AppCompatActivity {
         schoolName.setText(schoolNameText);
 
         TextView clubName = findViewById(R.id.clubName);
-        String clubNameText = ClubManager.getClub(ClubManager.currentClubID).getName();
+        // Shows that the school list of clubs is there, but not visible in firebase?
+        String clubNameText = ClubManager.getClub(SchoolManager.getSchool(SchoolManager.currentSchoolID).getClubs().get(0)).getName();
         clubName.setText(clubNameText);
+
+
 
     }
 }
