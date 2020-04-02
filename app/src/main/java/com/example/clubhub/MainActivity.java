@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
     // Naming my be off during testing
     public void progressToSchool(View v){
 
