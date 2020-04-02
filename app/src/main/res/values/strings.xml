@@ -2,6 +2,10 @@
     <string name="app_name">ClubHub</string>
     <string name="clubFinderStr">Club Finder</string>
     <string name="schoolTextStr">Pick your school</string>
+    <string name="yourClubsButtonStr">Your Clubs</string>
+    <string name="createClubButtonStr">Create a new club</string>
+    <string name="addClubButtonStr">Add an existing club</string>
+    <string name="findClubButtonStr">Find Clubs</string>
 
 
 </resources>

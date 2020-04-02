@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ClubHubStudent">
+
+    <TextView
+        android:id="@+id/clubHubStudentTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="ClubHub Student"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/yourClubsButton"
+        android:layout_width="256dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="100dp"
+        android:text="@string/yourClubsButtonStr"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clubHubStudentTitle" />
+
+    <Button
+        android:id="@+id/createClubButton"
+        android:layout_width="256dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/createClubButtonStr"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/yourClubsButton" />
+
+    <Button
+        android:id="@+id/addClubButton"
+        android:layout_width="256dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/addClubButtonStr"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createClubButton" />
+
+    <Button
+        android:id="@+id/findClubButton"
+        android:layout_width="256dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="50dp"
+        android:onClick="goToClubFinder"
+        android:text="@string/findClubButtonStr"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addClubButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

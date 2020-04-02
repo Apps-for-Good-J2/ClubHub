@@ -8,14 +8,17 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FindAClub extends AppCompatActivity {
+public class FindAClub extends AppCompatActivity implements
+        AdapterView.OnItemSelectedListener{
 
     private Spinner schoolSpinner;
     private TextView schoolText;
+    List<String> school = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +28,7 @@ public class FindAClub extends AppCompatActivity {
         schoolSpinner = findViewById(R.id.schoolSpinner);
         schoolText = findViewById(R.id.schoolText);
 
-        List<String> school = new ArrayList<>();
+
         school.add("- choose your school -");
         school.add("MAMS");
         school.add("Doherty");
@@ -35,17 +38,16 @@ public class FindAClub extends AppCompatActivity {
         schoolAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         schoolSpinner.setAdapter(schoolAdapter);
 
-        schoolSpinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String yourSchool = schoolSpinner.getSelectedItem().toString();
-                if(!yourSchool.equals("- choose your school -")){
-                    schoolText.setText("You choose" + yourSchool);
 
-                }
-            }
-        });
+    }
 
-
+    //Performing action onItemSelected and onNothing selected
+    @Override
+    public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
+        Toast.makeText(getApplicationContext(),school.get(position) , Toast.LENGTH_LONG).show();
+    }
+    @Override
+    public void onNothingSelected(AdapterView<?> arg0) {
+        // TODO Auto-generated method stub
     }
 }
