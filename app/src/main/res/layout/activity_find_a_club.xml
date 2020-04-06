@@ -31,12 +31,13 @@
         app:layout_constraintTop_toBottomOf="@+id/clubFinder" />
 
     <TextView
-        android:id="@+id/schoolText"
+        android:id="@+id/subjectText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/schoolTextStr"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/schoolSpinner" />
 
@@ -46,8 +47,9 @@
         android:layout_height="707dp"
         android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/schoolText" />
+        app:layout_constraintTop_toBottomOf="@+id/subjectText" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

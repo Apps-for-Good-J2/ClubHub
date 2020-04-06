@@ -33,13 +33,13 @@ public class FindAClub extends AppCompatActivity implements
         // Used to set up the school spinner (move to create an account?)
 
         schoolSpinner = findViewById(R.id.schoolSpinner);
-        schoolText = findViewById(R.id.schoolText);
+        schoolText = findViewById(R.id.subjectText);
 
 
-        school.add("- choose your school -");
-        school.add("MAMS");
-        school.add("Doherty");
-        school.add("South");
+        school.add("- pick a subject -");
+        school.add("Math");
+        school.add("Biotechnology");
+        school.add("Chess");
 
         ArrayAdapter<String> schoolAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, school);
         schoolAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
