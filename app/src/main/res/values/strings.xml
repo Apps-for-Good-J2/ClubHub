@@ -6,4 +6,6 @@
     <string name="whenClubMeetsStr">When does your club meet?</string>
     <string name="selectYourRole" />
     <string name="selectYourRoleStr">"Select your role: "</string>
+    <string name="postClub">POST CLUB</string>
+    <string name="name">Name</string>
 </resources>
