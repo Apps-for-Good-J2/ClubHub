@@ -52,6 +52,7 @@ public class FindAClub extends AppCompatActivity implements
         // Used to set up the list of clubs
 
 
+
         for(String clubRef : SchoolManager.getSchool(SchoolManager.currentSchoolID).getClubs()){
             clubs.add(ClubManager.getClub(clubRef));
         }
