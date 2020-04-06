@@ -1,11 +1,9 @@
 <resources>
     <string name="app_name">ClubHub</string>
-    <string name="clubFinderStr">Club Finder</string>
-    <string name="schoolTextStr">Pick your school</string>
-    <string name="yourClubsButtonStr">Your Clubs</string>
-    <string name="createClubButtonStr">Create a new club</string>
-    <string name="addClubButtonStr">Add an existing club</string>
-    <string name="findClubButtonStr">Find Clubs</string>
-
-
+    <string name="name_your_new_club">Name your new club:</string>
+    <string name="nameYourNewClubStr">"Name your new club: "</string>
+    <string name="describeYourClubStr">"Describe your club: "</string>
+    <string name="whenClubMeetsStr">When does your club meet?</string>
+    <string name="selectYourRole" />
+    <string name="selectYourRoleStr">"Select your role: "</string>
 </resources>
