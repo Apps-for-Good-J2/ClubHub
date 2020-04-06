@@ -5,7 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class TempDisplayActivity extends AppCompatActivity {
+
+    private FirebaseUser mUser = FirebaseAuth.getInstance().getCurrentUser();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +23,7 @@ public class TempDisplayActivity extends AppCompatActivity {
         super.onStart();
 
         TextView userName = findViewById(R.id.userName);
-        String userNameText = UserManager.getUserData(UserManager.currentUserID).getName();
+        String userNameText = UserManager.getUserData(mUser.getUid()).getName();
         userName.setText(userNameText);
 
         TextView schoolName = findViewById(R.id.schoolName);
@@ -28,7 +33,7 @@ public class TempDisplayActivity extends AppCompatActivity {
 
         TextView clubName = findViewById(R.id.clubName);
         // Shows that the school list of clubs is there, but not visible in firebase?
-        String clubNameText = ClubManager.getClub(SchoolManager.getSchool(SchoolManager.currentSchoolID).getClubs().get(0)).getName();
+        String clubNameText = ClubManager.getClub(ClubManager.currentClubID).getName();
         clubName.setText(clubNameText);
 
 

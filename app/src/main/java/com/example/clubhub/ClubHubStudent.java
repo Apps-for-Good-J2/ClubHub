@@ -18,4 +18,9 @@ public class ClubHubStudent extends AppCompatActivity {
         Intent intent = new Intent(this, FindAClub.class);
         startActivity(intent);
     }
+
+    public void goToClubCreator(View v){
+        Intent intent = new Intent(this, CreateClubActivity.class);
+        startActivity(intent);
+    }
 }

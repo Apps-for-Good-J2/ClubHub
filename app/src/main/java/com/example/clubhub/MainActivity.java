@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         EditText nameText = findViewById(R.id.userEditText);
         String uID = nameText.getText().toString();
 
-        UserManager.createUser(uID, SchoolManager.currentSchoolID);
+        //UserManager.createUser(uID, SchoolManager.currentSchoolID);
     }
 
 

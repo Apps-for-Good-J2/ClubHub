@@ -1,6 +1,8 @@
 package com.example.clubhub;
 
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -14,6 +16,8 @@ public class ClubManager{
 	// Local version of the clubs stored in the database to prevent asynch issues
 	private static HashMap<String, Club> clubs = new HashMap<>();
 
+	private static FirebaseUser mUser = FirebaseAuth.getInstance().getCurrentUser();
+
 
 	/**
 	 * Creates a new Club object and stores it in the database with
@@ -26,14 +30,14 @@ public class ClubManager{
 
 		DatabaseReference clubsRef = FirebaseDatabase.getInstance().getReference("clubs").push();
 		String key = clubsRef.getKey();
-		// Placeholder for user info
+		// Placeholder
 		currentClubID = key;
-		// Put student creator here
-		clubsRef.setValue(new Club(name, key, schoolID, UserManager.currentUserID));
+
+		clubsRef.setValue(new Club(name, key, schoolID, mUser.getUid()));
 		SchoolManager.getSchool(schoolID).addClub(key);
 
 
-		UserManager.getUserData(UserManager.currentUserID).addUserToClubAsLeader(key);
+		UserManager.getUserData(mUser.getUid()).addUserToClubAsLeader(key);
 
 	}
 	

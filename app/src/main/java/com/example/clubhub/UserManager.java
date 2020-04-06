@@ -13,24 +13,19 @@ public class UserManager{
 
 	private static HashMap<String, UserData> users  = new HashMap<String, UserData>();
 
-	public static String currentUserID;
-
 
 	/**
 	 * Creates a new User object and stores it in the database with
 	 * a random, unique key
 	 * Assigns the user a school ID
 	 * @param name the name of the new user
+	 * @param userID the ID of the user in the auth system
 	 * @param schoolID the ID of the school this user belongs to
 	 */
-	public static void createUser(String name, String schoolID) {
+	public static void createUser(String name, String userID, String schoolID) {
 
-		DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("users").push();
-		String key = usersRef.getKey();
-		// Placeholder for user info
-		currentUserID = key;
-		Log.v("MainActivity", "Current User: "+ currentUserID);
-		usersRef.setValue(new UserData(name, key, schoolID));
+		DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("users").child(userID);
+		usersRef.setValue(new UserData(name, userID, schoolID));
 
 
 	}
@@ -46,7 +41,7 @@ public class UserManager{
 	}
 
 	/**
-	 * Puts a user into the UserManager's club Hashmap
+	 * Puts a user into the UserManager's club HashMap
 	 * ONly to be used by the initiateUsers method
 	 * @param ID
 	 * @param s

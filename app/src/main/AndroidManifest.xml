@@ -10,13 +10,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ClubHubStudent"></activity>
+        <activity android:name=".TempSignIn"></activity>
+        <activity android:name=".ClubHubStudent" />
         <activity android:name=".CreateSchoolActivity" />
         <activity android:name=".FindAClub" />
         <activity android:name=".TempDisplayActivity" />
         <activity android:name=".CreateClubActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".TempSignIn">
+        <activity android:name=".CreateAccountActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
