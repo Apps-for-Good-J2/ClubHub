@@ -148,7 +148,7 @@ public class Club {
 
 	@Override
 	public String toString() {
-		return "Club [name=" + name + ", description=" + description + " , ID=" + numID + "]";
+		return name + " Club";
 	}
 
 

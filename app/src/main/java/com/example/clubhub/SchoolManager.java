@@ -22,9 +22,6 @@ import android.widget.EditText;
 import java.util.HashMap;
 
 public class SchoolManager extends AppCompatActivity {
-	
-	// Placeholder variable for the IDs given by firebase
-	public static int countID = 0;
 
 	public static String currentSchoolID;
 

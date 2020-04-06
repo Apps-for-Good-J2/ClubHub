@@ -100,6 +100,8 @@ public class TempSignIn extends AppCompatActivity {
                 for(DataSnapshot ds : dataSnapshot.getChildren()){
                     SchoolManager.putSchool(ds.getValue(School.class).getID(), ds.getValue(School.class));
                     Log.v("MainActivity", "Added School: " + ds.getValue(School.class).getName());
+
+
                 }
             }
 
@@ -108,9 +110,6 @@ public class TempSignIn extends AppCompatActivity {
 
             }
         });
-
-
-
 
     }
 
@@ -121,7 +120,7 @@ public class TempSignIn extends AppCompatActivity {
 
         EditText nameText = findViewById(R.id.tempUserName);
         String uID = nameText.getText().toString();
-        UserManager.createUser(uID, SchoolManager.currentSchoolID);
+        //UserManager.createUser(uID, SchoolManager.currentSchoolID);
     }
 
     public void setSchool(View v){

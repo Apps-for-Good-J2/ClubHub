@@ -27,7 +27,7 @@ public class CreateClubActivity extends AppCompatActivity {
     public void progressToDisplay(View v){
 
         setClubName(v);
-        Intent intent = new Intent(this, TempDisplayActivity.class);
+        Intent intent = new Intent(this, ClubHubStudent.class);
         startActivity(intent);
     }
 }
