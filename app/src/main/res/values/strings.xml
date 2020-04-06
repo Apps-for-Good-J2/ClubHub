@@ -8,4 +8,8 @@
     <string name="selectYourRoleStr">"Select your role: "</string>
     <string name="postClub">POST CLUB</string>
     <string name="name">Name</string>
+    <string name="mondayStr">Monday</string>
+    <string name="tuesdayStr" />
+    <string name="tuesday">Tuesday</string>
+    <string name="wedsStr">Wednesday</string>
 </resources>

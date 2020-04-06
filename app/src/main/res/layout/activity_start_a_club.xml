@@ -53,25 +53,25 @@
 
         <RadioGroup
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="328dp">
 
             <RadioButton
-                android:id="@+id/radioButton"
+                android:id="@+id/monday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:text="@string/mondayStr" />
 
             <RadioButton
-                android:id="@+id/radioButton2"
+                android:id="@+id/tues"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:text="@string/tuesday" />
 
             <RadioButton
-                android:id="@+id/radioButton3"
+                android:id="@+id/weds"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:text="@string/wedsStr" />
 
             <RadioButton
                 android:id="@+id/radioButton6"
@@ -96,20 +96,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="RadioButton" />
+
+            <TextView
+                android:id="@+id/selectYourRole"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/selectYourRoleStr"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/postClub" />
         </RadioGroup>
 
-        <TextView
-            android:id="@+id/selectYourRole"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/selectYourRoleStr"
-            android:textSize="24sp" />
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/postClub" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
