@@ -18,7 +18,7 @@
             android:id="@+id/nameYourNewClub"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/nameYourNewClubStr"
+            android:text="@string/nameYourNewClub"
             android:textSize="24sp" />
 
         <EditText
@@ -33,7 +33,7 @@
             android:id="@+id/describeYourClub"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/describeYourClubStr"
+            android:text="@string/describeClub"
             android:textSize="24sp" />
 
         <EditText
@@ -48,7 +48,7 @@
             android:id="@+id/whenDoYouMeet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/whenClubMeetsStr"
+            android:text="@string/when"
             android:textSize="24sp" />
 
         <RadioGroup
@@ -59,7 +59,7 @@
                 android:id="@+id/monday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/mondayStr" />
+                android:text="@string/monday" />
 
             <RadioButton
                 android:id="@+id/tues"
@@ -71,44 +71,44 @@
                 android:id="@+id/weds"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/wedsStr" />
+                android:text="@string/weds" />
 
             <RadioButton
-                android:id="@+id/radioButton6"
+                android:id="@+id/thursday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:text="@string/thursday" />
 
             <RadioButton
-                android:id="@+id/radioButton8"
+                android:id="@+id/friday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:text="@string/friday" />
 
             <RadioButton
-                android:id="@+id/radioButton5"
+                android:id="@+id/saturday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:text="@string/saturday" />
 
             <RadioButton
-                android:id="@+id/radioButton4"
+                android:id="@+id/sunday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:text="@string/sunday" />
 
             <TextView
                 android:id="@+id/selectYourRole"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/selectYourRoleStr"
+                android:text="@string/selectRole"
                 android:textSize="24sp" />
 
             <Button
                 android:id="@+id/button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/postClub" />
+                android:text="@string/post" />
         </RadioGroup>
 
     </LinearLayout>
