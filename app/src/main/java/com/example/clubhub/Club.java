@@ -1,5 +1,9 @@
 package com.example.clubhub;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 
 public class Club {
@@ -22,11 +26,11 @@ public class Club {
     }
 	
 
-	public Club(String name, String ID, String schoolID, String creatorID) {
+	public Club(String name, String ID, String schoolID, String creatorID, String description) {
 		super();
 		this.numID = ID;
 		this.name = name;
-		this.description = "";
+		this.description = description;
 		this.mIDs = new ArrayList<>();
 		this.lIDs = new ArrayList<>();
 		lIDs.add(creatorID);
@@ -39,6 +43,7 @@ public class Club {
 	 * @param ID
 	 */
 	public void addLeader(String ID) {
+		// MAKE DATABASE CALLS
 		lIDs.add(ID);
 	}
 
@@ -47,6 +52,7 @@ public class Club {
 	 * @param ID
 	 */
 	public void addMember(String ID) {
+		// Make database calls
 		mIDs.add(ID);
 	}
 
@@ -169,6 +175,6 @@ public class Club {
 		this.schoolID = schoolID;
 	}
 
-	
+
 	
 }

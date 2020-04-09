@@ -13,6 +13,9 @@ import android.widget.Toast;
 import android.widget.ListView;
 
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,16 +27,19 @@ public class FindAClub extends AppCompatActivity implements
     List<String> school = new ArrayList<>();
     List<Club> clubs = new ArrayList<>();
 
+    FirebaseUser currentUser;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_a_club);
 
-        // Used to set up the school spinner (move to create an account?)
+        //region Used to set up the school spinner (move to create an account?)
 
         schoolSpinner = findViewById(R.id.schoolSpinner);
         schoolText = findViewById(R.id.subjectText);
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
 
         school.add("- pick a subject -");
@@ -45,14 +51,14 @@ public class FindAClub extends AppCompatActivity implements
         schoolAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         schoolSpinner.setAdapter(schoolAdapter);
 
-        // End code for school spinner
+        //endregion End code for school spinner
 
 
 
-        // Used to set up the list of clubs
+        //region Used to set up the list of clubs
+        String currentSchoolID = (UserManager.getUserData(currentUser.getUid()).getSchoolID());
 
-
-        for(String clubRef : SchoolManager.getSchool(SchoolManager.currentSchoolID).getClubs()){
+        for(String clubRef : SchoolManager.getSchool(currentSchoolID).getClubs()){
             clubs.add(ClubManager.getClub(clubRef));
         }
 
@@ -70,14 +76,14 @@ public class FindAClub extends AppCompatActivity implements
 
                 // Use intent to push the club ID to the next activity to eliminate currentClubID?
                 Club nClub = clubs.get(position);
-                ClubManager.currentClubID = nClub.getNumID();
 
-                Intent intent = new Intent(FindAClub.this, TempDisplayActivity.class);
+                Intent intent = new Intent(FindAClub.this, JoinClubDescriptionPage.class);
+                intent.putExtra("clubID", nClub.getNumID());
                 startActivity(intent);
             }
         });
 
-        // End code for club display
+        //endregion End code for club display
 
 
     }

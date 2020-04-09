@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,11 +20,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 
 public class SchoolManager extends AppCompatActivity {
 
-	public static String currentSchoolID;
 
 	private static HashMap<String, School> schools = new HashMap<>();
 
@@ -41,8 +43,6 @@ public class SchoolManager extends AppCompatActivity {
 
 		DatabaseReference schoolsRef = FirebaseDatabase.getInstance().getReference("schools").push();
 		String key = schoolsRef.getKey();
-		// Placeholder for user info
-		currentSchoolID = key;
 		schoolsRef.setValue(new School(name, key));
 
 	}
@@ -59,6 +59,20 @@ public class SchoolManager extends AppCompatActivity {
 
 	public static void putSchool(String ID, School s){
 		schools.put(ID, s);
+	}
+
+	public static Collection<School> getListOfAllSchools(){
+		return schools.values();
+	}
+
+	public static void addClubToCurrentSchool(String clubID){
+		String currentSchoolID = UserManager.getUserData(FirebaseAuth.getInstance()
+				.getCurrentUser().getUid()).getSchoolID();
+		ArrayList<String> listOfClub = getSchool(currentSchoolID).getClubs();
+		listOfClub.add(clubID);
+
+		DatabaseReference clubsRef = FirebaseDatabase.getInstance().getReference("schools");
+		clubsRef.child(currentSchoolID).child("clubs").setValue(listOfClub);
 	}
 
 }

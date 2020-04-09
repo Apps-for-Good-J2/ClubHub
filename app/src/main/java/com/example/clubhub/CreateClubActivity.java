@@ -17,11 +17,13 @@ public class CreateClubActivity extends AppCompatActivity {
     }
 
 
+    /** DONT USE **/
+
     public void setClubName(View v){
 
         EditText nameText = findViewById(R.id.clubEditText);
         String uID = nameText.getText().toString();
-        ClubManager.createClub(uID, SchoolManager.currentSchoolID);
+        ClubManager.getClub(uID);
     }
 
     public void progressToDisplay(View v){
