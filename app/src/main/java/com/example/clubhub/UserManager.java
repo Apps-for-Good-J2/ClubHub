@@ -26,8 +26,6 @@ public class UserManager{
 
 		DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("users").child(userID);
 		usersRef.setValue(new UserData(name, userID, schoolID));
-
-
 	}
 	
 	/**
