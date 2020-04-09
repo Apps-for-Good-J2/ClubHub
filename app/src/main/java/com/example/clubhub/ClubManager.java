@@ -10,10 +10,11 @@ import java.util.HashMap;
 
 public class ClubManager{
 	
-	// PLaceholder(?) for the club the user is currently viewing
+	// Placeholder(?) for the club the user is currently viewing
 	public static String currentClubID;
 	
 	// Local version of the clubs stored in the database to prevent asynch issues
+	// and getting information
 	private static HashMap<String, Club> clubs = new HashMap<>();
 
 	private static FirebaseUser mUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -24,20 +25,25 @@ public class ClubManager{
 	 * a random, unique key
 	 * Assigns the club a club school ID
 	 * @param name the name of the new club
-	 * @param schoolID the ID of the school this club belongs to
+	 * @param description the description of the new club
 	 */
-	public static void createClub(String name, String schoolID) {
+	public static void createClub(String name, String description) {
 
 		DatabaseReference clubsRef = FirebaseDatabase.getInstance().getReference("clubs").push();
 		String key = clubsRef.getKey();
 		// Placeholder
 		currentClubID = key;
 
-		clubsRef.setValue(new Club(name, key, schoolID, mUser.getUid()));
-		SchoolManager.getSchool(schoolID).addClub(key);
+		String schoolID = UserManager.getUserData(mUser.getUid()).getSchoolID();
+		String userID = mUser.getUid();
 
+		clubsRef.setValue(new Club(name, key, schoolID, userID, description));
 
-		UserManager.getUserData(mUser.getUid()).addUserToClubAsLeader(key);
+		// Adds this club to the school's clubs
+		SchoolManager.getSchool(schoolID).addClubToCurrentSchool(key);
+
+		/** WILL NOT WORK MUST RECREATE WITH DIFF. DATABASE CALL **/
+		UserManager.getUserData(userID).addUserToClubAsLeader(key);
 
 	}
 	
@@ -58,5 +64,17 @@ public class ClubManager{
 	 */
 	public static void putClub(String ID, Club s) {
 		clubs.put(ID, s);
+	}
+
+
+	// Do these as a method here or in the club class?
+	public static void changeClubName(String clubID, String newName){
+		DatabaseReference clubsRef = FirebaseDatabase.getInstance().getReference("clubs");
+		clubsRef.child(clubID).child("name").setValue(newName);
+	}
+
+	public static void changeClubDescription(String clubID, String newDescription){
+		DatabaseReference clubsRef = FirebaseDatabase.getInstance().getReference("clubs");
+		clubsRef.child(clubID).child("description").setValue(newDescription);
 	}
 }

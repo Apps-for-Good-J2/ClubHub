@@ -10,6 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".CreateAccountActivity"></activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".JoinClubDescriptionPage" />
+        <activity android:name=".StartAClubActivity" />
         <activity android:name=".TempSignIn" />
         <activity android:name=".ClubHubStudent" />
         <activity android:name=".CreateSchoolActivity" />
@@ -17,7 +21,7 @@
         <activity android:name=".TempDisplayActivity" />
         <activity android:name=".CreateClubActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".CreateAccountActivity">
+        <activity android:name=".OpeningPage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

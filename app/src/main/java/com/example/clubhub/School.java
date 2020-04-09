@@ -1,5 +1,9 @@
 package com.example.clubhub;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 
 public class School {
@@ -59,9 +63,7 @@ public class School {
 
 	@Override
 	public String toString() {
-		return "School{" +
-				"name='" + name + '\'' +
-				'}';
+		return name;
 	}
 
 	/**
@@ -75,6 +77,13 @@ public class School {
 	 */
 	public void setClubs(ArrayList<String> clubs) {
 		this.clubs = clubs;
+	}
+
+
+	public void addClubToCurrentSchool(String clubID){
+		clubs.add(clubID);
+		DatabaseReference clubsRef = FirebaseDatabase.getInstance().getReference("schools");
+		clubsRef.child(ID).child("clubs").setValue(clubs);
 	}
 	
 	

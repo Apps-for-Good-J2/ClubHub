@@ -7,7 +7,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,16 +25,20 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class CreateAccountActivity extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class CreateAccountActivity extends AppCompatActivity implements
+        AdapterView.OnItemSelectedListener{
 
     private TextView emailTextView;
     private TextView passwordTextView;
     private TextView usernameTextView;
-    // Currently just creates a new school with given name
-    private TextView schoolTextView;
 
-    // Temp var
     private String newSchoolID;
+
+    private Spinner schoolSpinner;
+    private ArrayList<School> schools;
+
 
     private FirebaseAuth mAuth;
 
@@ -43,9 +50,23 @@ public class CreateAccountActivity extends AppCompatActivity {
         emailTextView = findViewById(R.id.createEmailText);
         passwordTextView = findViewById(R.id.createPasswordText);
         usernameTextView = findViewById(R.id.createUsernameText);
-        schoolTextView = findViewById(R.id.createUserSchoolText);
+        schoolSpinner = findViewById(R.id.selectSchoolSpinner);
 
         mAuth = FirebaseAuth.getInstance();
+
+
+        //region Used to set up the school spinner
+
+        schools = new ArrayList<>(SchoolManager.getListOfAllSchools());
+
+        ArrayAdapter<School> schoolAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, schools);
+        schoolAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        schoolSpinner.setAdapter(schoolAdapter);
+        schoolSpinner.setOnItemSelectedListener(this);
+
+        //endregion End code for school spinner
+
+
     }
 
     private void createEmailAndPasswordAccount(){
@@ -77,22 +98,11 @@ public class CreateAccountActivity extends AppCompatActivity {
 
     private void createLocalUserData(FirebaseUser user){
 
-        // Temp line
-        setSchool();
-
         String name = usernameTextView.getText().toString();
         UserManager.createUser(name, user.getUid(), newSchoolID);
 
-        Log.d("CreateAccount", "New user created with name " + name + " and ID " + user.getUid());
-
     }
 
-    // Temp method to stand for school spinner
-    public void setSchool(){
-        SchoolManager.createSchool(schoolTextView.getText().toString());
-        newSchoolID = SchoolManager.currentSchoolID;
-
-    }
 
     public void createAccountOnClick(View v){
         Log.v("Create Account", "In onClick");
@@ -100,102 +110,26 @@ public class CreateAccountActivity extends AppCompatActivity {
 
     }
 
+    public void createNewSchoolOnClick(View v){
+        Intent intent = new Intent(this, CreateSchoolActivity.class);
+        startActivity(intent);
+    }
+
     private void onCreateSuccess(){
         Intent intent = new Intent(this, ClubHubStudent.class);
         startActivity(intent);
     }
 
-
-    //region Initiate ArrayList database references - All of these must be in the first activity called
-
+    //Performing action onItemSelected and onNothing selected
     @Override
-    protected void onStart(){
-        super.onStart();
-        initiateSchools();
-        initiateClubs();
-        initiateUsers();
-
+    public void onItemSelected(AdapterView<?> parent, View arg1, int position, long id) {
+        newSchoolID = schools.get(position).getID();
+        Log.d("CreateAccount", "New School ID assigned");
+    }
+    @Override
+    public void onNothingSelected(AdapterView<?> arg0) {
+        Log.d("CreateAccount", "New School ID NOT assigned");
     }
 
-    /**
-     * Helper method to be called in the first activity
-     * the user encounters in order to keep an updated list
-     * of the users in the database
-     */
-    private void initiateUsers() {
 
-        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("users");
-        usersRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot ds : dataSnapshot.getChildren()){
-                    UserManager.putUser(ds.getValue(UserData.class).getID(), ds.getValue(UserData.class));
-                    Log.v("MainActivity", "Added USer: " + ds.getValue(UserData.class).getName() + " " + ds.getValue(UserData.class).getID());
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-    }
-
-    /**
-     * Helper method to be called in the first activity
-     * the user encounters in order to keep an updated list
-     * of the clubs in the database
-     */
-    private void initiateClubs() {
-
-        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("clubs");
-        usersRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot ds : dataSnapshot.getChildren()){
-                    ClubManager.putClub(ds.getValue(Club.class).getNumID(), ds.getValue(Club.class));
-                    Log.v("MainActivity", "Added Club: " + ds.getValue(Club.class).getName());
-
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-
-    }
-
-    /**
-     * Helper method to be called in the first activity
-     * the user encounters in order to keep an updated list
-     * of the schools in the database
-     */
-    private void initiateSchools() {
-
-
-        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("schools");
-        usersRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot ds : dataSnapshot.getChildren()){
-                    SchoolManager.putSchool(ds.getValue(School.class).getID(), ds.getValue(School.class));
-                    Log.v("MainActivity", "Added School: " + ds.getValue(School.class).getName());
-
-
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-    }
-
-    //endregion End first activity called section
 }

@@ -19,15 +19,6 @@
     <string name="sunday">Sunday</string>
     <string name="selectRole">"Select your role: "</string>
     <string name="post">"Post Club: "</string>
-    <string name="select">"Select your role: "</string>
-    <string name="fri">Friday</string>
-    <string name="sat">Saturday</string>
-    <string name="sun">Sunday</string>
-    <string name="leader">Student Leader</string>
-    <string name="president">President</string>
-    <string name="vicePres">Vice President</string>
-    <string name="treasurer">Treasurer</string>
-    <string name="Secretary">Secretary</string>
 
 
 </resources>
