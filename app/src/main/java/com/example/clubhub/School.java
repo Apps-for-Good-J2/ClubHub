@@ -7,19 +7,25 @@ public class School {
 	private String name;
 	private String ID;
 	private ArrayList<String> clubs;
+	private ArrayList<String> members;
+
 	// ArrayList of students?
 
 	public School(){
 		this.name = "";
 		this.ID = "";
 		this.clubs = new ArrayList<String>();
+		this.members = new ArrayList<String>();
+
 	}
 	
 	public School (String name, String ID) {
 		this.name = name;
 		this.ID = ID;
 		this.clubs = new ArrayList<String>();
-	
+		this.members = new ArrayList<String>();
+
+
 	}
 
 	/**
@@ -76,6 +82,12 @@ public class School {
 	public void setClubs(ArrayList<String> clubs) {
 		this.clubs = clubs;
 	}
-	
-	
+
+
+	/**
+	 * @return the clubs
+	 */
+	public ArrayList<String> getMembers() {
+		return members;
+	}
 }

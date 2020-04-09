@@ -2,28 +2,29 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".JoinClubDescriptionPage">
+    tools:context=".ClubDescriptionLeader">
 
     <TextView
         android:id="@+id/clubName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="50dp"
         android:text="Math Club"
-        android:textSize="30sp"
+        android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/studentLeaderText"
+        android:id="@+id/RoleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="Student Leader(s):"
+        android:layout_marginTop="24dp"
+        android:text="Your role:"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/clubName" />
 
@@ -32,57 +33,71 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:text="Teacher Advisor:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/studentLeaderText" />
+        app:layout_constraintTop_toBottomOf="@+id/RoleText" />
 
     <TextView
         android:id="@+id/descriptionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:text="Description:"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/teacherAdvisorText" />
 
     <TextView
-        android:id="@+id/meetingDaysText"
+        android:id="@+id/MeetingDaysText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:text="Meeting Days and Times:"
+        android:layout_marginTop="50dp"
+        android:text="Meeting Day(s) and Time(s):"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/descriptionText" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="168dp"
-        android:layout_height="108dp"
+        android:id="@+id/createMeetingButton"
+        android:layout_width="202dp"
+        android:layout_height="51dp"
         android:layout_marginTop="50dp"
-        android:text="JOIN"
+        android:text="Create Meeting"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/meetingDaysText" />
+        app:layout_constraintTop_toBottomOf="@+id/MeetingDaysText" />
+
+    <Button
+        android:id="@+id/manageMembersButton"
+        android:layout_width="200dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="16dp"
+        android:text="Manage Members"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createMeetingButton" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/membersText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="Members:"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/manageMembersButton" />
 
     <ListView
-        android:id="@+id/membersListView"
-        android:layout_width="253dp"
-        android:layout_height="267dp"
-        android:layout_marginTop="16dp"
+        android:id="@+id/MembersListView"
+        android:layout_width="250dp"
+        android:layout_height="213dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintTop_toBottomOf="@+id/membersText" />
 </androidx.constraintlayout.widget.ConstraintLayout>
