@@ -14,11 +14,31 @@
     <string name="tuesday">Tuesday</string>
     <string name="weds">Wednesday</string>
     <string name="thursday">Thursday</string>
-    <string name="friday">Friday</string>
-    <string name="saturday">Saturday</string>
-    <string name="sunday">Sunday</string>
+    <string name="fri">Friday</string>
+    <string name="sat">Saturday</string>
+    <string name="sun">Sunday</string>
+    <string name="leader">Student Leader</string>
+    <string name="president">President</string>
+    <string name="vicePres">Vice President</string>
+    <string name="treasurer">Treasurer</string>
+    <string name="Secretary">Secretary</string>
+    <string name="select">Select your role: </string>
+
+
     <string name="selectRole">"Select your role: "</string>
     <string name="post">"Post Club: "</string>
+    <string name="title_activity_your_clubs_member">YourClubsMember</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="yourClubs">Your Clubs</string>
+    <string name="member">Member</string>
+    <string name="leaderButton">Leader</string>
 
 
 </resources>
