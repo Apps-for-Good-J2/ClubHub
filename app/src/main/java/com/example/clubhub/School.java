@@ -11,7 +11,7 @@ public class School {
 	private String name;
 	private String ID;
 	private ArrayList<String> clubs;
-	// ArrayList of students?
+	// ArrayList of students? Necessary?
 
 	public School(){
 		this.name = "";
@@ -26,15 +26,25 @@ public class School {
 	
 	}
 
-	/**
-	 * Adds a given club reference ID to this school
-	 * @param club
-	 */
-	public void addClub(String club) {
-		clubs.add(club);
-	}
-	
+	//region Methods that access the firebase database
 
+	/**
+	 * Adds a club with the given ID to this schools list of clubs in the database
+	 * @param clubID the ID of the club to add
+	 */
+	public void addClubFirebase(String clubID){
+		clubs.add(clubID);
+		DatabaseReference clubsRef = FirebaseDatabase.getInstance().getReference("schools");
+		clubsRef.child(ID).child("clubs").setValue(clubs);
+	}
+
+	public void removeClubFirebase(String clubID){
+		//TODO access database and remove club from school
+	}
+
+	//endregion
+
+	//region Getters and setters
 	
 	/**
 	 * @return the name
@@ -79,12 +89,7 @@ public class School {
 		this.clubs = clubs;
 	}
 
-
-	public void addClubToCurrentSchool(String clubID){
-		clubs.add(clubID);
-		DatabaseReference clubsRef = FirebaseDatabase.getInstance().getReference("schools");
-		clubsRef.child(ID).child("clubs").setValue(clubs);
-	}
+	//endregion
 	
 	
 }

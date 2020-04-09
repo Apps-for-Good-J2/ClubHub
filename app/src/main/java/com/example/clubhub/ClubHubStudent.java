@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class ClubHubStudent extends AppCompatActivity {
 
     @Override
@@ -26,5 +28,11 @@ public class ClubHubStudent extends AppCompatActivity {
 
     public void goToClubList(View v){
         // Implement
+    }
+
+    public void SignOut(View v){
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(this, OpeningPage.class);
+        startActivity(intent);
     }
 }

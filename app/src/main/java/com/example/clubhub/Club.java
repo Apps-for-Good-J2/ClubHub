@@ -37,24 +37,38 @@ public class Club {
 		this.schoolID = schoolID;
 	}
 
+	//region Methods that access the firebase database
 
 	/**
 	 * Adds a given user reference ID as a leader of this club
 	 * @param ID
 	 */
-	public void addLeader(String ID) {
-		// MAKE DATABASE CALLS
+	public void addLeaderFirebase(String ID) {
 		lIDs.add(ID);
+		DatabaseReference clubsRef = FirebaseDatabase.getInstance().getReference("clubs");
+		clubsRef.child(this.numID).child("lIDs").setValue(lIDs);
 	}
 
 	/**
 	 * Adds a given user reference ID as a member of this club
 	 * @param ID
 	 */
-	public void addMember(String ID) {
-		// Make database calls
+	public void addMemberFirebase(String ID) {
 		mIDs.add(ID);
+		DatabaseReference clubsRef = FirebaseDatabase.getInstance().getReference("clubs");
+		clubsRef.child(this.numID).child("mIDs").setValue(mIDs);
 	}
+
+	public void deleteLeaderFirebase(String userID){
+		//TODO delete leader from list in database
+	}
+
+	public void deleteMemberFirebase(String userID){
+		//TODO delete member from list in database
+	}
+
+	//endregion
+
 
 	/**
 	 * Checks if a giver user ID is a leader of this club
@@ -79,7 +93,7 @@ public class Club {
 	
 	
 	
-
+	//region Getters and setters
 
 	/**
 	 * @return the numID
@@ -152,13 +166,6 @@ public class Club {
 	}
 
 
-	@Override
-	public String toString() {
-		return name + " Club";
-	}
-
-
-
 	/**
 	 * @return the schoolID
 	 */
@@ -175,6 +182,15 @@ public class Club {
 		this.schoolID = schoolID;
 	}
 
+	//endregion
 
-	
+
+	@Override
+	public String toString() {
+		return name + " Club";
+	}
+
+
+
+
 }

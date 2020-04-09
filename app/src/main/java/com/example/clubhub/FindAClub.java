@@ -58,7 +58,9 @@ public class FindAClub extends AppCompatActivity implements
         //region Used to set up the list of clubs
         String currentSchoolID = (UserManager.getUserData(currentUser.getUid()).getSchoolID());
 
+
         for(String clubRef : SchoolManager.getSchool(currentSchoolID).getClubs()){
+            if(!UserManager.getUserData(currentUser.getUid()).isPartOfClub(clubRef))
             clubs.add(ClubManager.getClub(clubRef));
         }
 

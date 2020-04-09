@@ -14,6 +14,8 @@
         <activity android:name=".YourClubMember" />
         <activity android:name=".CreateAccountActivity" />
         <activity android:name=".LoginActivity" />
+        <activity android:name=".ClubDescriptionLeader" />
+        <activity android:name=".ClubDescriptionMember" />
         <activity android:name=".JoinClubDescriptionPage" />
         <activity android:name=".StartAClubActivity" />
         <activity android:name=".TempSignIn" />

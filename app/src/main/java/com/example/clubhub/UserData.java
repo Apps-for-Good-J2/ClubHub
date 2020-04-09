@@ -2,6 +2,9 @@ package com.example.clubhub;
 
 import android.util.Log;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 
 public class UserData {
@@ -30,22 +33,45 @@ public class UserData {
 		this.schoolID = schoolID;
 	}
 
+	//region Methods that access firebase database
+
 	/**
 	 * Adds a given club reference ID to this users list of member clubs
-	 * @param ID
+	 * @param clubID
 	 */
-	public void addUserToClubAsMember(String ID) {
-		this.mClubs.add(ID);
+	public void addUserToClubAsMemberFirebase(String clubID) {
+		this.mClubs.add(clubID);
+		DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("users");
+		usersRef.child(this.ID).child("mClubs").setValue(mClubs);
 	}
 
 	/**
 	 * Adds a given club reference ID to this users list of leader clubs
-	 * @param ID
+	 * @param clubID
 	 */
-	public void addUserToClubAsLeader(String ID) {
-		this.lClubs.add(ID);
+	public void addUserToClubAsLeaderFirebase(String clubID) {
+
+		this.lClubs.add(clubID);
+		DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("users");
+		usersRef.child(this.ID).child("lClubs").setValue(lClubs);
 	}
-	
+
+	public void removeClubFromLeaderFirebase(String clubID){
+		//TODO access database and delete club from the leader's list
+	}
+
+	public void removeClubFromMemberFirebase(String clubID){
+		//TODO access database and delete club from the member's list
+	}
+
+	//endregion
+
+	public boolean isPartOfClub(String clubID){
+		return mClubs.contains(clubID) || lClubs.contains(clubID);
+	}
+
+
+	//region Getters and setters
 	/**
 	 * @return the name
 	 */
@@ -102,5 +128,12 @@ public class UserData {
 
 	public void setSchoolID(String schoolID) {
 		this.schoolID = schoolID;
+	}
+
+	//endregion
+
+	@Override
+	public String toString(){
+		return name;
 	}
 }
