@@ -6,6 +6,20 @@
     <string name="createClubButtonStr">Create a new club</string>
     <string name="addClubButtonStr">Add an existing club</string>
     <string name="findClubButtonStr">Find Clubs</string>
+    <string name="nameYourNewClub">Name your new club:</string>
+    <string name="name">Name</string>
+    <string name="describeClub">Describe your club:</string>
+    <string name="when">"When does your club meet? "</string>
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="weds">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
+    <string name="selectRole">"Select your role: "</string>
+    <string name="post">"Post Club: "</string>
+    <string name="createAccountTitleStr">"Create Account"</string>
 
 
 </resources>
