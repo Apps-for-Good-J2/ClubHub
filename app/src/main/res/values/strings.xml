@@ -23,6 +23,7 @@
     <string name="treasurer">Treasurer</string>
     <string name="Secretary">Secretary</string>
     <string name="select">Select your role: </string>
+    <string name = "createAccountTitleStr">Create your Account: </string>
 
 
     <string name="selectRole">"Select your role: "</string>
@@ -39,6 +40,17 @@
     <string name="yourClubs">Your Clubs</string>
     <string name="member">Member</string>
     <string name="leaderButton">Leader</string>
+    <string name="one">club1</string>
+    <string name="club2">club 2</string>
+    <string name="club3">club 3</string>
+    <string name="youareLeader">You are a CLUB LEADER.</string>
+    <string name="youAre">"You are "</string>
+    <string name="clubLeader1">CLUB LEADER</string>
+    <string name="clubLeader2">CLUB LEADER</string>
+    <string name="clubLeader3">"CLUB LEADER "</string>
+    <string name="otherInfo">Other Information</string>
+    <string name="teacherSelect">"Select a club to view: "</string>
+    <string name="leave">Leave Club</string>
 
 
 </resources>

@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class YourClubMember extends AppCompatActivity {
+public class YourClubsTeacher extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_your_club_member);
-        }
+        setContentView(R.layout.activity_your_clubs_teacher);
+    }
 }
