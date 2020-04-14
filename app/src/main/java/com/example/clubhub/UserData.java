@@ -1,73 +1,36 @@
 package com.example.clubhub;
 
-import android.util.Log;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.ArrayList;
-
+/**
+ * Class to model the data of users that has
+ * a school
+ */
 public class UserData {
 
 	private String name;
 	private String ID;
-	private ArrayList<String> mClubs;
-	private ArrayList<String> lClubs;
-	// Implement
 	private String schoolID;
 
+	/**
+	 * Default constructor for the UserData class
+	 */
 	public UserData(){
 		this.name = "";
 		ID = "";
-		this.mClubs = new ArrayList<>();
-		this.lClubs = new ArrayList<>();
 		schoolID = "";
 	}
-	
+
+	/**
+	 * Constructs a UserData object given a name, ID, and schoolID
+	 * @param name the name of this UserData
+	 * @param iD the ID this UserData will be stored with in the database
+	 * @param schoolID the ID of the school this user is a part of
+	 */
 	public UserData(String name, String iD, String schoolID) {
 		super();
 		this.name = name;
 		ID = iD;
-		this.mClubs = new ArrayList<>();
-		this.lClubs = new ArrayList<>();
 		this.schoolID = schoolID;
-	}
-
-	//region Methods that access firebase database
-
-	/**
-	 * Adds a given club reference ID to this users list of member clubs
-	 * @param clubID
-	 */
-	public void addUserToClubAsMemberFirebase(String clubID) {
-		this.mClubs.add(clubID);
-		DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("users");
-		usersRef.child(this.ID).child("mClubs").setValue(mClubs);
-	}
-
-	/**
-	 * Adds a given club reference ID to this users list of leader clubs
-	 * @param clubID
-	 */
-	public void addUserToClubAsLeaderFirebase(String clubID) {
-
-		this.lClubs.add(clubID);
-		DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("users");
-		usersRef.child(this.ID).child("lClubs").setValue(lClubs);
-	}
-
-	public void removeClubFromLeaderFirebase(String clubID){
-		//TODO access database and delete club from the leader's list
-	}
-
-	public void removeClubFromMemberFirebase(String clubID){
-		//TODO access database and delete club from the member's list
-	}
-
-	//endregion
-
-	public boolean isPartOfClub(String clubID){
-		return mClubs.contains(clubID) || lClubs.contains(clubID);
 	}
 
 
@@ -99,39 +62,27 @@ public class UserData {
 	/**
 	 * @return the mClubs
 	 */
-	public ArrayList<String> getmClubs() {
-		return mClubs;
-	}
-	/**
-	 * @param mClubs the mClubs to set
-	 */
-	public void setmClubs(ArrayList<String> mClubs) {
-		this.mClubs = mClubs;
-	}
-	/**
-	 * @return the lClubs
-	 */
-	public ArrayList<String> getlClubs() {
-		return lClubs;
-	}
-	/**
-	 * @param lClubs the lClubs to set
-	 */
-	public void setlClubs(ArrayList<String> lClubs) {
-		this.lClubs = lClubs;
-	}
 
-
+	/**
+	 * @return the schoolID
+	 */
 	public String getSchoolID() {
 		return schoolID;
 	}
 
+	/**
+	 * @param schoolID the schoolID to set
+	 */
 	public void setSchoolID(String schoolID) {
 		this.schoolID = schoolID;
 	}
 
 	//endregion
 
+	/**
+	 * Returns the name of the User when printed
+	 * @return
+	 */
 	@Override
 	public String toString(){
 		return name;

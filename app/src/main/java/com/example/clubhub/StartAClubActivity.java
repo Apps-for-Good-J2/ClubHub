@@ -25,11 +25,14 @@ public class StartAClubActivity extends AppCompatActivity {
 
         descriptionText = findViewById(R.id.fillClubDesc);
         nameText = findViewById(R.id.startClubName);
-        currentUser = FirebaseAuth.getInstance().getCurrentUser();
+
 
     }
 
+
+
     private void createClub(){
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
         String name = nameText.getText().toString();
         String description = descriptionText.getText().toString();
 

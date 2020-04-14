@@ -1,24 +1,38 @@
 package com.example.clubhub;
 
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
+/**
+ * Class to model the functionality of a school
+ * that has clubs
+ */
 public class School {
 
 	private String name;
 	private String ID;
+
+	// List of reference IDs of this school's clubs
 	private ArrayList<String> clubs;
 	// ArrayList of students? Necessary?
+	// ArrayList of teachers?
 
+	/**
+	 * Default constructor for the School class
+	 */
 	public School(){
 		this.name = "";
 		this.ID = "";
 		this.clubs = new ArrayList<String>();
 	}
-	
+
+	/**
+	 * Constructs a School object with a given name and ID
+	 * @param name
+	 * @param ID
+	 */
 	public School (String name, String ID) {
 		this.name = name;
 		this.ID = ID;

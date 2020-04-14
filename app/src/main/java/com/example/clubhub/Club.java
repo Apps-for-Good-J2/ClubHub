@@ -6,6 +6,10 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
+/**
+ * Class to model the functionality of a club
+ * that has leaders and members
+ */
 public class Club {
 
 	
@@ -15,7 +19,11 @@ public class Club {
 	private ArrayList<String> mIDs;
 	private ArrayList<String> lIDs;
 	private String schoolID;
+	// Add in fields for meeting times
 
+	/**
+	 * Default constructor for the Club class
+	 */
 	public Club(){
 	    numID = "";
 	    name = "";
@@ -24,8 +32,16 @@ public class Club {
         this.lIDs = new ArrayList<>();
         schoolID = "";
     }
-	
 
+
+	/**
+	 * Constructors a Club object with a given name, ID, school ID, creator ID, and description
+	 * @param name
+	 * @param ID
+	 * @param schoolID
+	 * @param creatorID
+	 * @param description
+	 */
 	public Club(String name, String ID, String schoolID, String creatorID, String description) {
 		super();
 		this.numID = ID;
@@ -36,6 +52,27 @@ public class Club {
 		lIDs.add(creatorID);
 		this.schoolID = schoolID;
 	}
+
+
+	/**
+	 * Checks if a giver user ID is a leader of this club
+	 * @param ID
+	 * @return true if the user is a leader, false if not
+	 */
+	public boolean isLeader(String ID) {
+        return lIDs.contains(ID);
+    }
+
+	/**
+	 * Checks if a given user ID is a member of this club
+	 * @param ID
+	 * @return true if the user is a member, false if not
+	 */
+	public boolean isMember(String ID) {
+        return mIDs.contains(ID);
+    }
+
+
 
 	//region Methods that access the firebase database
 
@@ -70,29 +107,7 @@ public class Club {
 	//endregion
 
 
-	/**
-	 * Checks if a giver user ID is a leader of this club
-	 * @param ID
-	 * @return
-	 */
-	public boolean isLeader(String ID) {
-        return lIDs.contains(ID);
-    }
 
-	/**
-	 * Checks if a given user ID is a member of this club
-	 * @param ID
-	 * @return
-	 */
-	public boolean isMember(String ID) {
-        return mIDs.contains(ID);
-    }
-	
-	
-	
-	
-	
-	
 	//region Getters and setters
 
 	/**
@@ -184,7 +199,11 @@ public class Club {
 
 	//endregion
 
-
+	/**
+	 * Returns the given name of this Club concatenated with
+	 * " Club" when printed
+	 * @return
+	 */
 	@Override
 	public String toString() {
 		return name + " Club";

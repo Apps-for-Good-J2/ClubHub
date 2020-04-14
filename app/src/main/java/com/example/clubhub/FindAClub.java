@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -35,10 +36,20 @@ public class FindAClub extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_a_club);
 
-        //region Used to set up the school spinner (move to create an account?)
+
+        //region Used to set up the school spinner (remove from here?)
 
         schoolSpinner = findViewById(R.id.schoolSpinner);
         schoolText = findViewById(R.id.subjectText);
+
+
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
 
@@ -56,19 +67,23 @@ public class FindAClub extends AppCompatActivity implements
 
 
         //region Used to set up the list of clubs
-        String currentSchoolID = (UserManager.getUserData(currentUser.getUid()).getSchoolID());
+        String currentSchoolID = (StudentManager.getStudent(currentUser.getUid()).getSchoolID());
 
 
         for(String clubRef : SchoolManager.getSchool(currentSchoolID).getClubs()){
-            if(!UserManager.getUserData(currentUser.getUid()).isPartOfClub(clubRef))
-            clubs.add(ClubManager.getClub(clubRef));
+            if(!StudentManager.getStudent(currentUser.getUid()).isPartOfClub(clubRef) && ClubManager.getClub(clubRef) != null)
+                clubs.add(ClubManager.getClub(clubRef));
         }
+
+        Log.d("TEST", clubs.toString());
+
 
         ArrayAdapter<Club> clubsAdapter =
                 new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, clubs);
 
         final ListView listView = findViewById(R.id.clubListView);
         listView.setAdapter(clubsAdapter);
+
 
         // When you click on the club, it opens the temp display page
 
@@ -85,9 +100,7 @@ public class FindAClub extends AppCompatActivity implements
             }
         });
 
-        //endregion End code for club display
-
-
+        //endregion End code for club display**/
     }
 
     //Performing action onItemSelected and onNothing selected

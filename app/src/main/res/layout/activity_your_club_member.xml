@@ -10,35 +10,38 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="24dp"
         android:layout_marginBottom="600dp"
         android:text="@string/app_name"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.048" />
 
     <TextView
         android:id="@+id/yourClubs"
         android:layout_width="wrap_content"
         android:layout_height="19dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="15dp"
         android:layout_marginBottom="700dp"
-        android:text="@string/yourClubs"
+        android:text="Your member Clubs"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <Button
         android:id="@+id/member"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="77dp"
+        android:layout_width="256dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="83dp"
         android:layout_marginBottom="482dp"
+        android:onClick="memberOnClick"
         android:text="@string/member"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,143 +50,42 @@
 
     <Button
         android:id="@+id/leader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="256dp"
+        android:layout_height="64dp"
         android:layout_marginStart="75dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="77dp"
         android:layout_marginBottom="482dp"
+        android:onClick="leaderOnClick"
         android:text="@string/leaderButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/member"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title" />
 
-    <ImageButton
-        android:id="@+id/button1"
-        android:layout_width="321dp"
-        android:layout_height="114dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="45dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/member"
-        app:srcCompat="?attr/selectableItemBackground" />
-
-    <ImageButton
-        android:id="@+id/button3"
-        android:layout_width="321dp"
-        android:layout_height="114dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginBottom="39dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="?attr/selectableItemBackground" />
-
-    <TextView
-        android:id="@+id/club1"
+    <Button
+        android:id="@+id/memberBackButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
+        android:layout_marginStart="161dp"
         android:layout_marginTop="25dp"
-        android:layout_marginEnd="400dp"
-        android:layout_marginBottom="225dp"
-        android:text="@string/one"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/club2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button1"
-        app:layout_constraintTop_toBottomOf="@+id/button1" />
-
-    <TextView
-        android:id="@+id/club3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="360dp"
-        android:text="@string/club3"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView14"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button3" />
-
-    <ImageButton
-        android:id="@+id/button2"
-        android:layout_width="321dp"
-        android:layout_height="114dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginBottom="43dp"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="?attr/selectableItemBackground" />
-
-    <TextView
-        android:id="@+id/club2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="449dp"
-        android:layout_marginEnd="375dp"
-        android:layout_marginBottom="250dp"
-        android:text="@string/club2"
-        android:textSize="24sp"
+        android:layout_marginEnd="162dp"
+        android:layout_marginBottom="179dp"
+        android:onClick="backOnClick"
+        android:text="Back to main"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.522"
-        app:layout_constraintStart_toEndOf="@+id/button2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="375dp"
-        android:layout_marginBottom="100dp"
-        android:text="@string/otherInfo"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button1"
-        app:layout_constraintTop_toBottomOf="@+id/button1"
-        app:layout_constraintVertical_bias="0.63" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="375dp"
-        android:layout_marginTop="200dp"
-        android:text="@string/otherInfo"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button1"
-        app:layout_constraintVertical_bias="0.565" />
+        app:layout_constraintTop_toBottomOf="@+id/yourClubView" />
 
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="174dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="174dp"
-        android:layout_marginBottom="150dp"
-        android:text="@string/otherInfo"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ListView
+        android:id="@+id/yourClubView"
+        android:layout_width="598dp"
+        android:layout_height="387dp"
+        android:layout_marginTop="160dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3"
-        app:layout_constraintVertical_bias="0.442" />
+        app:layout_constraintTop_toBottomOf="@+id/yourClubs" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
