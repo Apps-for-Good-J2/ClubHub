@@ -55,6 +55,7 @@
     <string name="leaders">Student Leaders:</string>
     <string name="describe">Description:</string>
     <string name="meetings">"Meeting Dates and Times: "</string>
+    <string name="students">Members:</string>
 
 
 </resources>
