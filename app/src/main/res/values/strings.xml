@@ -51,6 +51,10 @@
     <string name="otherInfo">Other Information</string>
     <string name="teacherSelect">"Select a club to view: "</string>
     <string name="leave">Leave Club</string>
+    <string name="clubName">CLUB NAME</string>
+    <string name="leaders">Student Leaders:</string>
+    <string name="describe">Description:</string>
+    <string name="meetings">"Meeting Dates and Times: "</string>
 
 
 </resources>
