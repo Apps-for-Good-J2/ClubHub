@@ -22,7 +22,7 @@
             android:textSize="24sp" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/startClubName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -146,6 +146,7 @@
             android:id="@+id/post"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="createClubOnClick"
             android:text="@string/post" />
 
     </LinearLayout>

@@ -10,8 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".YourClubsTeacher"></activity>
-        <activity android:name=".YourClubLeader" />
+        <activity android:name=".YourClubLeader"></activity>
         <activity android:name=".YourClubMember" />
         <activity android:name=".CreateAccountActivity" />
         <activity android:name=".LoginActivity" />

@@ -38,24 +38,25 @@ public class OpeningPage extends AppCompatActivity {
         super.onStart();
         initiateSchools();
         initiateClubs();
-        initiateUsers();
+        initiateStudents();
+        initiateTeachers();
 
     }
 
     /**
      * Helper method to be called in the first activity
      * the user encounters in order to keep an updated list
-     * of the users in the database
+     * of the students in the database
      */
-    private void initiateUsers() {
+    private void initiateStudents() {
 
-        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("users");
+        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("students");
         usersRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot ds : dataSnapshot.getChildren()){
-                    UserManager.putUser(ds.getValue(UserData.class).getID(), ds.getValue(UserData.class));
-                    Log.v("MainActivity", "Added USer: " + ds.getValue(UserData.class).getName() + " " + ds.getValue(UserData.class).getID());
+                    StudentManager.putStudent(ds.getValue(Student.class).getID(), ds.getValue(Student.class));
+                    Log.v("MainActivity", "Added USer: " + ds.getValue(Student.class).getName() + " " + ds.getValue(Student.class).getID());
                 }
             }
 
@@ -111,6 +112,32 @@ public class OpeningPage extends AppCompatActivity {
                     Log.v("MainActivity", "Added School: " + ds.getValue(School.class).getName());
 
 
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+
+
+    /**
+     * Helper method to be called in the first activity
+     * the user encounters in order to keep an updated list
+     * of the teachers in the database
+     */
+    private void initiateTeachers() {
+
+        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("teachers");
+        usersRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot ds : dataSnapshot.getChildren()){
+                    TeacherManager.putTeacher(ds.getValue(Teacher.class).getID(), ds.getValue(Teacher.class));
+                    Log.v("MainActivity", "Added USer: " + ds.getValue(Teacher.class).getName() + " " + ds.getValue(Teacher.class).getID());
                 }
             }
 

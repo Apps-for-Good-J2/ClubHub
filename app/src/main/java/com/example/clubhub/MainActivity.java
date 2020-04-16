@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /** DONT USE**/
 
     public void setCurrentUserName(View v){
 

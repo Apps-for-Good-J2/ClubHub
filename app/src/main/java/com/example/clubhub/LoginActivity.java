@@ -64,6 +64,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void onLoginSuccess(){
+
+        // check if student or teacher
         Intent intent = new Intent(this, ClubHubStudent.class);
         startActivity(intent);
     }

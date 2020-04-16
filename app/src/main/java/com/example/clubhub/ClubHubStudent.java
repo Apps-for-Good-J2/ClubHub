@@ -27,7 +27,8 @@ public class ClubHubStudent extends AppCompatActivity {
     }
 
     public void goToClubList(View v){
-        // Implement
+        Intent intent = new Intent(this, YourClubMember.class);
+        startActivity(intent);
     }
 
     public void SignOut(View v){

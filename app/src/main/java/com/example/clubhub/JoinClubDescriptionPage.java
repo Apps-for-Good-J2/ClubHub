@@ -43,7 +43,7 @@ public class JoinClubDescriptionPage extends AppCompatActivity{
         //region Used to set up the list of members
 
         for(String memberRef : thisClub.getmIDs()){
-            members.add(UserManager.getUserData(memberRef));
+            members.add(StudentManager.getStudent(memberRef));
         }
 
         ArrayAdapter<UserData> membersAdapter =
@@ -71,7 +71,7 @@ public class JoinClubDescriptionPage extends AppCompatActivity{
         if(thisClub.isLeader(currentUserID) || thisClub.isMember(currentUserID))
             return;
 
-        UserManager.getUserData(currentUserID).addUserToClubAsMemberFirebase(thisClubID);
+        StudentManager.getStudent(currentUserID).addUserToClubAsMemberFirebase(thisClubID);
         thisClub.addMemberFirebase(currentUserID);
 
         // Directs the user somewhere else or to member page for this club

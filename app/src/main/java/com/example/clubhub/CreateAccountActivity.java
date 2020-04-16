@@ -71,9 +71,13 @@ public class CreateAccountActivity extends AppCompatActivity implements
 
     private void createEmailAndPasswordAccount(){
 
+        if(!checkForInvalidInput()) return;
+
         // Check these are valid later
         String email = emailTextView.getText().toString();
         String password = passwordTextView.getText().toString();
+
+
 
         // Copied from Firebase documentation
         Log.d("CreateAccount", "In create method");
@@ -84,7 +88,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
                         if (task.isSuccessful()) {
                             Log.d("CreateAccount", "onComplete worked");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            createLocalUserData(user);
+                            createLocalStudentUserData(user);
                             onCreateSuccess();
 
                         } else {
@@ -96,10 +100,33 @@ public class CreateAccountActivity extends AppCompatActivity implements
 
     }
 
-    private void createLocalUserData(FirebaseUser user){
+    private void createLocalStudentUserData(FirebaseUser user){
 
         String name = usernameTextView.getText().toString();
-        UserManager.createUser(name, user.getUid(), newSchoolID);
+        StudentManager.createStudent(name, user.getUid(), newSchoolID);
+
+    }
+
+    private boolean checkForInvalidInput(){
+        String email = emailTextView.getText().toString();
+        String password = passwordTextView.getText().toString();
+        String name = usernameTextView.getText().toString();
+
+        if(email.isEmpty() || password.isEmpty() || name.isEmpty()){
+            Toast.makeText(getApplicationContext(),"Please fill in all fields", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+
+        if(!email.contains("@")){
+            Toast.makeText(getApplicationContext(),"Please enter a valid email", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+
+        // add more checks?
+
+        return true;
 
     }
 
@@ -116,6 +143,8 @@ public class CreateAccountActivity extends AppCompatActivity implements
     }
 
     private void onCreateSuccess(){
+
+        // check for if student or teacher
         Intent intent = new Intent(this, ClubHubStudent.class);
         startActivity(intent);
     }
