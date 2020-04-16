@@ -26,15 +26,15 @@ public class CreateSchoolActivity extends AppCompatActivity {
 
 
 
-    public void createSchool(){
+    public void createSchool(View v){
         EditText nameText = findViewById(R.id.schoolEditText);
         String name = nameText.getText().toString();
         SchoolManager.createSchool(name);
+        backToCreateAccount(v);
 
     }
 
     public void backToCreateAccount(View v){
-        createSchool();
         Intent intent = new Intent(this, CreateAccountActivity.class);
         startActivity(intent);
     }

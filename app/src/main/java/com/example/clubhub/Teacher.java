@@ -6,8 +6,6 @@ public class Teacher extends UserData {
 
     private ArrayList<String> advisingClubs;
 
-
-
     public Teacher(){
         super();
         advisingClubs = new ArrayList<>();

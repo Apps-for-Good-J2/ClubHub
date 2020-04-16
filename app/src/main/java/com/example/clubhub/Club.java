@@ -97,11 +97,15 @@ public class Club {
 	}
 
 	public void deleteLeaderFirebase(String userID){
-		//TODO delete leader from list in database
+		lIDs.remove(userID);
+		DatabaseReference clubsRef = FirebaseDatabase.getInstance().getReference("clubs");
+		clubsRef.child(this.numID).child("lIDs").setValue(lIDs);
 	}
 
 	public void deleteMemberFirebase(String userID){
-		//TODO delete member from list in database
+		mIDs.remove(userID);
+		DatabaseReference clubsRef = FirebaseDatabase.getInstance().getReference("clubs");
+		clubsRef.child(this.numID).child("mIDs").setValue(mIDs);
 	}
 
 	//endregion

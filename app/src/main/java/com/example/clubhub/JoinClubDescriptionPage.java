@@ -19,6 +19,7 @@ import java.util.List;
 public class JoinClubDescriptionPage extends AppCompatActivity{
 
     List<UserData> members = new ArrayList<>();
+    List<UserData> leaders = new ArrayList<>();
     String thisClubID;
     Club thisClub;
     FirebaseUser currentUser;
@@ -32,38 +33,15 @@ public class JoinClubDescriptionPage extends AppCompatActivity{
         thisClubID = intent.getStringExtra("clubID");
         thisClub = ClubManager.getClub(thisClubID);
 
-        TextView clubNameText = findViewById(R.id.clubName);
-        clubNameText.setText(thisClub.getName());
-
-        TextView descriptionText = findViewById(R.id.descriptionFillInText);
-        descriptionText.setText(thisClub.getDescription());
-
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
-        //region Used to set up the list of members
+        setTextViews();
+        setUpMemberList();
+        setUpLeaderList();
 
-        for(String memberRef : thisClub.getmIDs()){
-            members.add(StudentManager.getStudent(memberRef));
-        }
-
-        ArrayAdapter<UserData> membersAdapter =
-                new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, members);
-
-        final ListView listView = findViewById(R.id.membersListView);
-        listView.setAdapter(membersAdapter);
-
-        // When you click on the member, nothing happens
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Do something?
-
-            }
-        });
-
-        //endregion End code for member display
     }
+
+
 
     public void JoinClubOnClick(View v){
         String currentUserID = currentUser.getUid();
@@ -79,6 +57,40 @@ public class JoinClubDescriptionPage extends AppCompatActivity{
         startActivity(intent);
     }
 
+    private void setTextViews(){
+
+        TextView clubNameText = findViewById(R.id.clubName1);
+        clubNameText.setText(thisClub.getName());
+
+        TextView descriptionText = findViewById(R.id.descriptionFillInText1);
+        descriptionText.setText(thisClub.getDescription());
+    }
+
+    private void setUpMemberList(){
+
+        for(String memberRef : thisClub.getmIDs()){
+            members.add(StudentManager.getStudent(memberRef));
+        }
+
+        ArrayAdapter<UserData> membersAdapter =
+                new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, members);
+
+        final ListView listView = findViewById(R.id.membersListView1);
+        listView.setAdapter(membersAdapter);
+
+    }
+
+    private void setUpLeaderList() {
+        for(String memberRef : thisClub.getlIDs()){
+            leaders.add(StudentManager.getStudent(memberRef));
+        }
+
+        ArrayAdapter<UserData> membersAdapter =
+                new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, leaders);
+
+        final ListView listView = findViewById(R.id.joinLeaderList1);
+        listView.setAdapter(membersAdapter);
+    }
 
 
 }

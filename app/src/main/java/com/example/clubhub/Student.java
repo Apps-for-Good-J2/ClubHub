@@ -59,11 +59,15 @@ public class Student extends UserData {
     }
 
     public void removeClubFromLeaderFirebase(String clubID){
-        //TODO access database and delete club from the leader's list
+        this.lClubs.remove(clubID);
+        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("students");
+        usersRef.child(super.getID()).child("lClubs").setValue(lClubs);
     }
 
     public void removeClubFromMemberFirebase(String clubID){
-        //TODO access database and delete club from the member's list
+        this.mClubs.remove(clubID);
+        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("students");
+        usersRef.child(super.getID()).child("mClubs").setValue(mClubs);
     }
 
     //endregion
