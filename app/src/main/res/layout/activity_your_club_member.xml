@@ -35,31 +35,27 @@
 
     <Button
         android:id="@+id/member"
-        android:layout_width="256dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="10dp"
+        android:layout_width="114dp"
+        android:layout_height="61dp"
         android:layout_marginTop="60dp"
-        android:layout_marginEnd="83dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="482dp"
         android:onClick="memberOnClick"
         android:text="@string/member"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/leader"
         app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <Button
         android:id="@+id/leader"
-        android:layout_width="256dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="75dp"
+        android:layout_width="123dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="60dp"
-        android:layout_marginEnd="77dp"
         android:layout_marginBottom="482dp"
         android:onClick="leaderOnClick"
         android:text="@string/leaderButton"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/member"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title" />
 
@@ -80,8 +76,8 @@
 
     <ListView
         android:id="@+id/yourClubView"
-        android:layout_width="598dp"
-        android:layout_height="387dp"
+        android:layout_width="366dp"
+        android:layout_height="333dp"
         android:layout_marginTop="160dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
