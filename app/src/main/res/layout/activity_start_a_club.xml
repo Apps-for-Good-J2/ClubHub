@@ -51,53 +51,55 @@
             android:text="@string/when"
             android:textSize="24sp" />
 
-        <RadioGroup
-            android:id="@+id/days"
+        <LinearLayout
+            android:id="@+id/dayz"
             android:layout_width="match_parent"
-            android:layout_height="250dp" >
+            android:layout_height="220dp"
+            android:orientation="vertical">
 
-            <RadioButton
-                android:id="@+id/mon"
+            <CheckBox
+                android:id="@+id/monday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/monday" />
 
-            <RadioButton
-                android:id="@+id/tues"
+            <CheckBox
+                android:id="@+id/tuesday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/tuesday" />
 
-            <RadioButton
-                android:id="@+id/weds"
+            <CheckBox
+                android:id="@+id/wednesday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/weds" />
 
-            <RadioButton
-                android:id="@+id/thur"
+            <CheckBox
+                android:id="@+id/thursday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/thursday" />
 
-            <RadioButton
-                android:id="@+id/fri"
+            <CheckBox
+                android:id="@+id/friday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/fri" />
 
-            <RadioButton
-                android:id="@+id/radioButton14"
+            <CheckBox
+                android:id="@+id/saturday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/sat" />
 
-            <RadioButton
-                android:id="@+id/radioButton15"
+            <CheckBox
+                android:id="@+id/sunday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/sun" />
-        </RadioGroup>
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/selectRole"
