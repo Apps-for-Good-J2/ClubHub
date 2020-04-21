@@ -42,14 +42,6 @@ public class FindAClub extends AppCompatActivity implements
         schoolSpinner = findViewById(R.id.schoolSpinner);
         schoolText = findViewById(R.id.subjectText);
 
-
-
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
 
@@ -101,7 +93,11 @@ public class FindAClub extends AppCompatActivity implements
         });
 
         //endregion End code for club display**/
+
+
+
     }
+
 
     //Performing action onItemSelected and onNothing selected
     @Override

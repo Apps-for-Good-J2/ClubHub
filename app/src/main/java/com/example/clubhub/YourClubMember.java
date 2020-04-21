@@ -40,12 +40,6 @@ public class YourClubMember extends AppCompatActivity{
         yourClubText = findViewById(R.id.yourClubs);
 
 
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
         for(String clubRef : StudentManager.getStudent(currentUser.getUid()).getmClubs()){
@@ -59,7 +53,9 @@ public class YourClubMember extends AppCompatActivity{
         }
 
         setShowMemberClubs();
+
     }
+
 
     private void setShowMemberClubs(){
 
@@ -73,12 +69,12 @@ public class YourClubMember extends AppCompatActivity{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                /** Change to display member club description page
-                 Club nClub = clubs.get(position);
 
-                 Intent intent = new Intent(FindAClub.this, JoinClubDescriptionPage.class);
+                 Club nClub = memberClubs.get(position);
+
+                 Intent intent = new Intent(YourClubMember.this, ClubDescriptionMember.class);
                  intent.putExtra("clubID", nClub.getNumID());
-                 startActivity(intent);**/
+                 startActivity(intent);
             }
         });
 

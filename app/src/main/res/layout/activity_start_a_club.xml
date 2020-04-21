@@ -101,12 +101,15 @@
 
         </LinearLayout>
 
+        <!--
+
         <TextView
             android:id="@+id/selectRole"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/select"
             android:textSize="24sp" />
+
 
         <RadioGroup
             android:id="@+id/roles"
@@ -142,7 +145,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/Secretary" />
-        </RadioGroup>
+        </RadioGroup> -->
 
         <Button
             android:id="@+id/post"
