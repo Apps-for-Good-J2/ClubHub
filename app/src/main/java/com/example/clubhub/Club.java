@@ -19,7 +19,9 @@ public class Club {
 	private ArrayList<String> mIDs;
 	private ArrayList<String> lIDs;
 	private String schoolID;
-	// Add in fields for meeting times
+	private MeetingInfo meetingInfo;
+
+	//region Constructors
 
 	/**
 	 * Default constructor for the Club class
@@ -31,6 +33,7 @@ public class Club {
         this.mIDs = new ArrayList<>();
         this.lIDs = new ArrayList<>();
         schoolID = "";
+        meetingInfo = new MeetingInfo();
     }
 
 
@@ -51,8 +54,32 @@ public class Club {
 		this.lIDs = new ArrayList<>();
 		lIDs.add(creatorID);
 		this.schoolID = schoolID;
+		meetingInfo = new MeetingInfo();
 	}
 
+	/**
+	 * Constructors a Club object with a given name, ID, school ID, creator ID, and description
+	 * AND MEETING INFO
+	 * @param name
+	 * @param ID
+	 * @param schoolID
+	 * @param creatorID
+	 * @param description
+	 */
+	public Club(String name, String ID, String schoolID, String creatorID, String description, MeetingInfo meetingInfo) {
+		super();
+		this.numID = ID;
+		this.name = name;
+		this.description = description;
+		this.mIDs = new ArrayList<>();
+		this.lIDs = new ArrayList<>();
+		lIDs.add(creatorID);
+		this.schoolID = schoolID;
+		this.meetingInfo = meetingInfo;
+	}
+
+
+	//endregion
 
 	/**
 	 * Checks if a giver user ID is a leader of this club
@@ -199,6 +226,14 @@ public class Club {
 	 */
 	public void setSchoolID(String schoolID) {
 		this.schoolID = schoolID;
+	}
+
+	public MeetingInfo getMeetingInfo() {
+		return meetingInfo;
+	}
+
+	public void setMeetingInfo(MeetingInfo meetingInfo) {
+		this.meetingInfo = meetingInfo;
 	}
 
 	//endregion

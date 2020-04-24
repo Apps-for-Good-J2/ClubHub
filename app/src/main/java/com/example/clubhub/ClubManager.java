@@ -28,7 +28,7 @@ public class ClubManager{
 	 * @param name the name of the new club
 	 * @param description the description of the new club
 	 */
-	public static void createClub(String name, String description) {
+	public static void createClub(String name, String description, MeetingInfo meetingInfo) {
 
 		mUser = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -38,7 +38,7 @@ public class ClubManager{
 		String schoolID = StudentManager.getStudent(mUser.getUid()).getSchoolID();
 		String userID = mUser.getUid();
 
-		clubsRef.setValue(new Club(name, key, schoolID, userID, description));
+		clubsRef.setValue(new Club(name, key, schoolID, userID, description, meetingInfo));
 
 		// Adds this club to the school's clubs in the database
 		SchoolManager.getSchool(schoolID).addClubFirebase(key);
