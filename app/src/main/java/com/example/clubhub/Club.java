@@ -1,25 +1,23 @@
 package com.example.clubhub;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.ArrayList;
 
 /**
  * Class to model the functionality of a club
  * that has leaders and members
  */
-public class Club {
+public class Club extends DatabaseObject{
 
-	
-	private String numID;
+	public static final String CLUB_PATH = "clubs";
+
 	private String name;
 	private String description;
 	private ArrayList<String> mIDs;
 	private ArrayList<String> lIDs;
 	private String schoolID;
+	private String teacherID;
 	private MeetingInfo meetingInfo;
+	private boolean hasTeacherAdviser;
 
 	//region Constructors
 
@@ -27,35 +25,17 @@ public class Club {
 	 * Default constructor for the Club class
 	 */
 	public Club(){
-	    numID = "";
+		super();
 	    name = "";
 	    description = "";
         this.mIDs = new ArrayList<>();
         this.lIDs = new ArrayList<>();
         schoolID = "";
         meetingInfo = new MeetingInfo();
+        teacherID = "";
+        hasTeacherAdviser = false;
     }
 
-
-	/**
-	 * Constructors a Club object with a given name, ID, school ID, creator ID, and description
-	 * @param name
-	 * @param ID
-	 * @param schoolID
-	 * @param creatorID
-	 * @param description
-	 */
-	public Club(String name, String ID, String schoolID, String creatorID, String description) {
-		super();
-		this.numID = ID;
-		this.name = name;
-		this.description = description;
-		this.mIDs = new ArrayList<>();
-		this.lIDs = new ArrayList<>();
-		lIDs.add(creatorID);
-		this.schoolID = schoolID;
-		meetingInfo = new MeetingInfo();
-	}
 
 	/**
 	 * Constructors a Club object with a given name, ID, school ID, creator ID, and description
@@ -67,8 +47,7 @@ public class Club {
 	 * @param description
 	 */
 	public Club(String name, String ID, String schoolID, String creatorID, String description, MeetingInfo meetingInfo) {
-		super();
-		this.numID = ID;
+		super(CLUB_PATH, ID);
 		this.name = name;
 		this.description = description;
 		this.mIDs = new ArrayList<>();
@@ -76,6 +55,8 @@ public class Club {
 		lIDs.add(creatorID);
 		this.schoolID = schoolID;
 		this.meetingInfo = meetingInfo;
+		teacherID = "";
+		hasTeacherAdviser = false;
 	}
 
 
@@ -109,8 +90,7 @@ public class Club {
 	 */
 	public void addLeaderFirebase(String ID) {
 		lIDs.add(ID);
-		DatabaseReference clubsRef = FirebaseDatabase.getInstance().getReference("clubs");
-		clubsRef.child(this.numID).child("lIDs").setValue(lIDs);
+		updateObjectDatabase();
 	}
 
 	/**
@@ -119,25 +99,20 @@ public class Club {
 	 */
 	public void addMemberFirebase(String ID) {
 		mIDs.add(ID);
-		DatabaseReference clubsRef = FirebaseDatabase.getInstance().getReference("clubs");
-		clubsRef.child(this.numID).child("mIDs").setValue(mIDs);
+		updateObjectDatabase();
 	}
 
 	public void deleteLeaderFirebase(String userID){
 		lIDs.remove(userID);
-		DatabaseReference clubsRef = FirebaseDatabase.getInstance().getReference("clubs");
-		clubsRef.child(this.numID).child("lIDs").setValue(lIDs);
+		updateObjectDatabase();
 	}
 
 	public void deleteMemberFirebase(String userID){
 		mIDs.remove(userID);
-		DatabaseReference clubsRef = FirebaseDatabase.getInstance().getReference("clubs");
-		clubsRef.child(this.numID).child("mIDs").setValue(mIDs);
+		updateObjectDatabase();
 	}
 
 	//endregion
-
-
 
 	//region Getters and setters
 
@@ -145,14 +120,14 @@ public class Club {
 	 * @return the numID
 	 */
 	public String getNumID() {
-		return numID;
+		return super.getFirebaseID();
 	}
 
 	/**
 	 * @param numID the numID to set
 	 */
 	public void setNumID(String numID) {
-		this.numID = numID;
+		super.setFirebaseID(numID);
 	}
 
 	/**
@@ -236,16 +211,31 @@ public class Club {
 		this.meetingInfo = meetingInfo;
 	}
 
+	public String getTeacherID() {
+		return teacherID;
+	}
+
+	public void setTeacherID(String teacherID) {
+		this.teacherID = teacherID;
+	}
+
+	public boolean hasTeacherAdviser() {
+		return hasTeacherAdviser;
+	}
+
+	public void setHasTeacherAdviser(boolean hasTeacherAdviser) {
+		this.hasTeacherAdviser = hasTeacherAdviser;
+	}
+
 	//endregion
 
 	/**
-	 * Returns the given name of this Club concatenated with
-	 * " Club" when printed
-	 * @return
+	 * Returns the given name of this Club when printed
+	 * @return the name of this club
 	 */
 	@Override
 	public String toString() {
-		return name + " Club";
+		return name;
 	}
 
 

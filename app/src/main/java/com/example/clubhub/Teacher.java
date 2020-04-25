@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Teacher extends UserData {
 
+    public static final String TEACHER_PATH = "teachers";
+
     private ArrayList<String> advisingClubs;
 
     public Teacher(){
@@ -12,7 +14,7 @@ public class Teacher extends UserData {
     }
 
     public Teacher(String name, String iD, String schoolID) {
-        super(name, iD, schoolID);
+        super(name, iD, schoolID, TEACHER_PATH);
         advisingClubs = new ArrayList<>();
     }
 

@@ -32,7 +32,7 @@ public class ClubManager{
 
 		mUser = FirebaseAuth.getInstance().getCurrentUser();
 
-		DatabaseReference clubsRef = FirebaseDatabase.getInstance().getReference("clubs").push();
+		DatabaseReference clubsRef = FirebaseDatabase.getInstance().getReference(Club.CLUB_PATH).push();
 		String key = clubsRef.getKey();
 
 		String schoolID = StudentManager.getStudent(mUser.getUid()).getSchoolID();

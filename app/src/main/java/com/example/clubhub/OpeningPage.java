@@ -50,7 +50,7 @@ public class OpeningPage extends AppCompatActivity {
      */
     private void initiateStudents() {
 
-        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("students");
+        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference(Student.STUDENT_PATH);
         usersRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -75,7 +75,7 @@ public class OpeningPage extends AppCompatActivity {
      */
     private void initiateClubs() {
 
-        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("clubs");
+        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference(Club.CLUB_PATH);
         usersRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -103,7 +103,7 @@ public class OpeningPage extends AppCompatActivity {
     private void initiateSchools() {
 
 
-        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("schools");
+        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference(School.SCHOOL_PATH);
         usersRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -123,7 +123,6 @@ public class OpeningPage extends AppCompatActivity {
 
     }
 
-
     /**
      * Helper method to be called in the first activity
      * the user encounters in order to keep an updated list
@@ -131,7 +130,7 @@ public class OpeningPage extends AppCompatActivity {
      */
     private void initiateTeachers() {
 
-        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("teachers");
+        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference(Teacher.TEACHER_PATH);
         usersRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

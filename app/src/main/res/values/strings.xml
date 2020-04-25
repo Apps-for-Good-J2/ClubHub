@@ -23,7 +23,7 @@
     <string name="treasurer">Treasurer</string>
     <string name="Secretary">Secretary</string>
     <string name="select">Select your role: </string>
-    <string name = "createAccountTitleStr">Create your Account: </string>
+    <string name="createAccountTitleStr">Create your Account: </string>
 
 
     <string name="selectRole">"Select your role: "</string>

@@ -3,14 +3,13 @@
     package="com.example.clubhub">
 
     <application
-
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".ClubHubTeacher"></activity>
         <activity android:name=".YourClubMember" />
         <activity android:name=".CreateAccountActivity" />
         <activity android:name=".LoginActivity" />
@@ -18,11 +17,9 @@
         <activity android:name=".ClubDescriptionMember" />
         <activity android:name=".JoinClubDescriptionPage" />
         <activity android:name=".StartAClubActivity" />
-
         <activity android:name=".ClubHubStudent" />
         <activity android:name=".CreateSchoolActivity" />
         <activity android:name=".FindAClub" />
-
         <activity android:name=".CreateClubActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".OpeningPage">
