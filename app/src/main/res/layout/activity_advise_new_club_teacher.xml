@@ -12,7 +12,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:fontFamily="@font/comfortaa_light"
         android:text="Advise a New Club"
+        android:textColor="#4A4E69"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -41,9 +43,10 @@
 
     <Button
         android:id="@+id/getMoreInfoButton"
-        android:layout_width="236dp"
-        android:layout_height="134dp"
+        android:layout_width="210dp"
+        android:layout_height="75dp"
         android:layout_marginTop="250dp"
+        android:background="#C4D7F2"
         android:text="Get more information"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

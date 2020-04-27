@@ -2,13 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".JoinClubDescriptionPage">
+    tools:context=".StudentClubDescription">
 
     <TextView
-        android:id="@+id/clubName1"
+        android:id="@+id/clubName2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -22,17 +21,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="90dp"
-        app:layout_constraintTop_toBottomOf="@+id/clubName1"
-        tools:layout_editor_absoluteX="0dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clubName2">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:gravity="center"
             android:orientation="vertical">
 
+
             <TextView
-                android:id="@+id/studentLeaderText1"
+                android:id="@+id/studentLeaderText2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
@@ -40,16 +43,16 @@
                 android:text="Student Leaders:"
                 android:textSize="24sp" />
 
-            <ListView
-                android:id="@+id/joinLeaderList1"
-                android:layout_width="match_parent"
-                android:layout_height="78dp"
-                android:layout_marginTop="20dp">
-
-            </ListView>
+            <TextView
+                android:id="@+id/studentLeaderDisplay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="TextView"
+                android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/teacherAdvisorText1"
+                android:id="@+id/teacherAdvisorText2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -58,31 +61,29 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/joinTeacherAdvisorText1"
+                android:id="@+id/leaveTeacherAdvisorText2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/descriptionText1"
+                android:id="@+id/descriptionText2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="20dp"
                 android:text="Description:"
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/descriptionFillInText1"
+                android:id="@+id/descriptionFillInText2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="9dp"
                 android:layout_marginTop="10dp"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/meetingDaysText1"
+                android:id="@+id/meetingDaysText2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -90,27 +91,44 @@
                 android:text="Meeting Days and Times:"
                 android:textSize="24sp" />
 
-            <Button
-                android:id="@+id/joinButton1"
-                android:layout_width="168dp"
-                android:layout_height="108dp"
-                android:layout_marginTop="50dp"
-                android:onClick="JoinClubOnClick"
-                android:text="JOIN" />
+            <TextView
+                android:id="@+id/meetingTimeDisplay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/joinPageMemberTitle1"
+                android:id="@+id/meetingDaysDisplay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="TextView"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/joinPageMemberTitle2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="Members:"
                 android:textSize="24sp" />
 
-            <ListView
-                android:id="@+id/membersListView1"
-                android:layout_width="253dp"
-                android:layout_height="267dp"
-                android:layout_marginTop="56dp" />
+            <TextView
+                android:id="@+id/studentMemberDisplay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="TextView"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/clubDescButton"
+                android:layout_width="168dp"
+                android:layout_height="108dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="100dp"
+                android:text="@string/leave" />
 
         </LinearLayout>
     </ScrollView>

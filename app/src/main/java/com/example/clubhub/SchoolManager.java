@@ -25,7 +25,7 @@ public class SchoolManager{
 	 */
 	public static void createSchool(String name) {
 
-		DatabaseReference schoolsRef = FirebaseDatabase.getInstance().getReference("schools").push();
+		DatabaseReference schoolsRef = FirebaseDatabase.getInstance().getReference(School.SCHOOL_PATH).push();
 		String key = schoolsRef.getKey();
 		schoolsRef.setValue(new School(name, key));
 	}

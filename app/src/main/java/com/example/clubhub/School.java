@@ -4,15 +4,17 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * Class to model the functionality of a school
  * that has clubs
  */
-public class School {
+public class School extends DatabaseObject {
+
+	public static final String SCHOOL_PATH = "schools";
 
 	private String name;
-	private String ID;
 
 	// List of reference IDs of this school's clubs
 	private ArrayList<String> clubs;
@@ -23,8 +25,8 @@ public class School {
 	 * Default constructor for the School class
 	 */
 	public School(){
+		super();
 		this.name = "";
-		this.ID = "";
 		this.clubs = new ArrayList<String>();
 	}
 
@@ -34,8 +36,8 @@ public class School {
 	 * @param ID
 	 */
 	public School (String name, String ID) {
+		super(SCHOOL_PATH, ID);
 		this.name = name;
-		this.ID = ID;
 		this.clubs = new ArrayList<String>();
 	
 	}
@@ -48,12 +50,12 @@ public class School {
 	 */
 	public void addClubFirebase(String clubID){
 		clubs.add(clubID);
-		DatabaseReference clubsRef = FirebaseDatabase.getInstance().getReference("schools");
-		clubsRef.child(ID).child("clubs").setValue(clubs);
+		updateObjectDatabase();
 	}
 
 	public void removeClubFirebase(String clubID){
-		//TODO access database and remove club from school
+		clubs.remove(clubID);
+		updateObjectDatabase();
 	}
 
 	//endregion
@@ -76,13 +78,13 @@ public class School {
 	 * @return the iD
 	 */
 	public String getID() {
-		return ID;
+		return super.getFirebaseID();
 	}
 	/**
 	 * @param iD the iD to set
 	 */
 	public void setID(String iD) {
-		ID = iD;
+		super.setFirebaseID(iD);
 	}
 
 	@Override
@@ -104,6 +106,5 @@ public class School {
 	}
 
 	//endregion
-	
-	
+
 }

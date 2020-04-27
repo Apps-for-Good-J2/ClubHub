@@ -6,6 +6,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 
 public class Student extends UserData {
+
+    public static final String STUDENT_PATH = "students";
+
     private ArrayList<String> mClubs; // Members of the club
     private ArrayList<String> lClubs; // Leaders of the club
 
@@ -25,12 +28,17 @@ public class Student extends UserData {
      * @param schoolID the ID of the school this user is a part of
      */
     public Student(String name, String iD, String schoolID) {
-        super(name, iD, schoolID);
+        super(name, iD, schoolID, STUDENT_PATH);
         this.mClubs = new ArrayList<>();
         this.lClubs = new ArrayList<>();
 
     }
 
+    /**
+     * Checks if this Student is a part of a given club (member or leader)
+     * @param clubID the club to see if this student is in
+     * @return true in in the club, false otherwise
+     */
     public boolean isPartOfClub(String clubID){
         return mClubs.contains(clubID) || lClubs.contains(clubID);
     }
@@ -43,8 +51,7 @@ public class Student extends UserData {
      */
     public void addUserToClubAsMemberFirebase(String clubID) {
         this.mClubs.add(clubID);
-        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("students");
-        usersRef.child(super.getID()).child("mClubs").setValue(mClubs);
+        updateObjectDatabase();
     }
 
     /**
@@ -52,22 +59,18 @@ public class Student extends UserData {
      * @param clubID
      */
     public void addUserToClubAsLeaderFirebase(String clubID) {
-
         this.lClubs.add(clubID);
-        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("students");
-        usersRef.child(super.getID()).child("lClubs").setValue(lClubs);
+        updateObjectDatabase();
     }
 
     public void removeClubFromLeaderFirebase(String clubID){
         this.lClubs.remove(clubID);
-        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("students");
-        usersRef.child(super.getID()).child("lClubs").setValue(lClubs);
+        updateObjectDatabase();
     }
 
     public void removeClubFromMemberFirebase(String clubID){
         this.mClubs.remove(clubID);
-        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("students");
-        usersRef.child(super.getID()).child("mClubs").setValue(mClubs);
+        updateObjectDatabase();
     }
 
     //endregion

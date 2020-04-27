@@ -8,26 +8,21 @@ import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class ClubHubStudent extends AppCompatActivity {
+public class ClubHubTeacher extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_club_hub_student);
+        setContentView(R.layout.activity_club_hub_teacher);
     }
 
     public void goToClubFinder(View v){
-        Intent intent = new Intent(this, FindAClub.class);
-        startActivity(intent);
-    }
-
-    public void goToClubCreator(View v){
-        Intent intent = new Intent(this, CreateClubActivity.class);
-        startActivity(intent);
+        //Intent intent = new Intent(this, );
+        //startActivity(intent);
     }
 
     public void goToClubList(View v){
-        Intent intent = new Intent(this, YourClubsStudent.class);
+        Intent intent = new Intent(this, YourClubsTeacher.class);
         startActivity(intent);
     }
 

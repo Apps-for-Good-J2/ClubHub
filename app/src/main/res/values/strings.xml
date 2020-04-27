@@ -56,8 +56,9 @@
     <string name="describe">Description:</string>
     <string name="meetings">"Meeting Dates and Times: "</string>
     <string name="students">Members:</string>
-    <string name="TWmeetings">This Week\'s Meetings:</string>
-    <string name="selecting">Select a day:</string>
+    <string name="title_activity_edit_club_info">EditClubInfoActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
 
 
 </resources>
