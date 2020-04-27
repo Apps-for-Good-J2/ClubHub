@@ -36,37 +36,21 @@ public class FindAClub extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_a_club);
 
-
-        //region Used to set up the school spinner (remove from here?)
-
-        //below not needed anymore. delete?
-
-        schoolSpinner = findViewById(R.id.schoolSpinner);
-        schoolText = findViewById(R.id.subjectText);
-
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
-
-
-        school.add("- pick a subject -");
-        school.add("Math");
-        school.add("Biotechnology");
-        school.add("Chess");
-
-        ArrayAdapter<String> schoolAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, school);
-        schoolAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        schoolSpinner.setAdapter(schoolAdapter);
-
-        //endregion End code for school spinner
-
-
 
         //region Used to set up the list of clubs
         String currentSchoolID = (StudentManager.getStudent(currentUser.getUid()).getSchoolID());
 
+        ArrayList<String> schoolClubs = SchoolManager.getSchool(currentSchoolID).getClubs();
 
-        for(String clubRef : SchoolManager.getSchool(currentSchoolID).getClubs()){
+        for(String clubRef : schoolClubs){
             if(!StudentManager.getStudent(currentUser.getUid()).isPartOfClub(clubRef) && ClubManager.getClub(clubRef) != null)
                 clubs.add(ClubManager.getClub(clubRef));
+        }
+        TextView statusText = findViewById(R.id.finderStatusDisplay);
+
+        if(schoolClubs.size() == 0){
+            statusText.setText("There are no clyub");
         }
 
         Log.d("TEST", clubs.toString());
@@ -94,7 +78,7 @@ public class FindAClub extends AppCompatActivity implements
             }
         });
 
-        //endregion End code for club display**/
+        //endregion End code for club display
 
 
 

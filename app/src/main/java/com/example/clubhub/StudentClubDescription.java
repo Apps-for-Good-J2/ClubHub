@@ -91,37 +91,40 @@ public class StudentClubDescription extends AppCompatActivity {
 
     private void setUpMemberList(){
 
+        StringBuilder membersStr = new StringBuilder();
+        TextView leadersDisplay = findViewById(R.id.studentMemberDisplay);
+        if(thisClub.getmIDs().size() < 1)
+            membersStr.append("This club has no members");
         for(String memberRef : thisClub.getmIDs()){
-            members.add(StudentManager.getStudent(memberRef));
+            membersStr.append(StudentManager.getStudent(memberRef).getName()).append("\n");
         }
 
-        ArrayAdapter<UserData> membersAdapter =
-                new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, members);
-
-        final ListView listView = findViewById(R.id.membersListView2);
-        listView.setAdapter(membersAdapter);
-
+        leadersDisplay.setText(membersStr);
     }
 
     private void setUpLeaderList() {
+
+        StringBuilder leadersStr = new StringBuilder();
+        TextView leadersDisplay = findViewById(R.id.studentLeaderDisplay);
         for(String memberRef : thisClub.getlIDs()){
-            leaders.add(StudentManager.getStudent(memberRef));
+            leadersStr.append(StudentManager.getStudent(memberRef).getName()).append("\n");
         }
 
-        ArrayAdapter<UserData> leadersAdapter =
-                new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, leaders);
+        leadersDisplay.setText(leadersStr);
 
-        final ListView listView = findViewById(R.id.leaveLeaderList2);
-        listView.setAdapter(leadersAdapter);
     }
 
     private void setUpDayList() {
 
-        ArrayAdapter<String> daysAdapter =
-                new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, thisClub.getMeetingInfo().getOnlyMeetingDays());
+        ArrayList<String> days = thisClub.getMeetingInfo().getOnlyMeetingDays();
+        TextView daysDisplay = findViewById(R.id.meetingDaysDisplay);
+        StringBuilder daysStr = new StringBuilder();
+        for(String day : days){
+            daysStr.append(day).append("\n");
+        }
 
-        final ListView listView = findViewById(R.id.meetingDayDisplay);
-        listView.setAdapter(daysAdapter);
+        daysDisplay.setText(daysStr.toString());
+
     }
 
 

@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 public class CreateClubActivity extends AppCompatActivity {
@@ -67,6 +69,9 @@ public class CreateClubActivity extends AppCompatActivity {
 
         //region Used to set up the ending time spinner
 
+        startTime = new Time(7,0);
+        endTime = new Time(21,0);
+
         endingTimeSpinner = findViewById(R.id.endingTimeSpinner);
         endTimes = Time.giveListTimesBetween(startTime, endTime);
         endTimes.add(0, END_TIME_TEXT);
@@ -94,16 +99,45 @@ public class CreateClubActivity extends AppCompatActivity {
 
 
 
+    private boolean checkForInvalidInput() {
+        if(nameText.getText().toString().equals("")){
+            Toast.makeText(getApplicationContext(), "Please enter a club name", Toast.LENGTH_LONG).show();
+            return false;
+        }
 
+        else if(descriptionText.getText().toString().equals("")){
+            Toast.makeText(getApplicationContext(), "Please enter a club description", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        else if(beginningTime.equals("") || endingTime.equals("")){
+            Toast.makeText(getApplicationContext(), "Please enter club times", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        else if (getSelectedDays().size() == 0){
+            Toast.makeText(getApplicationContext(), "Please select meeting days", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        return true;
+
+    }
 
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void createClub(){
+
+        if(!checkForInvalidInput()) return;
+
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         String name = nameText.getText().toString();
         String description = descriptionText.getText().toString();
         MeetingInfo meetingInfo = createMeetingInfo();
         ClubManager.createClub(name, description, meetingInfo);
+
+        Intent intent = new Intent(this, ClubHubStudent.class);
+        startActivity(intent);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -128,12 +162,10 @@ public class CreateClubActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.N)
     public void createClubOnClick(View v){
         createClub();
-        Intent intent = new Intent(this, ClubHubStudent.class);
-        startActivity(intent);
     }
 
 
-//region Spinner classes
+    //region Spinner classes
     class BeginningTimeSpinner implements AdapterView.OnItemSelectedListener{
 
         @Override

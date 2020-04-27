@@ -47,6 +47,10 @@ public class ClubManager{
 		StudentManager.getStudent(userID).addUserToClubAsLeaderFirebase(key);
 
 	}
+
+	public static void deleteClub(){
+		// TODO delete club and handle cleanup
+	}
 	
 	/**
 	 * Returns a Club object with the given ID

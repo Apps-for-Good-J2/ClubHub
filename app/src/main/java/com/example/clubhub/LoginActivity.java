@@ -68,10 +68,15 @@ public class LoginActivity extends AppCompatActivity {
 
     private void onLoginSuccess(){
 
+
+
         String currentUserID = mAuth.getCurrentUser().getUid();
 
         // If this user is a student
         if(StudentManager.getStudent(currentUserID) != null){
+            Toast.makeText(getApplicationContext(),
+                    "You have logged in as " + StudentManager.getStudent(currentUserID).getName(),
+                    Toast.LENGTH_LONG).show();
             Log.d(TAG, StudentManager.getStudent(currentUserID).toString());
             Log.d(TAG, "This user is a student");
             Intent intent = new Intent(this, ClubHubStudent.class);
