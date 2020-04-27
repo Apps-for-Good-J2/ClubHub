@@ -1,8 +1,11 @@
 package com.example.clubhub;
 
+import java.util.ArrayList;
+import java.util.Objects;
+
 /**
  * Class partially developed by Amrita Thirumalai for their project that I assisted with debugging
- * (and there was plenty of it)
+ * Only used to generate times to pick from
  */
 public class Time {
     private int hr;
@@ -31,13 +34,10 @@ public class Time {
         return min;
     }
 
-    public boolean equals(Time time) {
-        if (time.getHour() == hr && time.getMinute() == min) {
-            return true;
-        }
-        return false;
-    }
 
+    /**
+     * Increments this time by 15 minutes forward
+     */
     public void increment() {
         if (min == 45) {
             if (hr == 23) {
@@ -53,6 +53,46 @@ public class Time {
         }
     }
 
+    /**
+     * Returns a string representation of this time in standard time
+     * I added this method to the preexisting class
+     * @return a string of this time in standard time
+     */
+    public String giveStringStandardTime(){
+        String timeStr;
+        if(hr < 12){
+            timeStr = this.toString() + " AM";
+        }
+        else if(hr == 12){
+            timeStr = this.toString() + " PM";
+        }
+        else{
+            timeStr = new Time(hr-12, min) + " PM";
+        }
+        return timeStr;
+    }
+
+    /**
+     * Helper class to generate all time separated by 15 minutes in military time
+     * I added this method to the preexisting class
+     * @param start
+     * @param end
+     * @return
+     */
+    public static ArrayList<String> giveListTimesBetween(Time start, Time end){
+
+        ArrayList<String> allTimes = new ArrayList<String>();
+        end.increment();
+        do {
+            allTimes.add(start.giveStringStandardTime());
+            start.increment();
+        }
+        while(!start.equals(end));
+
+        return allTimes;
+    }
+
+
     public String toString() {
         String minutes = "";
         if (min < 15) {
@@ -62,5 +102,19 @@ public class Time {
             minutes = Integer.toString(min);
         }
         return Integer.toString(hr) + ":" + minutes;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Time time = (Time) o;
+        return hr == time.hr &&
+                min == time.min;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(hr, min);
     }
 }

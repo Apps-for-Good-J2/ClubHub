@@ -19,6 +19,8 @@ public class Club extends DatabaseObject{
 	private MeetingInfo meetingInfo;
 	private boolean hasTeacherAdviser;
 
+
+
 	//region Constructors
 
 	/**
@@ -102,11 +104,19 @@ public class Club extends DatabaseObject{
 		updateObjectDatabase();
 	}
 
+    /**
+     * Deletes a given leader reference ID from this club
+     * @param userID
+     */
 	public void deleteLeaderFirebase(String userID){
 		lIDs.remove(userID);
 		updateObjectDatabase();
 	}
 
+    /**
+     * Deletes a given member reference ID from this club
+     * @param userID
+     */
 	public void deleteMemberFirebase(String userID){
 		mIDs.remove(userID);
 		updateObjectDatabase();
@@ -193,8 +203,6 @@ public class Club extends DatabaseObject{
 	public String getSchoolID() {
 		return schoolID;
 	}
-
-
 
 	/**
 	 * @param schoolID the schoolID to set

@@ -4,26 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.clubhub.Club;
-import com.example.clubhub.ClubManager;
-import com.example.clubhub.R;
-import com.example.clubhub.StudentManager;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class YourClubMember extends AppCompatActivity{
+public class YourClubsStudent extends AppCompatActivity{
 
 
     private TextView yourClubText;
@@ -72,7 +65,7 @@ public class YourClubMember extends AppCompatActivity{
 
                  Club nClub = memberClubs.get(position);
 
-                 Intent intent = new Intent(YourClubMember.this, ClubDescriptionMember.class);
+                 Intent intent = new Intent(YourClubsStudent.this, StudentClubDescription.class);
                  intent.putExtra("clubID", nClub.getNumID());
                  startActivity(intent);
             }
@@ -92,12 +85,12 @@ public class YourClubMember extends AppCompatActivity{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                /** Change to display leader club description page
-                 Club nClub = clubs.get(position);
 
-                 Intent intent = new Intent(FindAClub.this, JoinClubDescriptionPage.class);
-                 intent.putExtra("clubID", nClub.getNumID());
-                 startActivity(intent);**/
+                Club nClub = leaderClubs.get(position);
+
+                Intent intent = new Intent(YourClubsStudent.this, StudentClubDescription.class);
+                intent.putExtra("clubID", nClub.getNumID());
+                startActivity(intent);
             }
         });
 

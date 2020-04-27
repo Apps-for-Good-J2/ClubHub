@@ -34,6 +34,11 @@ public class Student extends UserData {
 
     }
 
+    /**
+     * Checks if this Student is a part of a given club (member or leader)
+     * @param clubID the club to see if this student is in
+     * @return true in in the club, false otherwise
+     */
     public boolean isPartOfClub(String clubID){
         return mClubs.contains(clubID) || lClubs.contains(clubID);
     }

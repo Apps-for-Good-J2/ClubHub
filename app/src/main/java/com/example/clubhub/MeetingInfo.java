@@ -134,7 +134,7 @@ public class MeetingInfo {
 
     public ArrayList<String> getOnlyMeetingDays(){
         ArrayList<String> days = new ArrayList<>();
-        for(String day : meetingDays.keySet()){
+        for(String day : allDays){
             if(meetingDays.get(day) && meetingDays.get(day) != null)
                 days.add(day);
         }

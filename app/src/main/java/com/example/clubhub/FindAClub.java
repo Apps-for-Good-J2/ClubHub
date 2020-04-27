@@ -86,7 +86,7 @@ public class FindAClub extends AppCompatActivity implements
                 // Use intent to push the club ID to the next activity to eliminate currentClubID?
                 Club nClub = clubs.get(position);
 
-                Intent intent = new Intent(FindAClub.this, JoinClubDescriptionPage.class);
+                Intent intent = new Intent(FindAClub.this, StudentClubDescription.class);
                 intent.putExtra("clubID", nClub.getNumID());
                 startActivity(intent);
             }
