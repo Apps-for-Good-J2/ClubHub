@@ -23,7 +23,7 @@
     <string name="treasurer">Treasurer</string>
     <string name="Secretary">Secretary</string>
     <string name="select">Select your role: </string>
-    <string name = "createAccountTitleStr">Create your Account: </string>
+    <string name="createAccountTitleStr">Create your Account: </string>
 
 
     <string name="selectRole">"Select your role: "</string>
@@ -56,6 +56,8 @@
     <string name="describe">Description:</string>
     <string name="meetings">"Meeting Dates and Times: "</string>
     <string name="students">Members:</string>
+    <string name="TWmeetings">This Week\'s Meetings:</string>
+    <string name="selecting">Select a day:</string>
 
 
 </resources>
