@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ClubDescriptionLeader">
+    tools:context=".StudentClubDescription">
 
     <TextView
-        android:id="@+id/clubName"
+        android:id="@+id/clubName2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -21,21 +21,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="90dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/clubName">
+        app:layout_constraintTop_toBottomOf="@+id/clubName2">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:gravity="center"
             android:orientation="vertical">
 
 
             <TextView
-                android:id="@+id/studentLeaderText"
+                android:id="@+id/studentLeaderText2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
@@ -44,15 +44,15 @@
                 android:textSize="24sp" />
 
             <ListView
-                android:id="@+id/leaveLeaderList"
-                android:layout_width="598dp"
-                android:layout_height="78dp"
+                android:id="@+id/leaveLeaderList2"
+                android:layout_width="253dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="20dp">
 
             </ListView>
 
             <TextView
-                android:id="@+id/teacherAdvisorText"
+                android:id="@+id/teacherAdvisorText2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -61,14 +61,14 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/leaveTeacherAdvisorText"
+                android:id="@+id/leaveTeacherAdvisorText2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/descriptionText"
+                android:id="@+id/descriptionText2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -77,7 +77,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/descriptionFillInText"
+                android:id="@+id/descriptionFillInText2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="9dp"
@@ -85,7 +85,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/meetingDaysText"
+                android:id="@+id/meetingDaysText2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -93,22 +93,28 @@
                 android:text="Meeting Days and Times:"
                 android:textSize="24sp" />
 
-            <Button
-                android:id="@+id/changeInfoButton"
-                android:layout_width="168dp"
+            <TextView
+                android:id="@+id/meetingTimeDisplay"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="Edit Club Info" />
+                android:layout_marginTop="15dp"
+                android:textSize="18sp" />
+
+            <ListView
+                android:id="@+id/meetingDayDisplay"
+                android:layout_width="253dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp" />
 
             <Button
-                android:id="@+id/manageMembersButton"
+                android:id="@+id/clubDescButton"
                 android:layout_width="168dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="Manage Members" />
+                android:layout_height="108dp"
+                android:layout_marginTop="50dp"
+                android:text="@string/leave" />
 
             <TextView
-                android:id="@+id/joinPageMemberTitle"
+                android:id="@+id/joinPageMemberTitle2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -116,10 +122,11 @@
                 android:textSize="24sp" />
 
             <ListView
-                android:id="@+id/membersListView"
+                android:id="@+id/membersListView2"
                 android:layout_width="253dp"
-                android:layout_height="267dp"
-                android:layout_marginTop="56dp" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="50dp" />
 
         </LinearLayout>
     </ScrollView>

@@ -5,18 +5,17 @@ package com.example.clubhub;
  * Class to model the data of users that has
  * a school
  */
-public class UserData {
+public class UserData extends DatabaseObject{
 
 	private String name;
-	private String ID;
 	private String schoolID;
 
 	/**
 	 * Default constructor for the UserData class
 	 */
 	public UserData(){
+		super();
 		this.name = "";
-		ID = "";
 		schoolID = "";
 	}
 
@@ -26,10 +25,9 @@ public class UserData {
 	 * @param iD the ID this UserData will be stored with in the database
 	 * @param schoolID the ID of the school this user is a part of
 	 */
-	public UserData(String name, String iD, String schoolID) {
-		super();
+	public UserData(String name, String iD, String schoolID, String path) {
+		super(path, iD);
 		this.name = name;
-		ID = iD;
 		this.schoolID = schoolID;
 	}
 
@@ -51,13 +49,13 @@ public class UserData {
 	 * @return the iD
 	 */
 	public String getID() {
-		return ID;
+		return super.getFirebaseID();
 	}
 	/**
 	 * @param iD the iD to set
 	 */
 	public void setID(String iD) {
-		ID = iD;
+		setFirebaseID(iD);
 	}
 	/**
 	 * @return the mClubs

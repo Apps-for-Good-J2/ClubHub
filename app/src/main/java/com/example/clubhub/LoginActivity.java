@@ -18,6 +18,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private final String TAG = "Login";
+
     private FirebaseAuth mAuth;
 
     private EditText emailEditText;
@@ -34,10 +36,9 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
     }
 
-    private void signInWithEmailAndPassword(){
+    private void signInWithEmailAndPassword(String email, String password){
 
-        String email = emailEditText.getText().toString();
-        String password = passwordEditText.getText().toString();
+
 
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -60,14 +61,37 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onClickToLogin(View v){
-        signInWithEmailAndPassword();
+        String email = emailEditText.getText().toString();
+        String password = passwordEditText.getText().toString();
+        signInWithEmailAndPassword(email, password);
     }
 
     private void onLoginSuccess(){
 
-        // check if student or teacher
-        Intent intent = new Intent(this, ClubHubStudent.class);
-        startActivity(intent);
+        String currentUserID = mAuth.getCurrentUser().getUid();
+
+        // If this user is a student
+        if(StudentManager.getStudent(currentUserID) != null){
+            Log.d(TAG, StudentManager.getStudent(currentUserID).toString());
+            Log.d(TAG, "This user is a student");
+            Intent intent = new Intent(this, ClubHubStudent.class);
+            startActivity(intent);
+        }
+
+        else if(TeacherManager.getTeacher(currentUserID) != null){
+            // Go to teacher page
+            Log.d(TAG, "This user is a teacher");
+            Intent intent = new Intent(this, ClubHubTeacher.class);
+            startActivity(intent);
+        }
+
+        else{
+            Log.d(TAG, "This user does not exist in the database");
+            Toast.makeText(getApplicationContext(),
+                    "Problems retrieving your data. Contact ClubHub",
+                    Toast.LENGTH_LONG).show();
+        }
+
     }
 
 

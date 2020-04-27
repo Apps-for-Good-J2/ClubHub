@@ -35,13 +35,12 @@
         android:id="@+id/createAccountButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="50dp"
         android:onClick="createAccountOnClick"
         android:text="Next"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/createPasswordText" />
+        app:layout_constraintTop_toBottomOf="@+id/createAccountRadioGroup" />
 
     <EditText
         android:id="@+id/createPasswordText"
@@ -79,7 +78,7 @@
         app:layout_constraintTop_toBottomOf="@+id/createAccountTitle" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/dontSeeSchoolButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -89,5 +88,28 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/selectSchoolSpinner" />
+
+    <RadioGroup
+        android:id="@+id/createAccountRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createPasswordText">
+
+        <RadioButton
+            android:id="@+id/createAccountStudentRadio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="I am a student" />
+
+        <RadioButton
+            android:id="@+id/createAccountTeacherRadio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="I am a teacher" />
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

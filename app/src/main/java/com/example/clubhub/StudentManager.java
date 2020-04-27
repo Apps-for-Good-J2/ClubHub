@@ -24,7 +24,7 @@ public class StudentManager{
 	 */
 	public static void createStudent(String name, String userID, String schoolID) {
 
-		DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("students").child(userID);
+		DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference(Student.STUDENT_PATH).child(userID);
 		usersRef.setValue(new Student(name, userID, schoolID));
 	}
 	

@@ -19,7 +19,7 @@ public class TeacherManager {
      */
     public static void createTeacher(String name, String userID, String schoolID) {
 
-        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("teachers").child(userID);
+        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference(Teacher.TEACHER_PATH).child(userID);
         usersRef.setValue(new Teacher(name, userID, schoolID));
     }
 
