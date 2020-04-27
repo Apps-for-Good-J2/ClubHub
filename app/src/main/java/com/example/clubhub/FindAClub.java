@@ -39,6 +39,8 @@ public class FindAClub extends AppCompatActivity implements
 
         //region Used to set up the school spinner (remove from here?)
 
+        //below not needed anymore. delete?
+
         schoolSpinner = findViewById(R.id.schoolSpinner);
         schoolText = findViewById(R.id.subjectText);
 

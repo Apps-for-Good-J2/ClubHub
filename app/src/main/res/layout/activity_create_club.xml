@@ -10,7 +10,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="90dp"
         android:gravity="center|top"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,7 +26,7 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:text="@string/nameYourNewClub"
-            android:textSize="24sp" />
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/startClubName"
@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:paddingTop="10dp"
             android:text="@string/describeClub"
-            android:textSize="24sp" />
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/fillClubDesc"
@@ -62,7 +62,7 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:text="@string/when"
-            android:textSize="24sp" />
+            android:textSize="18sp" />
 
         <LinearLayout
             android:id="@+id/dayz"
@@ -167,7 +167,7 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:text="Select the starting time"
-            android:textSize="24sp" />
+            android:textSize="18sp" />
 
         <Spinner
             android:id="@+id/timeSpinner"
@@ -181,7 +181,7 @@
             android:paddingTop="10dp"
             android:paddingRight="10dp"
             android:text="Select the ending time"
-            android:textSize="24sp" />
+            android:textSize="18sp" />
 
         <Spinner
             android:id="@+id/endingTimeSpinner"
@@ -190,8 +190,9 @@
 
         <Button
             android:id="@+id/post"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="126dp"
+            android:layout_height="58dp"
+            android:background="#C4D7F2"
             android:onClick="createClubOnClick"
             android:paddingTop="10dp"
             android:text="@string/post" />
@@ -202,9 +203,11 @@
         android:id="@+id/startClubTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/comfortaa_light"
         android:text="Create a Club"
-        android:textSize="30sp"
+        android:textColor="#4A4E69"
+        android:textSize="43sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
