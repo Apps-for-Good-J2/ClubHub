@@ -227,13 +227,14 @@ public class Club extends DatabaseObject{
 		this.teacherID = teacherID;
 	}
 
-	public boolean hasTeacherAdviser() {
+	public boolean isHasTeacherAdviser() {
 		return hasTeacherAdviser;
 	}
 
 	public void setHasTeacherAdviser(boolean hasTeacherAdviser) {
 		this.hasTeacherAdviser = hasTeacherAdviser;
 	}
+
 
 	//endregion
 

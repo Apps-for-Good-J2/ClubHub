@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class meetingsThisWeek extends AppCompatActivity {
+public class MeetingsThisWeek extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

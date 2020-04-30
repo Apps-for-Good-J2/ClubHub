@@ -86,7 +86,8 @@ public class MeetingInfo {
      * @param newMeetingDays days to be added as meeting days
      */
     @RequiresApi(api = Build.VERSION_CODES.N)
-    private void addMeetingDaysFromArrayList(ArrayList<String> newMeetingDays){
+    public void addMeetingDaysFromArrayList(ArrayList<String> newMeetingDays){
+        initiateMeetingDays();
         for(String day : newMeetingDays){
             if (allDays.contains(day)) {
                 meetingDays.replace(day, true);
@@ -132,7 +133,7 @@ public class MeetingInfo {
         this.meetingEndTime = meetingEndTime;
     }
 
-    public ArrayList<String> getOnlyMeetingDays(){
+    public ArrayList<String> onlyMeetingDays(){
         ArrayList<String> days = new ArrayList<>();
         for(String day : allDays){
             if(meetingDays.get(day) && meetingDays.get(day) != null)

@@ -42,6 +42,11 @@ public abstract class DatabaseObject {
         ref.child(firebaseID).setValue(this);
     }
 
+    public void removeObjectDatabase(){
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(path);
+        ref.child(firebaseID).removeValue();
+    }
+
     //region Getters and setters
     public String getPath() {
         return path;

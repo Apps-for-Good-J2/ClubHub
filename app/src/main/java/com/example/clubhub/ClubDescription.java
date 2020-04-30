@@ -7,10 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -19,9 +16,11 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentClubDescription extends AppCompatActivity {
+public class ClubDescription extends AppCompatActivity {
 
     private final String TAG = "ClubDescription";
+
+
 
     List<UserData> members = new ArrayList<>();
     List<UserData> leaders = new ArrayList<>();
@@ -43,6 +42,13 @@ public class StudentClubDescription extends AppCompatActivity {
 
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
+
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         setTextViews();
         setUpMemberList();
         setUpLeaderList();
@@ -58,12 +64,15 @@ public class StudentClubDescription extends AppCompatActivity {
             button.setOnClickListener(new editClubOnClickListener());
             button.setText("EDIT CLUB INFO");
         }
-
-        else {
+        // else if this user is a teacher and not this clubs adviser
+        else if(TeacherManager.getTeacher(currentUser.getUid())  != null && !thisClub.getTeacherID().equals(currentUser.getUid())){
+            button.setOnClickListener(new adviseClubOnClickListener());
+            button.setText("ADVISE CLUB");
+        }
+        else{
             button.setOnClickListener(new joinClubOnClickListener());
             button.setText("JOIN CLUB");
         }
-
     }
 
     @SuppressLint("SetTextI18n")
@@ -76,7 +85,7 @@ public class StudentClubDescription extends AppCompatActivity {
         descriptionText.setText(thisClub.getDescription());
 
         TextView teacherNameText = findViewById(R.id.leaveTeacherAdvisorText2);
-        if(thisClub.hasTeacherAdviser()){
+        if(thisClub.isHasTeacherAdviser()){
             teacherNameText.setText(TeacherManager.getTeacher(thisClub.getTeacherID()).toString());
         }
         else{
@@ -116,7 +125,7 @@ public class StudentClubDescription extends AppCompatActivity {
 
     private void setUpDayList() {
 
-        ArrayList<String> days = thisClub.getMeetingInfo().getOnlyMeetingDays();
+        ArrayList<String> days = thisClub.getMeetingInfo().onlyMeetingDays();
         TextView daysDisplay = findViewById(R.id.meetingDaysDisplay);
         StringBuilder daysStr = new StringBuilder();
         for(String day : days){
@@ -144,7 +153,7 @@ public class StudentClubDescription extends AppCompatActivity {
             thisClub.addMemberFirebase(currentUserID);
 
             // Directs the user somewhere else or to member page for this club
-            Intent intent = new Intent(StudentClubDescription.this, ClubHubStudent.class);
+            Intent intent = new Intent(ClubDescription.this, ClubHubStudent.class);
             startActivity(intent);
         }
     }
@@ -163,7 +172,7 @@ public class StudentClubDescription extends AppCompatActivity {
             StudentManager.getStudent(currentUserID).removeClubFromMemberFirebase(thisClubID);
 
             // Directs the user somewhere else or to member page for this club
-            Intent intent = new Intent(StudentClubDescription.this, ClubHubStudent.class);
+            Intent intent = new Intent(ClubDescription.this, ClubHubStudent.class);
             startActivity(intent);
         }
     }
@@ -174,10 +183,30 @@ public class StudentClubDescription extends AppCompatActivity {
         @Override
         public void onClick(View v) {
 
-            Intent intent = new Intent(StudentClubDescription.this, EditClubInfoActivity.class);
+            Intent intent = new Intent(ClubDescription.this, EditClubInfoActivity.class);
+            intent.putExtra("clubID", thisClubID);
             startActivity(intent);
         }
     }
+
+    private class adviseClubOnClickListener implements View.OnClickListener
+    {
+
+        @Override
+        public void onClick(View v) {
+            if(!thisClub.isHasTeacherAdviser()) {
+                Teacher thisTeacher = TeacherManager.getTeacher(currentUser.getUid());
+                thisTeacher.addAdvisingClub(thisClubID);
+                thisClub.setTeacherID(thisTeacher.getFirebaseID());
+                thisClub.setHasTeacherAdviser(true);
+                thisClub.updateObjectDatabase();
+            }
+
+            Intent intent = new Intent(ClubDescription.this, ClubHubTeacher.class);
+            startActivity(intent);
+        }
+    }
+
     //endregion
 
 

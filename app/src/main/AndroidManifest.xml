@@ -11,14 +11,16 @@
         android:theme="@style/AppTheme" >
         <activity android:name=".ClubHubTeacher" />
         <activity android:name=".YourClubsStudent" />
+        <activity android:name=".YourClubsTeacher" />
         <activity android:name=".CreateAccountActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".EditClubInfoActivity" />
-        <activity android:name=".StudentClubDescription" />
+        <activity android:name=".ClubDescription" />
         <activity android:name=".CreateClubActivity" />
         <activity android:name=".ClubHubStudent" />
         <activity android:name=".CreateSchoolActivity" />
         <activity android:name=".FindAClub" />
+        <activity android:name=".MeetingsThisWeek" />
         <activity android:name=".OpeningPage" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
