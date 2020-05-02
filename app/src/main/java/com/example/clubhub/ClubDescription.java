@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -37,7 +38,7 @@ public class ClubDescription extends AppCompatActivity {
 
         Intent intent = getIntent();
         thisClubID = intent.getStringExtra("clubID");
-        thisClub = ClubManager.getClub(thisClubID);
+
         button = findViewById(R.id.clubDescButton);
 
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -46,9 +47,11 @@ public class ClubDescription extends AppCompatActivity {
 
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onStart() {
         super.onStart();
+        thisClub = ClubManager.getClub(thisClubID);
         setTextViews();
         setUpMemberList();
         setUpLeaderList();
@@ -60,7 +63,7 @@ public class ClubDescription extends AppCompatActivity {
             button.setText("LEAVE CLUB");
         }
 
-        else if(thisClub.isLeader(currentUser.getUid())){
+        else if(thisClub.isLeader(currentUser.getUid()) || thisClub.getTeacherID().equals(currentUser.getUid())){
             button.setOnClickListener(new editClubOnClickListener());
             button.setText("EDIT CLUB INFO");
         }
@@ -124,6 +127,7 @@ public class ClubDescription extends AppCompatActivity {
     }
 
     private void setUpDayList() {
+
 
         ArrayList<String> days = thisClub.getMeetingInfo().onlyMeetingDays();
         TextView daysDisplay = findViewById(R.id.meetingDaysDisplay);

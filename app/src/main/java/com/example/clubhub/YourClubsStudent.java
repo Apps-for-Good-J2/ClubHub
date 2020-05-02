@@ -28,7 +28,7 @@ public class YourClubsStudent extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_your_club_member);
+        setContentView(R.layout.activity_your_club_student);
 
         yourClubText = findViewById(R.id.yourClubs);
 

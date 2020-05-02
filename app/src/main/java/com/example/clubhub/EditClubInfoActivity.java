@@ -69,6 +69,7 @@ public class EditClubInfoActivity extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void saveInformation(){
+
         thisClub.setName(nameBox.getText().toString());
         thisClub.setDescription(descBox.getText().toString());
 
@@ -94,9 +95,30 @@ public class EditClubInfoActivity extends AppCompatActivity {
         return days;
     }
 
+    private boolean checkForInvalidInput(){
+        if(nameBox.getText().toString().isEmpty()){
+            Toast.makeText(this, "Please enter a valid name", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if(descBox.getText().toString().isEmpty()){
+            Toast.makeText(this, "Please enter a valid description", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if(getSelectedDays().size() == 0){
+            Toast.makeText(this, "Please select meeting day(s)", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.N)
     public void updateClubOnClick(View v){
+
+        if(!checkForInvalidInput()) return;
         saveInformation();
+
     }
 
     public void deleteClubOnClick(View v){
@@ -110,6 +132,12 @@ public class EditClubInfoActivity extends AppCompatActivity {
             intent = new Intent(this, ClubHubTeacher.class);
         }
 
+        startActivity(intent);
+    }
+
+    public void goToManageMemberOnClick(View v){
+        Intent intent = new Intent(this, ManageMembersActivity.class);
+        intent.putExtra("clubID", thisClubID);
         startActivity(intent);
     }
 }

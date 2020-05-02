@@ -89,6 +89,7 @@ public class FindAClub extends AppCompatActivity implements
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private void setupClubStudent(){
         //region Used to set up the list of clubs
         String currentSchoolID = (StudentManager.getStudent(currentUser.getUid()).getSchoolID());

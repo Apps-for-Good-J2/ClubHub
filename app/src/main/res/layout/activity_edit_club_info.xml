@@ -29,7 +29,7 @@
         android:text="Delete club"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button9"
         app:layout_constraintTop_toBottomOf="@+id/editClubTitle" />
 
     <ScrollView
@@ -141,5 +141,17 @@
                 android:text="SAVE INFO" />
         </LinearLayout>
     </ScrollView>
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="goToManageMemberOnClick"
+        android:text="Manage Members"
+        app:layout_constraintEnd_toStartOf="@+id/deleteClubButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editClubTitle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
