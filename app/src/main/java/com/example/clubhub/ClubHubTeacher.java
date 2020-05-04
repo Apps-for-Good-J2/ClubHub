@@ -17,8 +17,8 @@ public class ClubHubTeacher extends AppCompatActivity {
     }
 
     public void goToClubFinder(View v){
-        //Intent intent = new Intent(this, );
-        //startActivity(intent);
+        Intent intent = new Intent(this, FindAClub.class);
+        startActivity(intent);
     }
 
     public void goToClubList(View v){

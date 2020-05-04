@@ -28,27 +28,38 @@ public class YourClubsStudent extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_your_club_member);
+        setContentView(R.layout.activity_your_club_student);
 
         yourClubText = findViewById(R.id.yourClubs);
 
 
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
+
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        memberClubs.clear();
         for(String clubRef : StudentManager.getStudent(currentUser.getUid()).getmClubs()){
-            if(ClubManager.getClub(clubRef) != null)
-                memberClubs.add(ClubManager.getClub(clubRef));
+            Club club = ClubManager.getClub(clubRef);
+            if(club != null)
+                memberClubs.add(club);
         }
 
+        leaderClubs.clear();
         for(String clubRef : StudentManager.getStudent(currentUser.getUid()).getlClubs()){
-            if(ClubManager.getClub(clubRef) != null)
-                leaderClubs.add(ClubManager.getClub(clubRef));
+            Club club = ClubManager.getClub(clubRef);
+            if(club != null)
+                leaderClubs.add(club);
         }
 
         setShowMemberClubs();
 
     }
-
 
     private void setShowMemberClubs(){
 
@@ -65,7 +76,7 @@ public class YourClubsStudent extends AppCompatActivity{
 
                  Club nClub = memberClubs.get(position);
 
-                 Intent intent = new Intent(YourClubsStudent.this, StudentClubDescription.class);
+                 Intent intent = new Intent(YourClubsStudent.this, ClubDescription.class);
                  intent.putExtra("clubID", nClub.getNumID());
                  startActivity(intent);
             }
@@ -88,7 +99,7 @@ public class YourClubsStudent extends AppCompatActivity{
 
                 Club nClub = leaderClubs.get(position);
 
-                Intent intent = new Intent(YourClubsStudent.this, StudentClubDescription.class);
+                Intent intent = new Intent(YourClubsStudent.this, ClubDescription.class);
                 intent.putExtra("clubID", nClub.getNumID());
                 startActivity(intent);
             }

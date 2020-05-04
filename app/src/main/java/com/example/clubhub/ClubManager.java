@@ -48,8 +48,36 @@ public class ClubManager{
 
 	}
 
-	public static void deleteClub(){
-		// TODO delete club and handle cleanup
+	public static void deleteClub(String clubID){
+
+		Club thisClub = clubs.get(clubID);
+
+		// Clean up members
+		for(String memberID : thisClub.getmIDs()){
+			Student member = StudentManager.getStudent(memberID);
+			member.removeClubFromMemberFirebase(clubID);
+		}
+
+		// Clean up leaders
+		for(String leaderID : thisClub.getlIDs()){
+			Student leader = StudentManager.getStudent(leaderID);
+			leader.removeClubFromLeaderFirebase(clubID);
+		}
+
+		// Clean up teacher
+		if(thisClub.isHasTeacherAdviser()){
+			Teacher teacher = TeacherManager.getTeacher(thisClub.getTeacherID());
+			teacher.removeAdvisingClub(clubID);
+		}
+
+
+		// Clean up school
+		School school = SchoolManager.getSchool(thisClub.getSchoolID());
+		school.removeClubFirebase(clubID);
+
+		// Delete club from data base
+		thisClub.removeObjectDatabase();
+		clubs.remove(clubID);
 	}
 	
 	/**

@@ -2,9 +2,9 @@ package com.example.clubhub;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -31,6 +31,7 @@ public class FindAClub extends AppCompatActivity implements
     FirebaseUser currentUser;
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +39,58 @@ public class FindAClub extends AppCompatActivity implements
 
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
+
+        if(StudentManager.getStudent(currentUser.getUid()) != null){
+            setupClubStudent();
+        }
+        else{
+            setupClubTeacher();
+        }
+
+
+        // When you click on the club, it opens the temp display page
+        ArrayAdapter<Club> clubsAdapter =
+                new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, clubs);
+
+        final ListView listView = findViewById(R.id.clubListView);
+        listView.setAdapter(clubsAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Club nClub = clubs.get(position);
+
+                Intent intent = new Intent(FindAClub.this, ClubDescription.class);
+                intent.putExtra("clubID", nClub.getNumID());
+                startActivity(intent);
+            }
+        });
+
+        //endregion End code for club display
+
+
+
+    }
+
+    private void setupClubTeacher() {
+        String currentSchoolID = (TeacherManager.getTeacher(currentUser.getUid()).getSchoolID());
+        ArrayList<String> schoolClubs = SchoolManager.getSchool(currentSchoolID).getClubs();
+        for(String clubRef : schoolClubs){
+            if(!ClubManager.getClub(clubRef).isHasTeacherAdviser()){
+                clubs.add(ClubManager.getClub(clubRef));
+            }
+        }
+
+        TextView statusText = findViewById(R.id.finderStatusDisplay);
+
+        if(clubs.size() < 1){
+            statusText.setText("There are no clubs at this school without an adviser");
+        }
+    }
+
+    @SuppressLint("SetTextI18n")
+    private void setupClubStudent(){
         //region Used to set up the list of clubs
         String currentSchoolID = (StudentManager.getStudent(currentUser.getUid()).getSchoolID());
 
@@ -49,39 +102,9 @@ public class FindAClub extends AppCompatActivity implements
         }
         TextView statusText = findViewById(R.id.finderStatusDisplay);
 
-        if(schoolClubs.size() == 0){
-            statusText.setText("There are no clubs");
+        if(clubs.size() < 1){
+            statusText.setText("There are no clubs at this school");
         }
-
-        Log.d("TEST", clubs.toString());
-
-
-        ArrayAdapter<Club> clubsAdapter =
-                new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, clubs);
-
-        final ListView listView = findViewById(R.id.clubListView);
-        listView.setAdapter(clubsAdapter);
-
-
-        // When you click on the club, it opens the temp display page
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                // Use intent to push the club ID to the next activity to eliminate currentClubID?
-                Club nClub = clubs.get(position);
-
-                Intent intent = new Intent(FindAClub.this, StudentClubDescription.class);
-                intent.putExtra("clubID", nClub.getNumID());
-                startActivity(intent);
-            }
-        });
-
-        //endregion End code for club display
-
-
-
     }
 
 

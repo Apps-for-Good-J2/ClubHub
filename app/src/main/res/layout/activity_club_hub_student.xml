@@ -10,13 +10,14 @@
         android:id="@+id/clubHubStudentTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="192dp"
         android:fontFamily="@font/comfortaa_light"
         android:text="ClubHub Student"
         android:textColor="#4A4E69"
         android:textSize="43sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -47,18 +48,6 @@
         app:layout_constraintTop_toBottomOf="@+id/yourClubsButton" />
 
     <Button
-        android:id="@+id/addClubButton"
-        android:layout_width="256dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="50dp"
-        android:background="#C4D7F2"
-        android:text="@string/addClubButtonStr"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/createClubButton" />
-
-    <Button
         android:id="@+id/findClubButton"
         android:layout_width="256dp"
         android:layout_height="64dp"
@@ -68,7 +57,7 @@
         android:text="@string/findClubButtonStr"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addClubButton" />
+        app:layout_constraintTop_toBottomOf="@+id/createClubButton" />
 
     <Button
         android:id="@+id/signOutButton"

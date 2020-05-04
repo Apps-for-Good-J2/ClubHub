@@ -4,46 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OpeningPage">
+    tools:context=".LeaderOptionsActivity">
 
     <TextView
-        android:id="@+id/openingPageTitle"
+        android:id="@+id/leaderOptionsTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="196dp"
-        android:fontFamily="@font/comfortaa_light"
-        android:gravity="center"
-        android:text="Welcome to ClubHub"
-        android:textColor="#22223B"
-        android:textSize="43sp"
+        android:text="Leader Options"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/leaderLeaveClub"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/loginButton"
-        android:layout_width="256dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="100dp"
-        android:background="#C4D7F2"
-        android:onClick="goToLogin"
-        android:text="Login"
+        android:id="@+id/leaderLeaveClub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="leaveClubLeader"
+        android:text="Leave club"
+        app:layout_constraintBottom_toTopOf="@+id/leaderRevertToMember"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/openingPageTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/leaderOptionsTitle" />
 
     <Button
-        android:id="@+id/signUpButton"
-        android:layout_width="256dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="50dp"
-        android:background="#C4D7F2"
-        android:onClick="goToSignUp"
-        android:text="Sign Up"
+        android:id="@+id/leaderRevertToMember"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="200dp"
+        android:onClick="revertToMember"
+        android:text="Revert to member"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+        app:layout_constraintTop_toBottomOf="@+id/leaderLeaveClub" />
 </androidx.constraintlayout.widget.ConstraintLayout>
