@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#B4DBF6F0"
     tools:context=".ClubDescription">
 
     <TextView
@@ -11,8 +12,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Temp Name"
-        android:textSize="30sp"
+        android:fontFamily="@font/comfortaa_light"
+        android:text="@string/tempname"
+        android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -40,7 +42,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="28dp"
-                android:text="Student Leaders:"
+                android:fontFamily="casual"
+                android:text="@string/studentleaders"
                 android:textSize="24sp" />
 
             <TextView
@@ -57,7 +60,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="20dp"
-                android:text="Teacher Advisor:"
+                android:fontFamily="casual"
+                android:text="@string/teacheradv"
                 android:textSize="24sp" />
 
             <TextView
@@ -72,7 +76,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Description:"
+                android:fontFamily="casual"
+                android:text="@string/descr"
                 android:textSize="24sp" />
 
             <TextView
@@ -88,7 +93,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="15dp"
-                android:text="Meeting Days and Times:"
+                android:fontFamily="casual"
+                android:text="@string/meetingdays"
                 android:textSize="24sp" />
 
             <TextView
@@ -111,7 +117,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Members:"
+                android:fontFamily="casual"
+                android:text="@string/members"
                 android:textSize="24sp" />
 
             <TextView
@@ -128,6 +135,8 @@
                 android:layout_height="108dp"
                 android:layout_marginTop="25dp"
                 android:layout_marginBottom="100dp"
+                android:background="#C4D7F2"
+                android:fontFamily="casual"
                 android:text="@string/leave" />
 
         </LinearLayout>

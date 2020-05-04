@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#B4DBF6F0">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -18,6 +19,7 @@
             android:id="@+id/nameYourNewClub"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="casual"
             android:text="@string/nameYourNewClub"
             android:textSize="24sp" />
 
@@ -26,6 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:fontFamily="sans-serif-light"
             android:inputType="textPersonName"
             android:text="@string/name" />
 
@@ -33,6 +36,7 @@
             android:id="@+id/describeYourClub"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="casual"
             android:text="@string/describeClub"
             android:textSize="24sp" />
 
@@ -41,6 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:fontFamily="sans-serif-light"
             android:gravity="start|top"
             android:inputType="textMultiLine" />
 
@@ -48,6 +53,7 @@
             android:id="@+id/whenDoYouMeet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="casual"
             android:text="@string/when"
             android:textSize="24sp" />
 
@@ -61,42 +67,49 @@
                 android:id="@+id/monday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="casual"
                 android:text="@string/monday" />
 
             <CheckBox
                 android:id="@+id/tuesday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="casual"
                 android:text="@string/tuesday" />
 
             <CheckBox
                 android:id="@+id/wednesday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="casual"
                 android:text="@string/weds" />
 
             <CheckBox
                 android:id="@+id/thursday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="casual"
                 android:text="@string/thursday" />
 
             <CheckBox
                 android:id="@+id/friday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="casual"
                 android:text="@string/fri" />
 
             <CheckBox
                 android:id="@+id/saturday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="casual"
                 android:text="@string/sat" />
 
             <CheckBox
                 android:id="@+id/sunday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="casual"
                 android:text="@string/sun" />
 
         </LinearLayout>
@@ -151,6 +164,8 @@
             android:id="@+id/post"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#C4D7F2"
+            android:fontFamily="casual"
             android:onClick="createClubOnClick"
             android:text="@string/post" />
 

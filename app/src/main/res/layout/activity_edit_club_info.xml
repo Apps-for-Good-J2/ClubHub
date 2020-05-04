@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#B4DBF6F0"
     tools:context=".EditClubInfoActivity">
 
     <TextView
@@ -12,9 +13,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:fontFamily="@font/comfortaa_light"
-        android:text="Edit Club Information"
+        android:text="@string/editclubinfo"
         android:textColor="#22223B"
-        android:textSize="30dp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,9 +23,11 @@
 
     <Button
         android:id="@+id/deleteClubButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="112dp"
+        android:layout_height="49dp"
         android:layout_marginTop="20dp"
+        android:background="#C4D7F2"
+        android:fontFamily="casual"
         android:onClick="deleteClubOnClick"
         android:text="Delete club"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,6 +54,7 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="casual"
                 android:text="@string/clubName" />
 
             <EditText
@@ -58,6 +62,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:fontFamily="casual"
                 android:hint="Name:"
                 android:inputType="textPersonName"
                 android:text="Name" />
@@ -66,6 +71,7 @@
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="casual"
                 android:text="Club Description" />
 
             <EditText
@@ -73,6 +79,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:fontFamily="casual"
                 android:hint="Description:"
                 android:inputType="textPersonName"
                 android:text="Name" />
@@ -81,6 +88,7 @@
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="casual"
                 android:text="Meeting Days" />
 
             <LinearLayout
@@ -93,42 +101,49 @@
                     android:id="@+id/monday2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="casual"
                     android:text="@string/monday" />
 
                 <CheckBox
                     android:id="@+id/tuesday2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="casual"
                     android:text="@string/tuesday" />
 
                 <CheckBox
                     android:id="@+id/wednesday2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="casual"
                     android:text="@string/weds" />
 
                 <CheckBox
                     android:id="@+id/thursday2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="casual"
                     android:text="@string/thursday" />
 
                 <CheckBox
                     android:id="@+id/friday2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="casual"
                     android:text="@string/fri" />
 
                 <CheckBox
                     android:id="@+id/saturday2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="casual"
                     android:text="@string/sat" />
 
                 <CheckBox
                     android:id="@+id/sunday2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="casual"
                     android:text="@string/sun" />
 
             </LinearLayout>
@@ -137,6 +152,7 @@
                 android:id="@+id/editStartTimeText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="casual"
                 android:text="Start Time" />
 
             <Spinner
@@ -148,6 +164,7 @@
                 android:id="@+id/editEndTimeText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="casual"
                 android:text="End Time" />
 
             <Spinner
@@ -159,6 +176,8 @@
                 android:id="@+id/saveInfoButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="#C4D7F2"
+                android:fontFamily="casual"
                 android:onClick="updateClubOnClick"
                 android:text="SAVE INFO" />
         </LinearLayout>
@@ -169,6 +188,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:background="#C4D7F2"
+        android:fontFamily="casual"
         android:onClick="goToManageMemberOnClick"
         android:text="Manage Members"
         app:layout_constraintEnd_toStartOf="@+id/optionsButton"
@@ -181,6 +202,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:background="#C4D7F2"
+        android:fontFamily="casual"
         android:text="Leader options"
         app:layout_constraintEnd_toStartOf="@+id/deleteClubButton"
         app:layout_constraintHorizontal_bias="0.5"

@@ -5,6 +5,7 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#B4DBF6F0"
     tools:context=".FindAClub">
 
     <TextView
@@ -35,6 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
+        android:fontFamily="casual"
         android:text="Click on the club name to view information"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"

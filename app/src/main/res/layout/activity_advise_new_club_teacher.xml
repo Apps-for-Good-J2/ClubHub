@@ -5,6 +5,7 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#B4DBF6F0"
     tools:context=".AdviseNewClubTeacher">
 
     <TextView
@@ -13,9 +14,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/comfortaa_light"
-        android:text="Advise a New Club"
+        android:text="@string/advisenew"
         android:textColor="#4A4E69"
-        android:textSize="30sp"
+        android:textSize="36sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +29,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
-        android:text="Choose a club to see more information about it:"
+        android:fontFamily="casual"
+        android:text="@string/chooseclubinfo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/adviceNewClubText" />
 
@@ -47,7 +50,8 @@
         android:layout_height="75dp"
         android:layout_marginTop="250dp"
         android:background="#C4D7F2"
-        android:text="Get more information"
+        android:fontFamily="casual"
+        android:text="@string/getmoreinfo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chooseClubSpinner" />
