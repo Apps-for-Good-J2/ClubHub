@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="600dp"
+        android:fontFamily="@font/comfortaa_light"
         android:text="@string/app_name"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -25,6 +26,7 @@
         android:layout_marginStart="135dp"
         android:layout_marginTop="13dp"
         android:layout_marginEnd="150dp"
+        android:fontFamily="@font/comfortaa_light"
         android:text="@string/TWmeetings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,6 +39,7 @@
         android:layout_marginStart="36dp"
         android:layout_marginTop="222dp"
         android:layout_marginEnd="296dp"
+        android:fontFamily="@font/comfortaa_light"
         android:text="@string/selecting"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,40 +73,77 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-            <ImageButton
+            <Button
                 android:id="@+id/club1"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:scaleType="fitStart"
-                app:srcCompat="@android:drawable/ic_menu_recent_history" />
+                android:background="#C4D7F2"
+                android:fontFamily="@font/comfortaa_light"
+                android:text="@string/one" />
 
-            <ImageButton
-                android:id="@+id/imageButton2"
+            <TextView
+                android:id="@+id/time1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/comfortaa_light"
+                android:text="@string/MT1" />
+
+            <Button
+                android:id="@+id/club2"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:scaleType="fitStart"
-                app:srcCompat="@android:drawable/ic_menu_recent_history" />
+                android:background="#C4D7F2"
+                android:fontFamily="@font/comfortaa_light"
+                android:text="@string/club2" />
 
-            <ImageButton
-                android:id="@+id/imageButton3"
+            <TextView
+                android:id="@+id/time2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/comfortaa_light"
+                android:text="@string/MT2" />
+
+            <Button
+                android:id="@+id/club3"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:scaleType="fitStart"
-                app:srcCompat="@android:drawable/ic_menu_recent_history" />
+                android:background="#C4D7F2"
+                android:fontFamily="@font/comfortaa_light"
+                android:text="@string/club3" />
 
-            <ImageButton
-                android:id="@+id/imageButton4"
+            <TextView
+                android:id="@+id/time3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/comfortaa_light"
+                android:text="@string/MT3" />
+
+            <Button
+                android:id="@+id/club4"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:scaleType="fitStart"
-                app:srcCompat="@android:drawable/ic_menu_recent_history" />
+                android:background="#C4D7F2"
+                android:fontFamily="@font/comfortaa_light"
+                android:text="@string/four" />
 
-            <ImageButton
-                android:id="@+id/imageButton5"
+            <TextView
+                android:id="@+id/time4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/MT4" />
+
+            <Button
+                android:id="@+id/club5"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:scaleType="fitStart"
-                app:srcCompat="@android:drawable/ic_menu_recent_history" />
+                android:background="#C4D7F2"
+                android:text="@string/five" />
+
+            <TextView
+                android:id="@+id/time5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/MT5" />
         </LinearLayout>
     </ScrollView>
 

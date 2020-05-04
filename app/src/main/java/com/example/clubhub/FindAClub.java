@@ -50,7 +50,7 @@ public class FindAClub extends AppCompatActivity implements
         TextView statusText = findViewById(R.id.finderStatusDisplay);
 
         if(schoolClubs.size() == 0){
-            statusText.setText("There are no clyub");
+            statusText.setText("There are no clubs");
         }
 
         Log.d("TEST", clubs.toString());
