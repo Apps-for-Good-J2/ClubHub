@@ -59,6 +59,8 @@
     <string name="title_activity_edit_club_info">EditClubInfoActivity</string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
+    <string name="time1">"3:30 PM "</string>
+    <string name="time2">4:00 Pm</string>
 
 
 </resources>

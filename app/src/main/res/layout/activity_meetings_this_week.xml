@@ -4,14 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#B4DBF6F0"
     tools:context=".MeetingsThisWeek">
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="174dp"
+        android:layout_height="52dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="600dp"
+        android:fontFamily="@font/comfortaa_light"
         android:text="@string/app_name"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -25,6 +27,7 @@
         android:layout_marginStart="135dp"
         android:layout_marginTop="13dp"
         android:layout_marginEnd="150dp"
+        android:fontFamily="casual"
         android:text="@string/meetings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,6 +40,7 @@
         android:layout_marginStart="36dp"
         android:layout_marginTop="222dp"
         android:layout_marginEnd="296dp"
+        android:fontFamily="casual"
         android:text="Select Day"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,42 +72,78 @@
             android:id="@+id/vertLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
-            <ImageButton
+            <TextView
+                android:id="@+id/time1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/time1" />
+
+            <Button
                 android:id="@+id/club1"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:scaleType="fitStart"
-                app:srcCompat="@android:drawable/ic_menu_recent_history" />
+                android:layout_height="wrap_content"
+                android:background="#C4D7F2"
+                android:fontFamily="casual"
+                android:text="Button" />
 
-            <ImageButton
-                android:id="@+id/imageButton2"
+            <TextView
+                android:id="@+id/time2"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:scaleType="fitStart"
-                app:srcCompat="@android:drawable/ic_menu_recent_history" />
+                android:layout_height="wrap_content"
+                android:text="@string/time2" />
 
-            <ImageButton
-                android:id="@+id/imageButton3"
+            <Button
+                android:id="@+id/club2"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:scaleType="fitStart"
-                app:srcCompat="@android:drawable/ic_menu_recent_history" />
+                android:layout_height="wrap_content"
+                android:background="#C4D7F2"
+                android:fontFamily="casual"
+                android:text="Button" />
 
-            <ImageButton
-                android:id="@+id/imageButton4"
+            <TextView
+                android:id="@+id/time3"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:scaleType="fitStart"
-                app:srcCompat="@android:drawable/ic_menu_recent_history" />
+                android:layout_height="wrap_content"
+                android:text="TextView" />
 
-            <ImageButton
-                android:id="@+id/imageButton5"
+            <Button
+                android:id="@+id/club3"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:scaleType="fitStart"
-                app:srcCompat="@android:drawable/ic_menu_recent_history" />
+                android:layout_height="58dp"
+                android:background="#C4D7F2"
+                android:fontFamily="casual"
+                android:text="Button" />
+
+            <TextView
+                android:id="@+id/time4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+
+            <Button
+                android:id="@+id/club4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#C4D7F2"
+                android:fontFamily="casual"
+                android:text="Button" />
+
+            <TextView
+                android:id="@+id/time5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+
+            <Button
+                android:id="@+id/club5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#C4D7F2"
+                android:fontFamily="casual"
+                android:text="Button" />
+
         </LinearLayout>
     </ScrollView>
 
