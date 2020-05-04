@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LeaderOptionsActivity">
+
+    <TextView
+        android:id="@+id/leaderOptionsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Leader Options"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/leaderLeaveClub"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/leaderLeaveClub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="leaveClubLeader"
+        android:text="Leave club"
+        app:layout_constraintBottom_toTopOf="@+id/leaderRevertToMember"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/leaderOptionsTitle" />
+
+    <Button
+        android:id="@+id/leaderRevertToMember"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="200dp"
+        android:onClick="revertToMember"
+        android:text="Revert to member"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/leaderLeaveClub" />
+</androidx.constraintlayout.widget.ConstraintLayout>

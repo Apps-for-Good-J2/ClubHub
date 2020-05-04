@@ -29,7 +29,7 @@
         android:text="Delete club"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button9"
+        app:layout_constraintStart_toEndOf="@+id/optionsButton"
         app:layout_constraintTop_toBottomOf="@+id/editClubTitle" />
 
     <ScrollView
@@ -133,8 +133,30 @@
 
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/editStartTimeText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Start Time" />
+
+            <Spinner
+                android:id="@+id/editStartTimeSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/editEndTimeText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="End Time" />
+
+            <Spinner
+                android:id="@+id/editEndTimeSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
             <Button
-                android:id="@+id/button6"
+                android:id="@+id/saveInfoButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="updateClubOnClick"
@@ -149,9 +171,20 @@
         android:layout_marginTop="20dp"
         android:onClick="goToManageMemberOnClick"
         android:text="Manage Members"
-        app:layout_constraintEnd_toStartOf="@+id/deleteClubButton"
+        app:layout_constraintEnd_toStartOf="@+id/optionsButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editClubTitle" />
+
+    <Button
+        android:id="@+id/optionsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Leader options"
+        app:layout_constraintEnd_toStartOf="@+id/deleteClubButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button9"
         app:layout_constraintTop_toBottomOf="@+id/editClubTitle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
