@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#B4DBF6F0"
     tools:context=".ManageMembersActivity">
 
     <TextView
@@ -11,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
+        android:fontFamily="@font/comfortaa_light"
         android:text="Manage Club Members"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,8 +22,8 @@
 
     <ListView
         android:id="@+id/manageMembersListView"
-        android:layout_width="550dp"
-        android:layout_height="700dp"
+        android:layout_width="331dp"
+        android:layout_height="639dp"
         android:layout_marginTop="35dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -30,9 +32,11 @@
 
     <Button
         android:id="@+id/button7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="121dp"
+        android:layout_height="50dp"
         android:layout_marginTop="35dp"
+        android:background="#C4D7F2"
+        android:fontFamily="casual"
         android:onClick="makeMemberLeader"
         android:text="Make leader"
         app:layout_constraintEnd_toStartOf="@+id/button8"
@@ -42,9 +46,11 @@
 
     <Button
         android:id="@+id/button8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="137dp"
+        android:layout_height="49dp"
         android:layout_marginTop="35dp"
+        android:background="#C4D7F2"
+        android:fontFamily="casual"
         android:onClick="removeSelectedMemberOnClick"
         android:text="Remove member"
         app:layout_constraintEnd_toEndOf="parent"

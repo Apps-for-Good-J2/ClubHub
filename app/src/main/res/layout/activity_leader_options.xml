@@ -4,14 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#B4DBF6F0"
     tools:context=".LeaderOptionsActivity">
 
     <TextView
         android:id="@+id/leaderOptionsTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/comfortaa_light"
         android:text="Leader Options"
-        android:textSize="30sp"
+        android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/leaderLeaveClub"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -20,8 +22,10 @@
 
     <Button
         android:id="@+id/leaderLeaveClub"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="114dp"
+        android:layout_height="49dp"
+        android:background="#C4D7F2"
+        android:fontFamily="casual"
         android:onClick="leaveClubLeader"
         android:text="Leave club"
         app:layout_constraintBottom_toTopOf="@+id/leaderRevertToMember"
@@ -32,9 +36,11 @@
 
     <Button
         android:id="@+id/leaderRevertToMember"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="148dp"
+        android:layout_height="52dp"
         android:layout_marginBottom="200dp"
+        android:background="#C4D7F2"
+        android:fontFamily="casual"
         android:onClick="revertToMember"
         android:text="Revert to member"
         app:layout_constraintBottom_toBottomOf="parent"

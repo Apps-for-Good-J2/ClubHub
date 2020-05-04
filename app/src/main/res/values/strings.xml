@@ -59,23 +59,6 @@
     <string name="title_activity_edit_club_info">EditClubInfoActivity</string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
-    <string name="selecting">"Select a day: "</string>
-    <string name="TWmeetings">This Week\'s Meetings</string>
-    <string name="four">club 4</string>
-    <string name="five">club 5</string>
-    <string name="MT1">CLUB1 meets at 3:30 PM</string>
-    <string name="MT2">CLUB2 meets at 4:00 PM</string>
-    <string name="MT3">CLUB3 meets at 4:30 PM</string>
-    <string name="MT4">CLUB4 meets at 5:00 PM</string>
-    <string name="MT5">CLUB5 meets at 5:30 PM</string>
-    <string-array name = "days_array">
-        <item>Monday</item>
-        <item>Tuesday</item>
-        <item>Wednesday</item>
-        <item>Thursday</item>
-        <item>Friday</item>
-        <item>Saturday</item>
-        <item>Sunday</item>
-    </string-array>
+
 
 </resources>
