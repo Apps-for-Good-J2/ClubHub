@@ -77,7 +77,7 @@ public class FindAClub extends AppCompatActivity implements
         String currentSchoolID = (TeacherManager.getTeacher(currentUser.getUid()).getSchoolID());
         ArrayList<String> schoolClubs = SchoolManager.getSchool(currentSchoolID).getClubs();
         for(String clubRef : schoolClubs){
-            if(!ClubManager.getClub(clubRef).isHasTeacherAdviser()){
+            if(!ClubManager.getClub(clubRef).hasTeacherAdviser()){
                 clubs.add(ClubManager.getClub(clubRef));
             }
         }

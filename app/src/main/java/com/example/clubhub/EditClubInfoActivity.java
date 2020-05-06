@@ -7,6 +7,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -82,6 +83,8 @@ public class EditClubInfoActivity extends AppCompatActivity {
             optionsButton.setOnClickListener(new goToTeacherOptionsOnClick());
         }
     }
+
+
 
     private void initiateInformation(){
 

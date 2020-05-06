@@ -65,7 +65,7 @@ public class ClubManager{
 		}
 
 		// Clean up teacher
-		if(thisClub.isHasTeacherAdviser()){
+		if(thisClub.hasTeacherAdviser()){
 			Teacher teacher = TeacherManager.getTeacher(thisClub.getTeacherID());
 			teacher.removeAdvisingClub(clubID);
 		}

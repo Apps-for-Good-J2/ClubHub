@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -69,6 +68,7 @@ public class ClubDescription extends AppCompatActivity {
         }
         // else if this user is a teacher and not this clubs adviser
         else if(TeacherManager.getTeacher(currentUser.getUid())  != null && !thisClub.getTeacherID().equals(currentUser.getUid())){
+
             button.setOnClickListener(new adviseClubOnClickListener());
             button.setText("ADVISE CLUB");
         }
@@ -77,6 +77,8 @@ public class ClubDescription extends AppCompatActivity {
             button.setText("JOIN CLUB");
         }
     }
+
+
 
     @SuppressLint("SetTextI18n")
     private void setTextViews(){
@@ -88,7 +90,7 @@ public class ClubDescription extends AppCompatActivity {
         descriptionText.setText(thisClub.getDescription());
 
         TextView teacherNameText = findViewById(R.id.leaveTeacherAdvisorText2);
-        if(thisClub.isHasTeacherAdviser()){
+        if(thisClub.hasTeacherAdviser()){
             teacherNameText.setText(TeacherManager.getTeacher(thisClub.getTeacherID()).toString());
         }
         else{
@@ -198,11 +200,10 @@ public class ClubDescription extends AppCompatActivity {
 
         @Override
         public void onClick(View v) {
-            if(!thisClub.isHasTeacherAdviser()) {
+            if(!thisClub.hasTeacherAdviser()) {
                 Teacher thisTeacher = TeacherManager.getTeacher(currentUser.getUid());
                 thisTeacher.addAdvisingClub(thisClubID);
                 thisClub.setTeacherID(thisTeacher.getFirebaseID());
-                thisClub.setHasTeacherAdviser(true);
                 thisClub.updateObjectDatabase();
             }
 

@@ -5,12 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 
@@ -22,6 +26,8 @@ public class TeacherOptionsActivity extends AppCompatActivity {
     private Student selectedLeader;
     private ArrayList<Student> leaders;
 
+    private Teacher thisTeacher;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,16 +35,29 @@ public class TeacherOptionsActivity extends AppCompatActivity {
         Intent intent = getIntent();
         thisClubID = intent.getStringExtra("clubID");
         thisClub = ClubManager.getClub(thisClubID);
+        thisTeacher = TeacherManager.getTeacher(FirebaseAuth.getInstance().getUid());
 
         selectedLeader = null;
 
         initiateLeaders();
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("TEACHER", thisTeacher.getFirebaseID() + " " + thisClub.getTeacherID());
+        if(!thisTeacher.getFirebaseID().equals(thisClub.getTeacherID())){
+            Intent intent = new Intent(this, ClubHubTeacher.class);
+            Log.d("TEACHER", "Invalid teacher");
+
+            startActivity(intent);
+        }
+
+    }
+
     private void initiateLeaders(){
 
         leaders = new ArrayList<>();
-
 
         for(String leaderRef : thisClub.getlIDs()){
             leaders.add(StudentManager.getStudent(leaderRef));
@@ -80,6 +99,14 @@ public class TeacherOptionsActivity extends AppCompatActivity {
         thisClub.addMemberFirebase(selectedLeader.getID());
         selectedLeader.addUserToClubAsMemberFirebase(thisClubID);
         removeLeaderFromClub(v);
+    }
+
+    public void leaveClubTeacher(View v){
+        thisTeacher.removeAdvisingClub(thisClubID);
+        thisClub.setTeacherID("");
+        thisClub.updateObjectDatabase();
+        Intent intent = new Intent(this, YourClubsTeacher.class);
+        startActivity(intent);
     }
 
     private boolean checkNumLeaders(){

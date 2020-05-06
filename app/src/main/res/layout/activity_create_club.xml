@@ -7,115 +7,121 @@
     android:layout_height="match_parent"
     android:background="#B4DBF6F0">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="150dp"
-        android:gravity="center|top"
-        android:orientation="vertical"
+    <ScrollView
+        android:layout_width="598dp"
+        android:layout_height="800dp"
+        android:layout_marginTop="50dp"
+        android:foregroundGravity="center_horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/startClubTitle">
 
-
-        <TextView
-            android:id="@+id/nameYourNewClub"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:text="@string/nameYourNewClub"
-            android:textSize="24sp" />
-
-        <EditText
-            android:id="@+id/startClubName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Name:"
-            android:inputType="textPersonName"
-            android:textAlignment="center" />
-
-        <TextView
-            android:id="@+id/describeYourClub"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:text="@string/describeClub"
-            android:textSize="24sp" />
-
-        <EditText
-            android:id="@+id/fillClubDesc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="start|top"
-            android:hint="Description:"
-            android:inputType="textMultiLine"
-            android:textAlignment="center" />
-
-        <TextView
-            android:id="@+id/whenDoYouMeet"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:text="@string/when"
-            android:textSize="24sp" />
-
         <LinearLayout
-            android:id="@+id/dayz"
-            android:layout_width="wrap_content"
-            android:layout_height="220dp"
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|top"
             android:orientation="vertical">
 
-            <CheckBox
-                android:id="@+id/monday"
-                android:layout_width="match_parent"
+
+            <TextView
+                android:id="@+id/nameYourNewClub"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/monday" />
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="@string/nameYourNewClub"
+                android:textSize="24sp" />
 
-            <CheckBox
-                android:id="@+id/tuesday"
-                android:layout_width="match_parent"
+            <EditText
+                android:id="@+id/startClubName"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tuesday" />
+                android:ems="10"
+                android:hint="Name:"
+                android:inputType="textPersonName"
+                android:textAlignment="center" />
 
-            <CheckBox
-                android:id="@+id/wednesday"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/describeYourClub"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/weds" />
+                android:paddingTop="10dp"
+                android:text="@string/describeClub"
+                android:textSize="24sp" />
 
-            <CheckBox
-                android:id="@+id/thursday"
-                android:layout_width="match_parent"
+            <EditText
+                android:id="@+id/fillClubDesc"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/thursday" />
+                android:ems="10"
+                android:gravity="center_vertical"
+                android:hint="Description:"
+                android:inputType="textMultiLine"
+                android:textAlignment="center"
+                tools:ignore="RtlCompat" />
 
-            <CheckBox
-                android:id="@+id/friday"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/whenDoYouMeet"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/fri" />
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="@string/when"
+                android:textSize="24sp" />
 
-            <CheckBox
-                android:id="@+id/saturday"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/sat" />
+            <LinearLayout
+                android:id="@+id/dayz"
+                android:layout_width="wrap_content"
+                android:layout_height="220dp"
+                android:orientation="vertical">
 
-            <CheckBox
-                android:id="@+id/sunday"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/sun" />
+                <CheckBox
+                    android:id="@+id/monday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/monday" />
 
-        </LinearLayout>
+                <CheckBox
+                    android:id="@+id/tuesday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tuesday" />
 
-        <!--
+                <CheckBox
+                    android:id="@+id/wednesday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/weds" />
+
+                <CheckBox
+                    android:id="@+id/thursday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/thursday" />
+
+                <CheckBox
+                    android:id="@+id/friday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fri" />
+
+                <CheckBox
+                    android:id="@+id/saturday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sat" />
+
+                <CheckBox
+                    android:id="@+id/sunday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sun" />
+
+            </LinearLayout>
+
+            <!--
 
         <TextView
             android:id="@+id/selectRole"
@@ -161,43 +167,44 @@
                 android:text="@string/Secretary" />
         </RadioGroup> -->
 
-        <TextView
-            android:id="@+id/startTimeText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:text="Select the starting time"
-            android:textSize="24sp" />
+            <TextView
+                android:id="@+id/startTimeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="Select the starting time"
+                android:textSize="24sp" />
 
-        <Spinner
-            android:id="@+id/timeSpinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            <Spinner
+                android:id="@+id/timeSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-        <TextView
-            android:id="@+id/endingTimeText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:paddingRight="10dp"
-            android:text="Select the ending time"
-            android:textSize="24sp" />
+            <TextView
+                android:id="@+id/endingTimeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:text="Select the ending time"
+                android:textSize="24sp" />
 
-        <Spinner
-            android:id="@+id/endingTimeSpinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            <Spinner
+                android:id="@+id/endingTimeSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-        <Button
-            android:id="@+id/post"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="createClubOnClick"
-            android:paddingTop="10dp"
-            android:text="@string/post" />
+            <Button
+                android:id="@+id/post"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="createClubOnClick"
+                android:paddingTop="10dp"
+                android:text="@string/post" />
 
-    </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
     <TextView
         android:id="@+id/startClubTitle"
