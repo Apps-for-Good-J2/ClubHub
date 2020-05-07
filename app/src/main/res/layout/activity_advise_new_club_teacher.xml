@@ -31,6 +31,7 @@
         android:layout_marginTop="24dp"
         android:fontFamily="casual"
         android:text="@string/chooseclubinfo"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/adviceNewClubText" />
 
@@ -52,6 +53,7 @@
         android:background="#C4D7F2"
         android:fontFamily="casual"
         android:text="@string/getmoreinfo"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chooseClubSpinner" />
