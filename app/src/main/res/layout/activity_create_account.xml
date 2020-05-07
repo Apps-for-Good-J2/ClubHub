@@ -30,6 +30,7 @@
         android:fontFamily="casual"
         android:hint="Email"
         android:inputType="textPersonName"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,6 +45,7 @@
         android:fontFamily="casual"
         android:onClick="createAccountOnClick"
         android:text="Next"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createAccountRadioGroup" />
@@ -57,6 +59,7 @@
         android:fontFamily="casual"
         android:hint="Password"
         android:inputType="textPassword"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -71,6 +74,7 @@
         android:fontFamily="casual"
         android:hint="Username"
         android:inputType="textPersonName"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/selectSchoolSpinner" />
@@ -94,6 +98,7 @@
         android:onClick="createNewSchoolOnClick"
         android:text="dont see your school?"
         android:textColor="#000000"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -114,14 +119,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="casual"
-            android:text="I am a student" />
+            android:text="I am a student"
+            android:textStyle="bold" />
 
         <RadioButton
             android:id="@+id/createAccountTeacherRadio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="casual"
-            android:text="I am a teacher" />
+            android:text="I am a teacher"
+            android:textStyle="bold" />
     </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

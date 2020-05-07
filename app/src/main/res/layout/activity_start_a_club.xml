@@ -21,7 +21,8 @@
             android:layout_height="wrap_content"
             android:fontFamily="casual"
             android:text="@string/nameYourNewClub"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/startClubName"
@@ -38,7 +39,8 @@
             android:layout_height="wrap_content"
             android:fontFamily="casual"
             android:text="@string/describeClub"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/fillClubDesc"
@@ -55,7 +57,8 @@
             android:layout_height="wrap_content"
             android:fontFamily="casual"
             android:text="@string/when"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:id="@+id/dayz"
@@ -68,49 +71,56 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="casual"
-                android:text="@string/monday" />
+                android:text="@string/monday"
+                android:textStyle="bold" />
 
             <CheckBox
                 android:id="@+id/tuesday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="casual"
-                android:text="@string/tuesday" />
+                android:text="@string/tuesday"
+                android:textStyle="bold" />
 
             <CheckBox
                 android:id="@+id/wednesday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="casual"
-                android:text="@string/weds" />
+                android:text="@string/weds"
+                android:textStyle="bold" />
 
             <CheckBox
                 android:id="@+id/thursday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="casual"
-                android:text="@string/thursday" />
+                android:text="@string/thursday"
+                android:textStyle="bold" />
 
             <CheckBox
                 android:id="@+id/friday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="casual"
-                android:text="@string/fri" />
+                android:text="@string/fri"
+                android:textStyle="bold" />
 
             <CheckBox
                 android:id="@+id/saturday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="casual"
-                android:text="@string/sat" />
+                android:text="@string/sat"
+                android:textStyle="bold" />
 
             <CheckBox
                 android:id="@+id/sunday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="casual"
-                android:text="@string/sun" />
+                android:text="@string/sun"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -167,7 +177,8 @@
             android:background="#C4D7F2"
             android:fontFamily="casual"
             android:onClick="createClubOnClick"
-            android:text="@string/post" />
+            android:text="@string/post"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

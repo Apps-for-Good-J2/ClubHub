@@ -39,6 +39,7 @@
         android:fontFamily="casual"
         android:text="Click on the club name to view information"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/clubFinder" />
