@@ -17,7 +17,6 @@ public class Club extends DatabaseObject{
 	private String schoolID;
 	private String teacherID;
 	private MeetingInfo meetingInfo;
-	private boolean hasTeacherAdviser;
 
 
 
@@ -35,7 +34,7 @@ public class Club extends DatabaseObject{
         schoolID = "";
         meetingInfo = new MeetingInfo();
         teacherID = "";
-        hasTeacherAdviser = false;
+
     }
 
 
@@ -58,7 +57,7 @@ public class Club extends DatabaseObject{
 		this.schoolID = schoolID;
 		this.meetingInfo = meetingInfo;
 		teacherID = "";
-		hasTeacherAdviser = false;
+
 	}
 
 
@@ -227,13 +226,11 @@ public class Club extends DatabaseObject{
 		this.teacherID = teacherID;
 	}
 
-	public boolean isHasTeacherAdviser() {
-		return hasTeacherAdviser;
+	public boolean hasTeacherAdviser() {
+		return !teacherID.equals("");
 	}
 
-	public void setHasTeacherAdviser(boolean hasTeacherAdviser) {
-		this.hasTeacherAdviser = hasTeacherAdviser;
-	}
+
 
 
 	//endregion

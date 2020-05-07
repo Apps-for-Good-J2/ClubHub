@@ -59,8 +59,42 @@
     <string name="title_activity_edit_club_info">EditClubInfoActivity</string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
-    <string name="time1">"3:30 PM "</string>
-    <string name="time2">4:00 Pm</string>
+
+    <string name="advisenew">Advise A New Club</string>
+    <string name="chooseclubinfo">Choose a club to see more information about it:</string>
+    <string name="getmoreinfo">Get more information</string>
+    <string name="chstudent">ClubHub Student</string>
+    <string name="signout">Sign Out</string>
+    <string name="chteacher">ClubHub Teacher</string>
+    <string name="enterschoolname">Enter School Name:</string>
+    <string name="createschool">Create a School</string>
+    <string name="back">BACK</string>
+    <string name="create">CREATE</string>
+    <string name="editclubinfo">Edit Club Information</string>
+    <string name="login">Login</string>
+    <string name="emailhint">Email:</string>
+    <string name="passwordhint">Password:</string>
+    <string name="welcometoch">Welcome to ClubHub:</string>
+    <string name="signup">Sign up</string>
+    <string name="tempname">Temp Name</string>
+    <string name="studentleaders">Student Leaders:</string>
+    <string name="teacheradv">Teacher Advisor:</string>
+    <string name="descr">Description:</string>
+    <string name="meetingdays">Meeting Days and Times:</string>
+    <string name="members">Members:</string>
+    <string name="memberclubs">Your member Clubs</string>
+    <string name="lead">leader</string>
+    <string name="memb">member</string>
+    <string name="backmain">Back to main</string>
+    <string name="lead">leader</string>
+    <string name="lead">leader</string>
+    <string name="lead">leader</string>
+    <string name="lead">leader</string>
+    <string name="lead">leader</string>
+
+
+
+
 
 
 </resources>
