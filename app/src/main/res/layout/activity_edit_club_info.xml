@@ -30,6 +30,7 @@
         android:fontFamily="casual"
         android:onClick="deleteClubOnClick"
         android:text="@string/delete_club"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/optionsButton"
@@ -57,6 +58,7 @@
                 android:fontFamily="casual"
                 android:text="@string/clubName"
                 android:textSize="24sp" />
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/clubEditName"
@@ -75,6 +77,7 @@
                 android:fontFamily="casual"
                 android:text="@string/club_description"
                 android:textSize="24sp" />
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/clubEditDesc"
@@ -93,6 +96,7 @@
                 android:fontFamily="casual"
                 android:text="@string/meeting_days"
                 android:textSize="24sp" />
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:id="@+id/dayz2"
@@ -105,49 +109,56 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="casual"
-                    android:text="@string/monday" />
+                    android:text="@string/monday"
+                    android:textStyle="bold" />
 
                 <CheckBox
                     android:id="@+id/tuesday2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="casual"
-                    android:text="@string/tuesday" />
+                    android:text="@string/tuesday"
+                    android:textStyle="bold" />
 
                 <CheckBox
                     android:id="@+id/wednesday2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="casual"
-                    android:text="@string/weds" />
+                    android:text="@string/weds"
+                    android:textStyle="bold" />
 
                 <CheckBox
                     android:id="@+id/thursday2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="casual"
-                    android:text="@string/thursday" />
+                    android:text="@string/thursday"
+                    android:textStyle="bold" />
 
                 <CheckBox
                     android:id="@+id/friday2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="casual"
-                    android:text="@string/fri" />
+                    android:text="@string/fri"
+                    android:textStyle="bold" />
 
                 <CheckBox
                     android:id="@+id/saturday2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="casual"
-                    android:text="@string/sat" />
+                    android:text="@string/sat"
+                    android:textStyle="bold" />
 
                 <CheckBox
                     android:id="@+id/sunday2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="casual"
-                    android:text="@string/sun" />
+                    android:text="@string/sun"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -156,6 +167,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="casual"
+                android:textStyle="bold" />
                 android:text="@string/start_time"
                 android:textSize="24sp" />
 
@@ -171,6 +183,7 @@
                 android:fontFamily="casual"
                 android:text="@string/end_time"
                 android:textSize="24sp" />
+                android:textStyle="bold" />
 
             <Spinner
                 android:id="@+id/editEndTimeSpinner"
@@ -185,6 +198,7 @@
                 android:fontFamily="casual"
                 android:onClick="updateClubOnClick"
                 android:text="@string/save_info" />
+                android:textStyle="bold" />
         </LinearLayout>
     </ScrollView>
 
@@ -197,6 +211,7 @@
         android:fontFamily="casual"
         android:onClick="goToManageMemberOnClick"
         android:text="@string/manage_members"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/optionsButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -210,6 +225,7 @@
         android:background="#C4D7F2"
         android:fontFamily="casual"
         android:text="@string/leader_options"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/deleteClubButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button9"

@@ -31,6 +31,7 @@
         android:fontFamily="casual"
         android:text="@string/memberclubs"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -49,6 +50,7 @@
         android:fontFamily="casual"
         android:onClick="memberOnClick"
         android:text="@string/member"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title" />
@@ -64,6 +66,7 @@
         android:fontFamily="casual"
         android:onClick="leaderOnClick"
         android:text="@string/leaderButton"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title" />
@@ -79,6 +82,7 @@
         android:fontFamily="casual"
         android:onClick="backOnClick"
         android:text="@string/backmain"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

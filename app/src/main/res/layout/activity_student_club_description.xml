@@ -44,7 +44,8 @@
                 android:layout_marginTop="28dp"
                 android:fontFamily="casual"
                 android:text="@string/studentleaders"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/studentLeaderDisplay"
@@ -62,7 +63,8 @@
                 android:layout_marginTop="20dp"
                 android:fontFamily="casual"
                 android:text="@string/teacheradv"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/leaveTeacherAdvisorText2"
@@ -78,7 +80,8 @@
                 android:layout_marginTop="20dp"
                 android:fontFamily="casual"
                 android:text="@string/descr"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/descriptionFillInText2"
@@ -95,7 +98,8 @@
                 android:layout_marginTop="15dp"
                 android:fontFamily="casual"
                 android:text="@string/meetingdays"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/meetingTimeDisplay"
@@ -119,7 +123,8 @@
                 android:layout_marginTop="20dp"
                 android:fontFamily="casual"
                 android:text="@string/members"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/studentMemberDisplay"
@@ -137,7 +142,8 @@
                 android:layout_marginBottom="100dp"
                 android:background="#C4D7F2"
                 android:fontFamily="casual"
-                android:text="@string/leave" />
+                android:text="@string/leave"
+                android:textStyle="bold" />
 
         </LinearLayout>
     </ScrollView>
