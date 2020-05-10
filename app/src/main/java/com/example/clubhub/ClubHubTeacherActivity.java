@@ -8,7 +8,7 @@ import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class ClubHubTeacher extends AppCompatActivity {
+public class ClubHubTeacherActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,19 +16,28 @@ public class ClubHubTeacher extends AppCompatActivity {
         setContentView(R.layout.activity_club_hub_teacher);
     }
 
+    /**
+     * Sends the user to FindAClubActivity
+     */
     public void goToClubFinder(View v){
-        Intent intent = new Intent(this, FindAClub.class);
+        Intent intent = new Intent(this, FindAClubActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Sends the user to YourClubsTeacherActivity
+     */
     public void goToClubList(View v){
-        Intent intent = new Intent(this, YourClubsTeacher.class);
+        Intent intent = new Intent(this, YourClubsTeacherActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Signs this user out and kicks to opening
+     */
     public void SignOut(View v){
         FirebaseAuth.getInstance().signOut();
-        Intent intent = new Intent(this, OpeningPage.class);
+        Intent intent = new Intent(this, OpeningPageActivity.class);
         startActivity(intent);
     }
 }

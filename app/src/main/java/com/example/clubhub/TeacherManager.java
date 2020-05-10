@@ -5,9 +5,12 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 
+/**
+ * Class to manage getting and setting teacher info
+ */
 public class TeacherManager {
 
-    private static HashMap<String, Teacher> teachers  = new HashMap<String, Teacher>();
+    private static HashMap<String, Teacher> teachers  = new HashMap<>();
 
     /**
      * Creates a new Teacher object and stores it in the database with
@@ -36,8 +39,8 @@ public class TeacherManager {
     /**
      * Puts a teacher into the TeacherManager's club HashMap
      * ONly to be used by the initiateUsers method
-     * @param ID
-     * @param s
+     * @param ID the ID of the teacher
+     * @param s the Teacher object to add
      */
     public static void putTeacher(String ID, Teacher s){
         teachers.put(ID, s);

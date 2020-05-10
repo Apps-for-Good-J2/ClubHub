@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#B4DBF6F0"
-    tools:context=".YourClubsStudent">
+    tools:context=".YourClubsStudentActivity">
 
     <TextView
         android:id="@+id/title"

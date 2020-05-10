@@ -10,7 +10,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ListView;
 
 
@@ -20,8 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FindAClub extends AppCompatActivity implements
-        AdapterView.OnItemSelectedListener{
+public class FindAClubActivity extends AppCompatActivity{
 
     private Spinner schoolSpinner;
     private TextView schoolText;
@@ -61,7 +59,7 @@ public class FindAClub extends AppCompatActivity implements
 
                 Club nClub = clubs.get(position);
 
-                Intent intent = new Intent(FindAClub.this, ClubDescription.class);
+                Intent intent = new Intent(FindAClubActivity.this, ClubDescriptionActivity.class);
                 intent.putExtra("clubID", nClub.getNumID());
                 startActivity(intent);
             }
@@ -73,6 +71,10 @@ public class FindAClub extends AppCompatActivity implements
 
     }
 
+    /**
+     * Displays all clubs that do not have a teacher adviser
+     */
+    @SuppressLint("SetTextI18n")
     private void setupClubTeacher() {
         String currentSchoolID = (TeacherManager.getTeacher(currentUser.getUid()).getSchoolID());
         ArrayList<String> schoolClubs = SchoolManager.getSchool(currentSchoolID).getClubs();
@@ -89,6 +91,9 @@ public class FindAClub extends AppCompatActivity implements
         }
     }
 
+    /**
+     * Displays all the clubs that this student is not a part of
+     */
     @SuppressLint("SetTextI18n")
     private void setupClubStudent(){
         //region Used to set up the list of clubs
@@ -108,13 +113,4 @@ public class FindAClub extends AppCompatActivity implements
     }
 
 
-    //Performing action onItemSelected and onNothing selected
-    @Override
-    public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
-        Toast.makeText(getApplicationContext(),school.get(position) , Toast.LENGTH_LONG).show();
-    }
-    @Override
-    public void onNothingSelected(AdapterView<?> arg0) {
-        // TODO Auto-generated method stub
-    }
 }

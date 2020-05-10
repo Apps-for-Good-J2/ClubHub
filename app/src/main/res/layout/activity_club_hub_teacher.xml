@@ -5,21 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#B4DBF6F0"
-    tools:context=".ClubHubTeacher">
+    tools:context=".ClubHubTeacherActivity">
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/teacherCLubFinderButton"
         android:layout_width="104dp"
         android:layout_height="48dp"
         android:background="#C4D7F2"
         android:fontFamily="casual"
         android:onClick="goToClubFinder"
         android:text="@string/clubFinderStr"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/teacherSignOutButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
+        app:layout_constraintTop_toBottomOf="@+id/teacherYourClubButton" />
 
     <TextView
         android:id="@+id/clubHubTeacherTitle"
@@ -36,7 +36,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/teacherSignOutButton"
         android:layout_width="129dp"
         android:layout_height="71dp"
         android:layout_marginBottom="250dp"
@@ -50,14 +50,14 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/teacherYourClubButton"
         android:layout_width="102dp"
         android:layout_height="49dp"
         android:background="#C4D7F2"
         android:fontFamily="casual"
         android:onClick="goToClubList"
         android:text="@string/yourClubs"
-        app:layout_constraintBottom_toTopOf="@+id/button5"
+        app:layout_constraintBottom_toTopOf="@+id/teacherCLubFinderButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

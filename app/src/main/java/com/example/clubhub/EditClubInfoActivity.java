@@ -7,7 +7,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -23,25 +22,21 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class EditClubInfoActivity extends AppCompatActivity {
-
-    private static final String TAG = "EditClub";
 
     EditText nameBox;
     EditText descBox;
 
     private CheckBox mon, tues, wed, thurs, fri, sat, sun;
     private ArrayList<CheckBox> dayBoxes;
-    private Button optionsButton;
 
     private String thisClubID;
     private Club thisClub;
     private String endingTime;
     private String beginningTime;
 
-    private Spinner beginTimeSpinner;
-    private Spinner endingTimeSpinner;
     private ArrayList<String> beginTimes;
     private ArrayList<String> endTimes;
 
@@ -58,7 +53,7 @@ public class EditClubInfoActivity extends AppCompatActivity {
 
         nameBox = findViewById(R.id.clubEditName);
         descBox = findViewById(R.id.clubEditDesc);
-        optionsButton = findViewById(R.id.optionsButton);
+        Button optionsButton = findViewById(R.id.optionsButton);
 
         mon = findViewById(R.id.monday2);
         tues = findViewById(R.id.tuesday2);
@@ -74,6 +69,9 @@ public class EditClubInfoActivity extends AppCompatActivity {
 
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
+        // Checks if user editing is a leader or teacher
+
+        assert currentUser != null;
         if(thisClub.isLeader(currentUser.getUid())){
             optionsButton.setText("Leader Options");
             optionsButton.setOnClickListener(new goToLeaderOptionsOnClick());
@@ -85,7 +83,9 @@ public class EditClubInfoActivity extends AppCompatActivity {
     }
 
 
-
+    /**
+     * Sets the input fields to automatically contain the clubs current info
+     */
     private void initiateInformation(){
 
         nameBox.setText(thisClub.getName());
@@ -99,6 +99,10 @@ public class EditClubInfoActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Sets the information in the input fields as the club's
+     * new information
+     */
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void saveInformation(){
 
@@ -116,6 +120,9 @@ public class EditClubInfoActivity extends AppCompatActivity {
                 Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * Initiates the Spinners for selecting beginning and end times
+     */
     private void initiateSpinners(){
         //region Spinner init
 
@@ -124,11 +131,11 @@ public class EditClubInfoActivity extends AppCompatActivity {
         Time startTime = new Time(7,0);
         Time endTime = new Time(21,0);
 
-        beginTimeSpinner = findViewById(R.id.editStartTimeSpinner);
+        Spinner beginTimeSpinner = findViewById(R.id.editStartTimeSpinner);
         beginTimes = Time.giveListTimesBetween(startTime, endTime);
         beginTimes.add(0, thisClub.getMeetingInfo().getMeetingStartTime());
 
-        ArrayAdapter<String> timeAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, beginTimes);
+        ArrayAdapter<String> timeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, beginTimes);
         timeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         beginTimeSpinner.setAdapter(timeAdapter);
         beginTimeSpinner.setOnItemSelectedListener(new BeginningTimeSpinner());
@@ -140,11 +147,11 @@ public class EditClubInfoActivity extends AppCompatActivity {
         startTime = new Time(7,0);
         endTime = new Time(21,0);
 
-        endingTimeSpinner = findViewById(R.id.editEndTimeSpinner);
+        Spinner endingTimeSpinner = findViewById(R.id.editEndTimeSpinner);
         endTimes = Time.giveListTimesBetween(startTime, endTime);
         endTimes.add(0,  thisClub.getMeetingInfo().getMeetingEndTime());
 
-        ArrayAdapter<String> timeAdapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, endTimes);
+        ArrayAdapter<String> timeAdapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, endTimes);
         timeAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         endingTimeSpinner.setAdapter(timeAdapter2);
         endingTimeSpinner.setOnItemSelectedListener(new EndingTimeSpinner());
@@ -163,6 +170,11 @@ public class EditClubInfoActivity extends AppCompatActivity {
         return days;
     }
 
+
+    /**
+     * Checks input fields for invalid input
+     * @return true is all input if valid, false if otherwise
+     */
     private boolean checkForInvalidInput(){
         if(nameBox.getText().toString().isEmpty()){
             Toast.makeText(this, "Please enter a valid name", Toast.LENGTH_SHORT).show();
@@ -191,6 +203,9 @@ public class EditClubInfoActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * OnCLick to save the club info currently in the input field to the database
+     */
     @RequiresApi(api = Build.VERSION_CODES.N)
     public void updateClubOnClick(View v){
 
@@ -199,26 +214,35 @@ public class EditClubInfoActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Deletes a club from the database
+     */
     public void deleteClubOnClick(View v){
         ClubManager.deleteClub(thisClubID);
 
         Intent intent;
 
-        if(StudentManager.getStudent(FirebaseAuth.getInstance().getCurrentUser().getUid()) != null)
-            intent = new Intent(this, ClubHubStudent.class);
+        if(StudentManager.getStudent(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid()) != null)
+            intent = new Intent(this, ClubHubStudentActivity.class);
         else{
-            intent = new Intent(this, ClubHubTeacher.class);
+            intent = new Intent(this, ClubHubTeacherActivity.class);
         }
 
         startActivity(intent);
     }
 
+    /**
+     * OnClick to manageMembersActivity
+     */
     public void goToManageMemberOnClick(View v){
         Intent intent = new Intent(this, ManageMembersActivity.class);
         intent.putExtra("clubID", thisClubID);
         startActivity(intent);
     }
 
+    /**
+     * OnClick to LeaderOptionsActivity
+     */
     private class goToLeaderOptionsOnClick implements View.OnClickListener
     {
 
@@ -230,6 +254,9 @@ public class EditClubInfoActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * OnClick to TeacherOptionActivity
+     */
     private class goToTeacherOptionsOnClick implements View.OnClickListener
     {
 
@@ -241,7 +268,11 @@ public class EditClubInfoActivity extends AppCompatActivity {
         }
     }
 
-    //region Spinner classes
+    // region Spinner classes
+
+    /**
+     * Spinner class for beginningTime
+     */
     class BeginningTimeSpinner implements AdapterView.OnItemSelectedListener{
 
         @Override
@@ -256,6 +287,9 @@ public class EditClubInfoActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * Spinner class for ending time
+     */
     class EndingTimeSpinner implements AdapterView.OnItemSelectedListener{
 
         @Override
@@ -268,6 +302,8 @@ public class EditClubInfoActivity extends AppCompatActivity {
 
         }
     }
+
+    // endregion
 }
 
 

@@ -40,10 +40,18 @@ public class SchoolManager{
 		return schools.get(ID);
 	}
 
+	/**
+	 * Puts a school into the hashMap of schools, only to be called in OpeningPageActivity
+	 * @param ID the ID of the school
+	 * @param s the School object to add
+	 */
 	public static void putSchool(String ID, School s){
 		schools.put(ID, s);
 	}
 
+	/**
+	 * @return a Collection of all the Schools
+	 */
 	public static Collection<School> getListOfAllSchools(){
 		return schools.values();
 	}

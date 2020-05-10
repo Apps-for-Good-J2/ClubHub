@@ -14,11 +14,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+
+import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
-
-    private final String TAG = "Login";
 
     private FirebaseAuth mAuth;
 
@@ -36,6 +35,11 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
     }
 
+    /**
+     * Signs in a current user with a given email and password
+     * @param email the email of the user
+     * @param password the password of the user
+     */
     private void signInWithEmailAndPassword(String email, String password){
 
 
@@ -60,33 +64,38 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 
+    /**
+     * Initiates sign in onClick
+     */
     public void onClickToLogin(View v){
         String email = emailEditText.getText().toString();
         String password = passwordEditText.getText().toString();
         signInWithEmailAndPassword(email, password);
     }
 
+    /**
+     * Opens the appropriate ClubHub page after singing in
+     */
     private void onLoginSuccess(){
 
-
-
-        String currentUserID = mAuth.getCurrentUser().getUid();
+        String currentUserID = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
 
         // If this user is a student
+        String TAG = "Login";
         if(StudentManager.getStudent(currentUserID) != null){
             Toast.makeText(getApplicationContext(),
                     "You have logged in as " + StudentManager.getStudent(currentUserID).getName(),
                     Toast.LENGTH_LONG).show();
             Log.d(TAG, StudentManager.getStudent(currentUserID).toString());
             Log.d(TAG, "This user is a student");
-            Intent intent = new Intent(this, ClubHubStudent.class);
+            Intent intent = new Intent(this, ClubHubStudentActivity.class);
             startActivity(intent);
         }
 
         else if(TeacherManager.getTeacher(currentUserID) != null){
             // Go to teacher page
             Log.d(TAG, "This user is a teacher");
-            Intent intent = new Intent(this, ClubHubTeacher.class);
+            Intent intent = new Intent(this, ClubHubTeacherActivity.class);
             startActivity(intent);
         }
 

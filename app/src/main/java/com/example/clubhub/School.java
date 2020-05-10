@@ -53,6 +53,10 @@ public class School extends DatabaseObject {
 		updateObjectDatabase();
 	}
 
+	/**
+	 * Removes a given club from this school
+	 * @param clubID the ID of the club to remove
+	 */
 	public void removeClubFirebase(String clubID){
 		clubs.remove(clubID);
 		updateObjectDatabase();

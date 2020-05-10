@@ -17,7 +17,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 public class CreateClubActivity extends AppCompatActivity {
@@ -98,7 +97,10 @@ public class CreateClubActivity extends AppCompatActivity {
     }
 
 
-
+    /**
+     * Checks input fields for invalid input
+     * @return true is all input if valid, false if otherwise
+     */
     private boolean checkForInvalidInput() {
         if(nameText.getText().toString().equals("")){
             Toast.makeText(getApplicationContext(), "Please enter a club name", Toast.LENGTH_LONG).show();
@@ -124,7 +126,9 @@ public class CreateClubActivity extends AppCompatActivity {
 
     }
 
-
+    /**
+     * Creates a new club with the data in the input fields
+     */
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void createClub(){
 
@@ -136,16 +140,25 @@ public class CreateClubActivity extends AppCompatActivity {
         MeetingInfo meetingInfo = createMeetingInfo();
         ClubManager.createClub(name, description, meetingInfo);
 
-        Intent intent = new Intent(this, ClubHubStudent.class);
+        Intent intent = new Intent(this, ClubHubStudentActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Creates a meetingInfo object for the club from the data in the input fields
+     * @return the new meetingInfo
+     */
     @RequiresApi(api = Build.VERSION_CODES.N)
     private MeetingInfo createMeetingInfo(){
         ArrayList<String> days = getSelectedDays();
         return new MeetingInfo(days, beginningTime, endingTime);
     }
 
+    /**
+     * Returns an ArrayList of the days selected as meetingDays with
+     * the checkboxes
+     * @return an ArrayList of the days selected as meetingDays
+     */
     private ArrayList<String> getSelectedDays(){
         ArrayList<String> days = new ArrayList<>();
         if(mon.isChecked()) days.add(MeetingInfo.MONDAY_STR);
@@ -159,13 +172,19 @@ public class CreateClubActivity extends AppCompatActivity {
         return days;
     }
 
+    /**
+     * On click method to initiate club creation
+     */
     @RequiresApi(api = Build.VERSION_CODES.N)
     public void createClubOnClick(View v){
         createClub();
     }
 
-
     //region Spinner classes
+
+    /**
+     * Spinner helper for selecting the beginning time
+     */
     class BeginningTimeSpinner implements AdapterView.OnItemSelectedListener{
 
         @Override
@@ -180,7 +199,9 @@ public class CreateClubActivity extends AppCompatActivity {
         }
     }
 
-
+    /**
+     * Spinner helper for selecting the ending time
+     */
     class EndingTimeSpinner implements AdapterView.OnItemSelectedListener{
 
         @Override

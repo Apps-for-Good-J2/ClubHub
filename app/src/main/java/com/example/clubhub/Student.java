@@ -1,10 +1,12 @@
 package com.example.clubhub;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
+/**
+ * Class to model a student that can lead and join clubs
+ */
+@SuppressWarnings({"WeakerAccess", "SpellCheckingInspection", "unused"})
 public class Student extends UserData {
 
     public static final String STUDENT_PATH = "students";
@@ -47,7 +49,7 @@ public class Student extends UserData {
 
     /**
      * Adds a given club reference ID to this users list of member clubs
-     * @param clubID
+     * @param clubID the ID of the club to add
      */
     public void addUserToClubAsMemberFirebase(String clubID) {
         this.mClubs.add(clubID);
@@ -56,18 +58,26 @@ public class Student extends UserData {
 
     /**
      * Adds a given club reference ID to this users list of leader clubs
-     * @param clubID
+     * @param clubID the ID of the club to add
      */
     public void addUserToClubAsLeaderFirebase(String clubID) {
         this.lClubs.add(clubID);
         updateObjectDatabase();
     }
 
+    /**
+     * Removes a given club from this students leader list
+     * @param clubID the ID of the club to remove
+     */
     public void removeClubFromLeaderFirebase(String clubID){
         this.lClubs.remove(clubID);
         updateObjectDatabase();
     }
 
+    /**
+     * Removes a given club from this students member list
+     * @param clubID the ID of the club to remove
+     */
     public void removeClubFromMemberFirebase(String clubID){
         this.mClubs.remove(clubID);
         updateObjectDatabase();
@@ -77,6 +87,9 @@ public class Student extends UserData {
 
     //region Getters and setters
 
+    /**
+     * @return the member clubs
+     */
     public ArrayList<String> getmClubs() {
         return mClubs;
     }

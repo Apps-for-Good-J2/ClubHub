@@ -39,9 +39,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Name:"
+                android:hint="@string/name"
                 android:inputType="textPersonName"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:autofillHints="" />
 
             <TextView
                 android:id="@+id/describeYourClub"
@@ -57,10 +58,11 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="center_vertical"
-                android:hint="Description:"
+                android:hint="@string/description"
                 android:inputType="textMultiLine"
                 android:textAlignment="center"
-                tools:ignore="RtlCompat" />
+                tools:ignore="RtlCompat"
+                android:autofillHints="" />
 
             <TextView
                 android:id="@+id/whenDoYouMeet"
@@ -173,7 +175,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:text="Select the starting time"
+                android:text="@string/select_the_starting_time"
                 android:textSize="24sp" />
 
             <Spinner
@@ -186,8 +188,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="10dp"
-                android:paddingRight="10dp"
-                android:text="Select the ending time"
+                android:text="@string/select_the_ending_time"
                 android:textSize="24sp" />
 
             <Spinner
@@ -212,7 +213,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:fontFamily="@font/comfortaa_light"
-        android:text="Create a Club"
+        android:text="@string/create_a_club"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

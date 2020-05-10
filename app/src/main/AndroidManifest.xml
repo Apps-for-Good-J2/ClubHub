@@ -12,19 +12,19 @@
         <activity android:name=".TeacherOptionsActivity"></activity>
         <activity android:name=".LeaderOptionsActivity" />
         <activity android:name=".ManageMembersActivity" />
-        <activity android:name=".ClubHubTeacher" />
-        <activity android:name=".YourClubsStudent" />
-        <activity android:name=".YourClubsTeacher" />
+        <activity android:name=".ClubHubTeacherActivity" />
+        <activity android:name=".YourClubsStudentActivity" />
+        <activity android:name=".YourClubsTeacherActivity" />
         <activity android:name=".CreateAccountActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".EditClubInfoActivity" />
-        <activity android:name=".ClubDescription" />
+        <activity android:name=".ClubDescriptionActivity" />
         <activity android:name=".CreateClubActivity" />
-        <activity android:name=".ClubHubStudent" />
+        <activity android:name=".ClubHubStudentActivity" />
         <activity android:name=".CreateSchoolActivity" />
-        <activity android:name=".FindAClub" />
+        <activity android:name=".FindAClubActivity" />
         <activity android:name=".MeetingsThisWeek" />
-        <activity android:name=".OpeningPage">
+        <activity android:name=".OpeningPageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -6,6 +6,7 @@ import java.util.ArrayList;
  * Class to model the functionality of a club
  * that has leaders and members
  */
+@SuppressWarnings("WeakerAccess")
 public class Club extends DatabaseObject{
 
 	public static final String CLUB_PATH = "clubs";
@@ -65,7 +66,7 @@ public class Club extends DatabaseObject{
 
 	/**
 	 * Checks if a giver user ID is a leader of this club
-	 * @param ID
+	 * @param ID the id of the user to check
 	 * @return true if the user is a leader, false if not
 	 */
 	public boolean isLeader(String ID) {
@@ -74,7 +75,7 @@ public class Club extends DatabaseObject{
 
 	/**
 	 * Checks if a given user ID is a member of this club
-	 * @param ID
+	 * @param ID the id of the user to check
 	 * @return true if the user is a member, false if not
 	 */
 	public boolean isMember(String ID) {
@@ -87,7 +88,7 @@ public class Club extends DatabaseObject{
 
 	/**
 	 * Adds a given user reference ID as a leader of this club
-	 * @param ID
+	 * @param ID the id of the leader to add
 	 */
 	public void addLeaderFirebase(String ID) {
 		lIDs.add(ID);
@@ -96,7 +97,7 @@ public class Club extends DatabaseObject{
 
 	/**
 	 * Adds a given user reference ID as a member of this club
-	 * @param ID
+	 * @param ID the id of the member to add
 	 */
 	public void addMemberFirebase(String ID) {
 		mIDs.add(ID);
@@ -105,7 +106,7 @@ public class Club extends DatabaseObject{
 
     /**
      * Deletes a given leader reference ID from this club
-     * @param userID
+     * @param userID the id of the leader to delete
      */
 	public void deleteLeaderFirebase(String userID){
 		lIDs.remove(userID);
@@ -114,7 +115,7 @@ public class Club extends DatabaseObject{
 
     /**
      * Deletes a given member reference ID from this club
-     * @param userID
+     * @param userID the id of the member to delete
      */
 	public void deleteMemberFirebase(String userID){
 		mIDs.remove(userID);
@@ -210,28 +211,41 @@ public class Club extends DatabaseObject{
 		this.schoolID = schoolID;
 	}
 
+	/**
+	 * @return the meetingInfo
+	 */
 	public MeetingInfo getMeetingInfo() {
 		return meetingInfo;
 	}
 
+	/**
+	 * @param meetingInfo the meetingInfo to set
+	 */
 	public void setMeetingInfo(MeetingInfo meetingInfo) {
 		this.meetingInfo = meetingInfo;
 	}
 
+	/**
+	 * @return the teacherID
+	 */
 	public String getTeacherID() {
 		return teacherID;
 	}
 
+	/** the teacherID to set
+	 * @param teacherID
+	 */
 	public void setTeacherID(String teacherID) {
 		this.teacherID = teacherID;
 	}
 
+	/**
+	 * Checks if the club has a teacher adviser
+	 * @return true if this club as a teacher adviser, false otherwise
+	 */
 	public boolean hasTeacherAdviser() {
 		return !teacherID.equals("");
 	}
-
-
-
 
 	//endregion
 

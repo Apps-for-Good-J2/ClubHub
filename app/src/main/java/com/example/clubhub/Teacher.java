@@ -5,6 +5,7 @@ import java.util.ArrayList;
 /**
  * Class to model the data of a teacher adviser to clubs
  */
+@SuppressWarnings("ALL")
 public class Teacher extends UserData {
 
     public static final String TEACHER_PATH = "teachers";
@@ -31,11 +32,20 @@ public class Teacher extends UserData {
         advisingClubs = new ArrayList<>();
     }
 
+
+    /**
+     * Adds a clubID to this teachers list of advising clubs
+     * @param clubID the ID of the club to be added
+     */
     public void addAdvisingClub(String clubID){
         advisingClubs.add(clubID);
         updateObjectDatabase();
     }
 
+    /**
+     * Removes a clubID to this teachers list of advising clubs
+     * @param clubID the ID of the club to be added
+     */
     public void removeAdvisingClub(String clubID){
         advisingClubs.remove(clubID);
         updateObjectDatabase();

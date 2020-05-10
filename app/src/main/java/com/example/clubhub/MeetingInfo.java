@@ -3,14 +3,13 @@ package com.example.clubhub;
 import android.os.Build;
 
 import androidx.annotation.RequiresApi;
-import androidx.annotation.RequiresFeature;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
 // Class to hold information about club meetings
+@SuppressWarnings("WeakerAccess")
 public class MeetingInfo {
 
     //region Static day name Strings
@@ -33,6 +32,10 @@ public class MeetingInfo {
 
 
     //region Constructors
+
+    /**
+     * Default constructor for the meeting info
+     */
     public MeetingInfo(){
         meetingDays = new HashMap<>();
         initiateMeetingDays();
@@ -40,13 +43,12 @@ public class MeetingInfo {
         meetingEndTime = "";
     }
 
-    public MeetingInfo(String meetingStartTime, String meetingEndTime){
-        this.meetingDays = new HashMap<>();
-        initiateMeetingDays();
-        this.meetingStartTime = meetingStartTime;
-        this.meetingEndTime = meetingEndTime;
-    }
-
+    /**
+     * Creates a new MeetingInfo with given days, beginning time, and end time
+     * @param meetingDaysArray ArrayList of strings of meeting days
+     * @param meetingStartTime String of the meeting start time
+     * @param meetingEndTime String of the meeting end time
+     */
     @RequiresApi(api = Build.VERSION_CODES.N)
     public MeetingInfo(ArrayList<String> meetingDaysArray, String meetingStartTime, String meetingEndTime){
         this.meetingDays = new HashMap<>();
@@ -108,31 +110,51 @@ public class MeetingInfo {
 
     //region Getters and Setters
 
-
+    /**
+     * @return the HashMap tracking meeting days
+     */
     public HashMap<String, Boolean> getMeetingDays() {
         return meetingDays;
     }
 
+    /**
+     * @param meetingDays the HashMap of meeting days to set
+     */
     public void setMeetingDays(HashMap<String, Boolean> meetingDays) {
         this.meetingDays = meetingDays;
     }
 
+    /**
+     * @return the meeting start time
+     */
     public String getMeetingStartTime() {
         return meetingStartTime;
     }
 
+    /**
+     * @param meetingStartTime the meeting start time to set
+     */
     public void setMeetingStartTime(String meetingStartTime) {
         this.meetingStartTime = meetingStartTime;
     }
 
+    /**
+     * @return the meeting end time
+     */
     public String getMeetingEndTime() {
         return meetingEndTime;
     }
 
+    /**
+     * @param meetingEndTime the meeting end time
+     */
     public void setMeetingEndTime(String meetingEndTime) {
         this.meetingEndTime = meetingEndTime;
     }
 
+    /**
+     * @return an ArrayList of the days this club meets
+     */
     public ArrayList<String> onlyMeetingDays(){
         ArrayList<String> days = new ArrayList<>();
         for(String day : allDays){

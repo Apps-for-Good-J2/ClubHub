@@ -27,6 +27,7 @@ public class ClubManager{
 	 * Assigns the club a club school ID
 	 * @param name the name of the new club
 	 * @param description the description of the new club
+	 * @param meetingInfo the meetingInfo for the new club
 	 */
 	public static void createClub(String name, String description, MeetingInfo meetingInfo) {
 
@@ -48,6 +49,11 @@ public class ClubManager{
 
 	}
 
+	/**
+	 * Deletes a given club from the database and cleans up
+	 * users associated with it
+	 * @param clubID the ID of the club to delete
+	 */
 	public static void deleteClub(String clubID){
 
 		Club thisClub = clubs.get(clubID);
@@ -92,8 +98,8 @@ public class ClubManager{
 	/**
 	 * Puts a club into the ClubManager's club HashMap
 	 * Only to be used by the initiateClubs method
-	 * @param ID
-	 * @param s
+	 * @param ID the ID of the club
+	 * @param s the club object
 	 */
 	public static void putClub(String ID, Club s) {
 		clubs.put(ID, s);

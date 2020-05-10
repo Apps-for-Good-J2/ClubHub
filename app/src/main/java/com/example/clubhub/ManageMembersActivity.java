@@ -37,6 +37,9 @@ public class ManageMembersActivity extends AppCompatActivity {
         setUpMemberList();
     }
 
+    /**
+     * Removes the selected member from the current club
+     */
     public void removeSelectedMemberOnClick(View v){
         if(selectedMember == null) return;
 
@@ -45,6 +48,9 @@ public class ManageMembersActivity extends AppCompatActivity {
         setUpMemberList();
     }
 
+    /**
+     * Makes the selected member a leader of the current club
+     */
     public void makeMemberLeader(View v){
         if(selectedMember == null) return;
         thisClub.deleteMemberFirebase(selectedMember.getID());
@@ -55,6 +61,9 @@ public class ManageMembersActivity extends AppCompatActivity {
         setUpMemberList();
     }
 
+    /**
+     * Initiates the ListView of members to select from
+     */
     private void setUpMemberList(){
 
 

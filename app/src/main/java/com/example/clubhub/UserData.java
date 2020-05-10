@@ -3,8 +3,9 @@ package com.example.clubhub;
 
 /**
  * Class to model the data of users that has
- * a school
+ * a school and a name
  */
+@SuppressWarnings({"NullableProblems", "unused"})
 public class UserData extends DatabaseObject{
 
 	private String name;
@@ -57,9 +58,6 @@ public class UserData extends DatabaseObject{
 	public void setID(String iD) {
 		setFirebaseID(iD);
 	}
-	/**
-	 * @return the mClubs
-	 */
 
 	/**
 	 * @return the schoolID
@@ -79,7 +77,7 @@ public class UserData extends DatabaseObject{
 
 	/**
 	 * Returns the name of the User when printed
-	 * @return
+	 * @return the user name as a string
 	 */
 	@Override
 	public String toString(){
