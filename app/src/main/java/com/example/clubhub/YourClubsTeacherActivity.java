@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.ArrayList;
 
 
-public class YourClubsTeacher extends AppCompatActivity {
+public class YourClubsTeacherActivity extends AppCompatActivity {
 
     TextView displayText;
     FirebaseUser currentUser;
@@ -42,6 +42,9 @@ public class YourClubsTeacher extends AppCompatActivity {
         setupAdvisingClubList();
     }
 
+    /**
+     * Displays the list of the current teachers advising clubs
+     */
     @SuppressLint("SetTextI18n")
     private void setupAdvisingClubList(){
 
@@ -66,7 +69,7 @@ public class YourClubsTeacher extends AppCompatActivity {
 
                 Club nClub = advisingClubs.get(position);
 
-                Intent intent = new Intent(YourClubsTeacher.this, ClubDescription.class);
+                Intent intent = new Intent(YourClubsTeacherActivity.this, ClubDescriptionActivity.class);
                 intent.putExtra("clubID", nClub.getNumID());
                 startActivity(intent);
             }

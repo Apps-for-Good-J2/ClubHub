@@ -14,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 
@@ -47,7 +46,7 @@ public class TeacherOptionsActivity extends AppCompatActivity {
         super.onStart();
         Log.d("TEACHER", thisTeacher.getFirebaseID() + " " + thisClub.getTeacherID());
         if(!thisTeacher.getFirebaseID().equals(thisClub.getTeacherID())){
-            Intent intent = new Intent(this, ClubHubTeacher.class);
+            Intent intent = new Intent(this, ClubHubTeacherActivity.class);
             Log.d("TEACHER", "Invalid teacher");
 
             startActivity(intent);
@@ -55,6 +54,9 @@ public class TeacherOptionsActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Initiates the list of leaders to choose to manage
+     */
     private void initiateLeaders(){
 
         leaders = new ArrayList<>();
@@ -84,6 +86,9 @@ public class TeacherOptionsActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Removes a selected leader from the current club
+     */
     public void removeLeaderFromClub(View v){
         if(selectedLeader == null) return;
         if(checkNumLeaders()) return;
@@ -93,6 +98,9 @@ public class TeacherOptionsActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Reverts the currently selected leader to a member
+     */
     public void revertLeaderToMember(View v){
         if(selectedLeader == null) return;
         if(checkNumLeaders()) return;
@@ -101,14 +109,22 @@ public class TeacherOptionsActivity extends AppCompatActivity {
         removeLeaderFromClub(v);
     }
 
+    /**
+     * Removes the current teacher from the current club
+     * @param v
+     */
     public void leaveClubTeacher(View v){
         thisTeacher.removeAdvisingClub(thisClubID);
         thisClub.setTeacherID("");
         thisClub.updateObjectDatabase();
-        Intent intent = new Intent(this, YourClubsTeacher.class);
+        Intent intent = new Intent(this, YourClubsTeacherActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Checks if there is more than 1 leader in the current club
+     * @return true if there is only 1 leader, false otherwise
+     */
     private boolean checkNumLeaders(){
         if(thisClub.getlIDs().size() == 1){
             Toast.makeText(this, "You need at least 1 student leader", Toast.LENGTH_SHORT).show();

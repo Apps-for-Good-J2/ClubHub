@@ -14,7 +14,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class OpeningPage extends AppCompatActivity {
+public class OpeningPageActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,10 +22,17 @@ public class OpeningPage extends AppCompatActivity {
         setContentView(R.layout.activity_opening_page);
     }
 
+    /**
+     * Sends the user to the login page
+     */
     public void goToLogin(View v){
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
+
+    /**
+     * Sends the user to the sign up page
+     */
     public void goToSignUp(View v){
         Intent intent = new Intent(this, CreateAccountActivity.class);
         startActivity(intent);

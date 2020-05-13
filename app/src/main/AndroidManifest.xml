@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.clubhub" >
+    package="com.example.clubhub">
 
     <application
         android:allowBackup="true"
@@ -8,18 +8,23 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
-        <activity android:name=".ClubHubTeacher" />
-        <activity android:name=".YourClubsStudent" />
+        android:theme="@style/AppTheme">
+        <activity android:name=".TeacherOptionsActivity"></activity>
+        <activity android:name=".LeaderOptionsActivity" />
+        <activity android:name=".ManageMembersActivity" />
+        <activity android:name=".ClubHubTeacherActivity" />
+        <activity android:name=".YourClubsStudentActivity" />
+        <activity android:name=".YourClubsTeacherActivity" />
         <activity android:name=".CreateAccountActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".EditClubInfoActivity" />
-        <activity android:name=".StudentClubDescription" />
+        <activity android:name=".ClubDescriptionActivity" />
         <activity android:name=".CreateClubActivity" />
-        <activity android:name=".ClubHubStudent" />
+        <activity android:name=".ClubHubStudentActivity" />
         <activity android:name=".CreateSchoolActivity" />
-        <activity android:name=".FindAClub" />
-        <activity android:name=".OpeningPage" >
+        <activity android:name=".FindAClubActivity" />
+        <activity android:name=".MeetingsThisWeek" />
+        <activity android:name=".OpeningPageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

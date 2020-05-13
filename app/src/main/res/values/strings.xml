@@ -24,6 +24,8 @@
     <string name="Secretary">Secretary</string>
     <string name="select">Select your role: </string>
     <string name="createAccountTitleStr">Create your Account: </string>
+    <string name="usernameHint">Username: </string>
+    <string name="dontSeeSchoolText">Don\'t see your school?</string>
 
 
     <string name="selectRole">"Select your role: "</string>
@@ -83,18 +85,32 @@
     <string name="meetingdays">Meeting Days and Times:</string>
     <string name="members">Members:</string>
     <string name="memberclubs">Your member Clubs</string>
-    <string name="lead">leader</string>
     <string name="memb">member</string>
     <string name="backmain">Back to main</string>
     <string name="lead">leader</string>
-    <string name="lead">leader</string>
-    <string name="lead">leader</string>
-    <string name="lead">leader</string>
-    <string name="lead">leader</string>
-
-
-
-
+    <string name="i_am_a_student">I am a student</string>
+    <string name="i_am_a_teacher">I am a teacher</string>
+    <string name="description">Description:</string>
+    <string name="select_the_starting_time">Select the starting time</string>
+    <string name="select_the_ending_time">Select the ending time</string>
+    <string name="create_a_club">Create a Club</string>
+    <string name="delete_club">Delete club</string>
+    <string name="club_description">Club Description</string>
+    <string name="meeting_days">Meeting Days</string>
+    <string name="start_time">Start Time</string>
+    <string name="end_time">End Time</string>
+    <string name="save_info">Save Info</string>
+    <string name="manage_members">Manage Members</string>
+    <string name="leader_options">Leader Options</string>
+    <string name="click_on_the_club_name_to_view_information">Click on the club name to view information</string>
+    <string name="revert_to_member">Revert to member</string>
+    <string name="manage_club_members">Manage Club Members</string>
+    <string name="make_leader">Make leader</string>
+    <string name="remove_member">Remove member</string>
+    <string name="adviser_options">Adviser Options</string>
+    <string name="manage_leaders">Manage Leaders</string>
+    <string name="your_options">Your Options</string>
+    <string name="leave_club">Leave Club</string>
 
 
 </resources>

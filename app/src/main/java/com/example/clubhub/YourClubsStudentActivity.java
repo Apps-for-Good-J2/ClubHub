@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.ArrayList;
 import java.util.List;
 
-public class YourClubsStudent extends AppCompatActivity{
+public class YourClubsStudentActivity extends AppCompatActivity{
 
 
     private TextView yourClubText;
@@ -61,6 +61,9 @@ public class YourClubsStudent extends AppCompatActivity{
 
     }
 
+    /**
+     * Displays the current user's member clubs
+     */
     private void setShowMemberClubs(){
 
         yourClubText.setText("Your member clubs");
@@ -76,7 +79,7 @@ public class YourClubsStudent extends AppCompatActivity{
 
                  Club nClub = memberClubs.get(position);
 
-                 Intent intent = new Intent(YourClubsStudent.this, ClubDescription.class);
+                 Intent intent = new Intent(YourClubsStudentActivity.this, ClubDescriptionActivity.class);
                  intent.putExtra("clubID", nClub.getNumID());
                  startActivity(intent);
             }
@@ -84,6 +87,9 @@ public class YourClubsStudent extends AppCompatActivity{
 
     }
 
+    /**
+     * Displays the current user's leader clubs
+     */
     private void setShowLeaderClubs(){
 
         yourClubText.setText("Your leader clubs");
@@ -99,7 +105,7 @@ public class YourClubsStudent extends AppCompatActivity{
 
                 Club nClub = leaderClubs.get(position);
 
-                Intent intent = new Intent(YourClubsStudent.this, ClubDescription.class);
+                Intent intent = new Intent(YourClubsStudentActivity.this, ClubDescriptionActivity.class);
                 intent.putExtra("clubID", nClub.getNumID());
                 startActivity(intent);
             }
@@ -107,16 +113,25 @@ public class YourClubsStudent extends AppCompatActivity{
 
     }
 
+    /**
+     * OnClick to display member clubs
+     */
     public void memberOnClick(View v){
         setShowMemberClubs();
     }
 
+    /**
+     * OnClick to display leader clubs
+     */
     public void leaderOnClick(View v){
         setShowLeaderClubs();
     }
 
+    /**
+     * Returns the user to ClubHubStudentActivity
+     */
     public void backOnClick(View v){
-        Intent intent = new Intent(this, ClubHubStudent.class);
+        Intent intent = new Intent(this, ClubHubStudentActivity.class);
         startActivity(intent);
     }
 

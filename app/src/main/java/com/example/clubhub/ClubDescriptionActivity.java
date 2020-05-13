@@ -16,9 +16,9 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClubDescription extends AppCompatActivity {
+public class ClubDescriptionActivity extends AppCompatActivity {
 
-    private final String TAG = "ClubDescription";
+    private final String TAG = "ClubDescriptionActivity";
 
 
 
@@ -79,7 +79,9 @@ public class ClubDescription extends AppCompatActivity {
     }
 
 
-
+    /**
+     * Sets the club information in the UI
+     */
     @SuppressLint("SetTextI18n")
     private void setTextViews(){
 
@@ -103,6 +105,9 @@ public class ClubDescription extends AppCompatActivity {
 
     }
 
+    /**
+     * Sets up the list of members in the UI
+     */
     private void setUpMemberList(){
 
         StringBuilder membersStr = new StringBuilder();
@@ -116,6 +121,9 @@ public class ClubDescription extends AppCompatActivity {
         leadersDisplay.setText(membersStr);
     }
 
+    /**
+     * Sets up the list of leaders in the UI
+     */
     private void setUpLeaderList() {
 
         StringBuilder leadersStr = new StringBuilder();
@@ -128,6 +136,9 @@ public class ClubDescription extends AppCompatActivity {
 
     }
 
+    /**
+     * Sets up the list of days in the UI
+     */
     private void setUpDayList() {
 
 
@@ -146,6 +157,9 @@ public class ClubDescription extends AppCompatActivity {
 
     //region Button onClick Listeners
 
+    /**
+     * Button onClick for users that can join the club as member
+     */
     private class joinClubOnClickListener implements View.OnClickListener{
 
         @Override
@@ -159,11 +173,14 @@ public class ClubDescription extends AppCompatActivity {
             thisClub.addMemberFirebase(currentUserID);
 
             // Directs the user somewhere else or to member page for this club
-            Intent intent = new Intent(ClubDescription.this, ClubHubStudent.class);
+            Intent intent = new Intent(ClubDescriptionActivity.this, ClubHubStudentActivity.class);
             startActivity(intent);
         }
     }
 
+    /**
+     * Button on click for members to leave the club
+     */
     private class leaveClubOnClickListener implements View.OnClickListener
     {
 
@@ -178,23 +195,29 @@ public class ClubDescription extends AppCompatActivity {
             StudentManager.getStudent(currentUserID).removeClubFromMemberFirebase(thisClubID);
 
             // Directs the user somewhere else or to member page for this club
-            Intent intent = new Intent(ClubDescription.this, ClubHubStudent.class);
+            Intent intent = new Intent(ClubDescriptionActivity.this, ClubHubStudentActivity.class);
             startActivity(intent);
         }
     }
 
+    /**
+     * Button onClick for leaders/advisers to edit club info
+     */
     private class editClubOnClickListener implements View.OnClickListener
     {
 
         @Override
         public void onClick(View v) {
 
-            Intent intent = new Intent(ClubDescription.this, EditClubInfoActivity.class);
+            Intent intent = new Intent(ClubDescriptionActivity.this, EditClubInfoActivity.class);
             intent.putExtra("clubID", thisClubID);
             startActivity(intent);
         }
     }
 
+    /**
+     * Button onClick for teachers to advise the club
+     */
     private class adviseClubOnClickListener implements View.OnClickListener
     {
 
@@ -207,7 +230,7 @@ public class ClubDescription extends AppCompatActivity {
                 thisClub.updateObjectDatabase();
             }
 
-            Intent intent = new Intent(ClubDescription.this, ClubHubTeacher.class);
+            Intent intent = new Intent(ClubDescriptionActivity.this, ClubHubTeacherActivity.class);
             startActivity(intent);
         }
     }

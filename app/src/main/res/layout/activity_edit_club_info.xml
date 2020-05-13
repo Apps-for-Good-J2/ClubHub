@@ -29,7 +29,7 @@
         android:background="#C4D7F2"
         android:fontFamily="casual"
         android:onClick="deleteClubOnClick"
-        android:text="Delete club"
+        android:text="@string/delete_club"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -53,10 +53,11 @@
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="casual"
                 android:text="@string/clubName"
+                android:textSize="24sp" />
                 android:textStyle="bold" />
 
             <EditText
@@ -65,16 +66,17 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:fontFamily="casual"
-                android:hint="Name:"
-                android:inputType="textPersonName"
-                android:text="Name" />
+                android:hint="@string/name"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName" />
 
             <TextView
                 android:id="@+id/textView2"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="casual"
-                android:text="Club Description"
+                android:text="@string/club_description"
+                android:textSize="24sp" />
                 android:textStyle="bold" />
 
             <EditText
@@ -83,16 +85,17 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:fontFamily="casual"
-                android:hint="Description:"
+                android:hint="@string/description"
                 android:inputType="textPersonName"
-                android:text="Name" />
+                android:autofillHints="" />
 
             <TextView
                 android:id="@+id/textView3"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="casual"
-                android:text="Meeting Days"
+                android:text="@string/meeting_days"
+                android:textSize="24sp" />
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -161,11 +164,12 @@
 
             <TextView
                 android:id="@+id/editStartTimeText"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="casual"
-                android:text="Start Time"
                 android:textStyle="bold" />
+                android:text="@string/start_time"
+                android:textSize="24sp" />
 
             <Spinner
                 android:id="@+id/editStartTimeSpinner"
@@ -174,10 +178,11 @@
 
             <TextView
                 android:id="@+id/editEndTimeText"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="casual"
-                android:text="End Time"
+                android:text="@string/end_time"
+                android:textSize="24sp" />
                 android:textStyle="bold" />
 
             <Spinner
@@ -192,7 +197,7 @@
                 android:background="#C4D7F2"
                 android:fontFamily="casual"
                 android:onClick="updateClubOnClick"
-                android:text="SAVE INFO"
+                android:text="@string/save_info" />
                 android:textStyle="bold" />
         </LinearLayout>
     </ScrollView>
@@ -205,7 +210,7 @@
         android:background="#C4D7F2"
         android:fontFamily="casual"
         android:onClick="goToManageMemberOnClick"
-        android:text="Manage Members"
+        android:text="@string/manage_members"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/optionsButton"
         app:layout_constraintHorizontal_bias="0.5"
@@ -219,7 +224,7 @@
         android:layout_marginTop="20dp"
         android:background="#C4D7F2"
         android:fontFamily="casual"
-        android:text="Leader options"
+        android:text="@string/leader_options"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/deleteClubButton"
         app:layout_constraintHorizontal_bias="0.5"

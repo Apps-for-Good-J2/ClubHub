@@ -3,7 +3,6 @@ package com.example.clubhub;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.Collection;
 import java.util.HashMap;
 
 /**
@@ -40,8 +39,8 @@ public class StudentManager{
 	/**
 	 * Puts a user into the UserManager's club HashMap
 	 * ONly to be used by the initiateUsers method
-	 * @param ID
-	 * @param s
+	 * @param ID the ID of the student to add
+	 * @param s the Student object to add
 	 */
 	public static void putStudent(String ID, Student s){
 		students.put(ID, s);

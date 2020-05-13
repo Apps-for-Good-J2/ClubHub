@@ -28,13 +28,14 @@
         android:layout_marginTop="24dp"
         android:ems="10"
         android:fontFamily="casual"
-        android:hint="Email"
-        android:inputType="textPersonName"
+        android:hint="@string/emailhint"
+        android:inputType="textEmailAddress"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/createUsernameText" />
+        app:layout_constraintTop_toBottomOf="@+id/createUsernameText"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/createAccountButton"
@@ -44,8 +45,8 @@
         android:background="#C4D7F2"
         android:fontFamily="casual"
         android:onClick="createAccountOnClick"
-        android:text="Next"
         android:textStyle="bold"
+        android:text="@string/next"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createAccountRadioGroup" />
@@ -57,13 +58,14 @@
         android:layout_marginTop="24dp"
         android:ems="10"
         android:fontFamily="casual"
-        android:hint="Password"
+        android:hint="@string/passwordhint"
         android:inputType="textPassword"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/createEmailText" />
+        app:layout_constraintTop_toBottomOf="@+id/createEmailText"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/createUsernameText"
@@ -72,12 +74,13 @@
         android:layout_marginTop="100dp"
         android:ems="10"
         android:fontFamily="casual"
-        android:hint="Username"
+        android:hint="@string/usernameHint"
         android:inputType="textPersonName"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/selectSchoolSpinner" />
+        app:layout_constraintTop_toBottomOf="@+id/selectSchoolSpinner"
+        android:autofillHints="" />
 
     <Spinner
         android:id="@+id/selectSchoolSpinner"
@@ -96,7 +99,7 @@
         android:background="#C4D7F2"
         android:fontFamily="casual"
         android:onClick="createNewSchoolOnClick"
-        android:text="dont see your school?"
+        android:text="@string/dontSeeSchoolText"
         android:textColor="#000000"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -119,15 +122,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="casual"
-            android:text="I am a student"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="@string/i_am_a_student" />
+            android:text="@string/i_am_a_student" />
 
         <RadioButton
             android:id="@+id/createAccountTeacherRadio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="casual"
-            android:text="I am a teacher"
+            android:text="@string/i_am_a_teacher"
+            android:textStyle="bold" />
             android:textStyle="bold" />
     </RadioGroup>
 

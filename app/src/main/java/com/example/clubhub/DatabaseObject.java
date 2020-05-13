@@ -25,8 +25,8 @@ public abstract class DatabaseObject {
 
     /**
      * Creates a new DatabaseObject with a given path and firebaseID
-     * @param path
-     * @param firebaseID
+     * @param path the location of the object in the database
+     * @param firebaseID the ID of the object in the database
      */
     public DatabaseObject(String path, String firebaseID){
         this.path= path;
@@ -42,24 +42,40 @@ public abstract class DatabaseObject {
         ref.child(firebaseID).setValue(this);
     }
 
+    /**
+     * Removes this object from the firebase database
+     */
     public void removeObjectDatabase(){
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference(path);
         ref.child(firebaseID).removeValue();
     }
 
     //region Getters and setters
+
+    /**
+     * @return the path
+     */
     public String getPath() {
         return path;
     }
 
+    /**
+     * @param path the path to set
+     */
     public void setPath(String path) {
         this.path = path;
     }
 
+    /**
+     * @return the firebaseID
+     */
     public String getFirebaseID() {
         return firebaseID;
     }
 
+    /**
+     * @param firebaseID the firebaseID to set
+     */
     public void setFirebaseID(String firebaseID) {
         this.firebaseID = firebaseID;
     }

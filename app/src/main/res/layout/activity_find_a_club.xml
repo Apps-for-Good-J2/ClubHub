@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#B4DBF6F0"
-    tools:context=".FindAClub">
+    tools:context=".FindAClubActivity">
 
     <TextView
         android:id="@+id/clubFinder"
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:fontFamily="casual"
-        android:text="Click on the club name to view information"
+        android:text="@string/click_on_the_club_name_to_view_information"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

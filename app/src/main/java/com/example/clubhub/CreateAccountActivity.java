@@ -220,7 +220,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
     private void onCreateSuccessStudent(){
 
         // check for if student or teacher
-        Intent intent = new Intent(this, ClubHubStudent.class);
+        Intent intent = new Intent(this, ClubHubStudentActivity.class);
         startActivity(intent);
     }
 
@@ -230,13 +230,12 @@ public class CreateAccountActivity extends AppCompatActivity implements
     private void onCreateSuccessTeacher(){
         // Go to teacher page
         Log.d(TAG, "Teacher created (from onCreateSuccessTeacher");
-        Intent intent = new Intent(this, ClubHubTeacher.class);
+        Intent intent = new Intent(this, ClubHubTeacherActivity.class);
         startActivity(intent);
     }
 
     /**
      * Button onClick method to create a new account
-     * @param v
      */
     public void createAccountOnClick(View v){
 
@@ -248,7 +247,6 @@ public class CreateAccountActivity extends AppCompatActivity implements
 
     /**
      * Brings the user to a page to add a new school to firebase
-     * @param v
      */
     public void createNewSchoolOnClick(View v){
         Intent intent = new Intent(this, CreateSchoolActivity.class);
