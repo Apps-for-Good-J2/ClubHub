@@ -122,7 +122,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="casual"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="@string/i_am_a_student" />
             android:text="@string/i_am_a_student" />
 
         <RadioButton
@@ -130,7 +131,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="casual"
-            android:text="@string/i_am_a_teacher" />
+            android:text="@string/i_am_a_teacher"
+            android:textStyle="bold" />
             android:textStyle="bold" />
     </RadioGroup>
 
