@@ -70,6 +70,7 @@ public class LoginActivity extends AppCompatActivity {
     public void onClickToLogin(View v){
         String email = emailEditText.getText().toString();
         String password = passwordEditText.getText().toString();
+        Toast.makeText(this, "Logging In...", Toast.LENGTH_SHORT).show();
         signInWithEmailAndPassword(email, password);
     }
 

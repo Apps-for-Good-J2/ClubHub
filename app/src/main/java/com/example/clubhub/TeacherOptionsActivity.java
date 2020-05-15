@@ -94,6 +94,9 @@ public class TeacherOptionsActivity extends AppCompatActivity {
         if(checkNumLeaders()) return;
         thisClub.deleteLeaderFirebase(selectedLeader.getID());
         selectedLeader.removeClubFromLeaderFirebase(thisClubID);
+        selectedLeader = null;
+        TextView currentMemberDisplay = findViewById(R.id.currentlyViewedLeaderDisplay);
+        currentMemberDisplay.setText("");
         initiateLeaders();
 
     }
@@ -111,7 +114,6 @@ public class TeacherOptionsActivity extends AppCompatActivity {
 
     /**
      * Removes the current teacher from the current club
-     * @param v
      */
     public void leaveClubTeacher(View v){
         thisTeacher.removeAdvisingClub(thisClubID);

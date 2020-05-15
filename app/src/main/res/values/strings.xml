@@ -51,7 +51,7 @@
     <string name="otherInfo">Other Information</string>
     <string name="teacherSelect">"Select a club to view: "</string>
     <string name="leave">Leave Club</string>
-    <string name="clubName">CLUB NAME</string>
+    <string name="clubName">Club Name</string>
     <string name="leaders">Student Leaders:</string>
     <string name="describe">Description:</string>
     <string name="meetings">"Meeting Dates and Times: "</string>
@@ -86,9 +86,13 @@
 =    <string name="memb">member</string>
     <string name="backmain">Back to main</string>
 =    <string name="lead">leader</string>
-
-
-
+    <string name="delete_club">Delete Club</string>
+    <string name="leader_options">Leader Options</string>
+    <string name="manage_members">Manage Members</string>
+    <string name="club_description">Club Description</string>
+    <string name="start_time">Start Time</string>
+    <string name="end_time">End Time</string>
+    <string name="save_info">Save Info</string>
 
 
 </resources>

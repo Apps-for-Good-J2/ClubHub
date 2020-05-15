@@ -5,13 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.UserManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 
@@ -30,9 +33,31 @@ public class ManageMembersActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         thisClubID = intent.getStringExtra("clubID");
-        thisClub = ClubManager.getClub(thisClubID);
+
 
         selectedMember = null;
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        thisClub = ClubManager.getClub(thisClubID);
+        assert currentUser != null;
+        if(thisClub.isLeader(currentUser.getUid())){
+            Log.d("Edit", "is leader passed called");
+
+        }
+        else if(thisClub.getTeacherID().equals(currentUser.getUid())){
+            Log.d("Edit", "is Teacher passed called");
+        }
+        else{
+            Log.d("Edit", "nothing passed");
+            noUserError();
+        }
+
 
         setUpMemberList();
     }
@@ -45,6 +70,9 @@ public class ManageMembersActivity extends AppCompatActivity {
 
         thisClub.deleteMemberFirebase(selectedMember.getID());
         selectedMember.removeClubFromMemberFirebase(thisClubID);
+        selectedMember = null;
+        TextView currentMemberDisplay = findViewById(R.id.currentlyViewedMemberDisplay);
+        currentMemberDisplay.setText("");
         setUpMemberList();
     }
 
@@ -58,6 +86,9 @@ public class ManageMembersActivity extends AppCompatActivity {
 
         selectedMember.removeClubFromMemberFirebase(thisClubID);
         selectedMember.addUserToClubAsLeaderFirebase(thisClubID);
+        selectedMember = null;
+        TextView currentMemberDisplay = findViewById(R.id.currentlyViewedMemberDisplay);
+        currentMemberDisplay.setText("");
         setUpMemberList();
     }
 
@@ -95,5 +126,22 @@ public class ManageMembersActivity extends AppCompatActivity {
         });
 
         //endregion End code for member display
+
+
+    }
+
+    private void noUserError(){
+        Log.d("Edit", "noUserError called");
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        Intent intentBackup;
+        assert currentUser != null;
+        if(StudentManager.getStudent(currentUser.getUid()) != null){
+            Log.d("Edit", "student error called");
+            intentBackup = new Intent(this, ClubHubStudentActivity.class);
+        }
+        else{
+            intentBackup = new Intent(this, ClubHubTeacherActivity.class);
+        }
+        startActivity(intentBackup);
     }
 }

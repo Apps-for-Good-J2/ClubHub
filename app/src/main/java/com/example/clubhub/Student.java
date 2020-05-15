@@ -52,6 +52,7 @@ public class Student extends UserData {
      * @param clubID the ID of the club to add
      */
     public void addUserToClubAsMemberFirebase(String clubID) {
+        if (isPartOfClub(clubID)) return;
         this.mClubs.add(clubID);
         updateObjectDatabase();
     }
@@ -61,6 +62,7 @@ public class Student extends UserData {
      * @param clubID the ID of the club to add
      */
     public void addUserToClubAsLeaderFirebase(String clubID) {
+        if(isPartOfClub(clubID)) return;
         this.lClubs.add(clubID);
         updateObjectDatabase();
     }

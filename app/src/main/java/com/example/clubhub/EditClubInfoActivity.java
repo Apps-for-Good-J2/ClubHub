@@ -7,6 +7,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -47,13 +48,10 @@ public class EditClubInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_club_info);
 
-        Intent intent = getIntent();
-        thisClubID = intent.getStringExtra("clubID");
-        thisClub = ClubManager.getClub(thisClubID);
 
         nameBox = findViewById(R.id.clubEditName);
         descBox = findViewById(R.id.clubEditDesc);
-        Button optionsButton = findViewById(R.id.optionsButton);
+
 
         mon = findViewById(R.id.monday2);
         tues = findViewById(R.id.tuesday2);
@@ -64,22 +62,65 @@ public class EditClubInfoActivity extends AppCompatActivity {
         sun = findViewById(R.id.sunday2);
         dayBoxes = new ArrayList<>(Arrays.asList(mon, tues, wed, thurs, fri, sat, sun));
 
+
+        Log.d("Edit", "ONCreate called");
+
+
+    }
+
+    @SuppressLint("SetTextI18n")
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        Intent intent = getIntent();
+        thisClubID = intent.getStringExtra("clubID");
+        thisClub = ClubManager.getClub(thisClubID);
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         initiateSpinners();
         initiateInformation();
 
-        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        Log.d("Edit", "OnStart called");
+
 
         // Checks if user editing is a leader or teacher
+        Button optionsButton = findViewById(R.id.optionsButton);
 
         assert currentUser != null;
         if(thisClub.isLeader(currentUser.getUid())){
+            Log.d("Edit", "is leader passed called");
             optionsButton.setText("Leader Options");
             optionsButton.setOnClickListener(new goToLeaderOptionsOnClick());
         }
         else if(thisClub.getTeacherID().equals(currentUser.getUid())){
+            Log.d("Edit", "is Teacher passed called");
             optionsButton.setText("Adviser Options");
             optionsButton.setOnClickListener(new goToTeacherOptionsOnClick());
         }
+        else{
+            Log.d("Edit", "nothing passed");
+            noUserError();
+        }
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+    }
+
+    private void noUserError() {
+        Log.d("Edit", "noUserError called");
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        Intent intentBackup;
+        assert currentUser != null;
+        if(StudentManager.getStudent(currentUser.getUid()) != null){
+            Log.d("Edit", "student error called");
+            intentBackup = new Intent(this, ClubHubStudentActivity.class);
+        }
+        else{
+            intentBackup = new Intent(this, ClubHubTeacherActivity.class);
+        }
+        startActivity(intentBackup);
     }
 
 

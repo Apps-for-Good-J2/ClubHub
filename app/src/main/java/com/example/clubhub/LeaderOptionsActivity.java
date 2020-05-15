@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Objects;
 
@@ -22,8 +24,18 @@ public class LeaderOptionsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_leader_options);
         Intent intent = getIntent();
         thisClubID = intent.getStringExtra("clubID");
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
         thisClub = ClubManager.getClub(thisClubID);
         currentUser = StudentManager.getStudent(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid());
+        if(!thisClub.isLeader(currentUser.getID())){
+            noUserError();
+        }
     }
 
     /**
@@ -31,9 +43,15 @@ public class LeaderOptionsActivity extends AppCompatActivity {
      */
     public void revertToMember(View v){
         if(checkNumLeaders()) return;
+
+        thisClub.deleteLeaderFirebase(currentUser.getID());
+        currentUser.removeClubFromLeaderFirebase(thisClubID);
+
         thisClub.addMemberFirebase(currentUser.getID());
         currentUser.addUserToClubAsMemberFirebase(thisClubID);
-        leaveClubLeader(v);
+
+        Intent intent = new Intent(this, YourClubsStudentActivity.class);
+        startActivity(intent);
     }
 
     /**
@@ -56,6 +74,14 @@ public class LeaderOptionsActivity extends AppCompatActivity {
             Toast.makeText(this, "You need at least 1 student leader", Toast.LENGTH_SHORT).show();
         }
         return thisClub.getlIDs().size() == 1;
+    }
+
+
+    private void noUserError() {
+        Log.d("Edit", "noUserError called");
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        Intent intentBackup = new Intent(this, ClubHubStudentActivity.class);
+        startActivity(intentBackup);
     }
 
 

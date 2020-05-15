@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="casual"
                 android:text="@string/clubName"
-                android:textSize="24sp" />
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -76,26 +76,27 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="casual"
                 android:text="@string/club_description"
-                android:textSize="24sp" />
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/clubEditDesc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:autofillHints=""
                 android:ems="10"
                 android:fontFamily="casual"
-                android:hint="@string/description"
+                android:hint="@string/describe"
                 android:inputType="textPersonName"
-                android:autofillHints="" />
+                tools:ignore="LabelFor" />
 
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="casual"
-                android:text="@string/meeting_days"
-                android:textSize="24sp" />
+                android:text="@string/meetingdays"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -167,9 +168,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="casual"
-                android:textStyle="bold" />
                 android:text="@string/start_time"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <Spinner
                 android:id="@+id/editStartTimeSpinner"
@@ -182,8 +183,9 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="casual"
                 android:text="@string/end_time"
-                android:textSize="24sp" />
+                android:textSize="24sp"
                 android:textStyle="bold" />
+
 
             <Spinner
                 android:id="@+id/editEndTimeSpinner"
@@ -198,7 +200,7 @@
                 android:fontFamily="casual"
                 android:onClick="updateClubOnClick"
                 android:text="@string/save_info" />
-                android:textStyle="bold" />
+
         </LinearLayout>
     </ScrollView>
 

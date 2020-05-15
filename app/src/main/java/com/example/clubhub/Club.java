@@ -1,12 +1,13 @@
 package com.example.clubhub;
 
+
 import java.util.ArrayList;
 
 /**
  * Class to model the functionality of a club
  * that has leaders and members
  */
-@SuppressWarnings("WeakerAccess")
+@SuppressWarnings({"WeakerAccess", "SpellCheckingInspection", "unused"})
 public class Club extends DatabaseObject{
 
 	public static final String CLUB_PATH = "clubs";
@@ -42,11 +43,11 @@ public class Club extends DatabaseObject{
 	/**
 	 * Constructors a Club object with a given name, ID, school ID, creator ID, and description
 	 * AND MEETING INFO
-	 * @param name
-	 * @param ID
-	 * @param schoolID
-	 * @param creatorID
-	 * @param description
+	 * @param name the name of the club
+	 * @param ID the ID of the club in firebase
+	 * @param schoolID the ID of the school this club belongs to
+	 * @param creatorID the ID of the user that created the club
+	 * @param description the club description
 	 */
 	public Club(String name, String ID, String schoolID, String creatorID, String description, MeetingInfo meetingInfo) {
 		super(CLUB_PATH, ID);
@@ -91,6 +92,7 @@ public class Club extends DatabaseObject{
 	 * @param ID the id of the leader to add
 	 */
 	public void addLeaderFirebase(String ID) {
+		if(isMember(ID) || isLeader(ID)) return;
 		lIDs.add(ID);
 		updateObjectDatabase();
 	}
@@ -100,6 +102,7 @@ public class Club extends DatabaseObject{
 	 * @param ID the id of the member to add
 	 */
 	public void addMemberFirebase(String ID) {
+		if(isMember(ID) || isLeader(ID)) return;
 		mIDs.add(ID);
 		updateObjectDatabase();
 	}
@@ -233,7 +236,7 @@ public class Club extends DatabaseObject{
 	}
 
 	/** the teacherID to set
-	 * @param teacherID
+	 * @param teacherID the teacherID to set
 	 */
 	public void setTeacherID(String teacherID) {
 		this.teacherID = teacherID;
@@ -253,6 +256,7 @@ public class Club extends DatabaseObject{
 	 * Returns the given name of this Club when printed
 	 * @return the name of this club
 	 */
+	@SuppressWarnings("NullableProblems")
 	@Override
 	public String toString() {
 		return name;
