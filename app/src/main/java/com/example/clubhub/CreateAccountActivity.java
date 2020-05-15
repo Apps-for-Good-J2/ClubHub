@@ -184,9 +184,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
         String email = emailTextView.getText().toString();
         String password = passwordTextView.getText().toString();
         String name = usernameTextView.getText().toString();
-        String school = schools.toString(); //this is likely not right; this should be the selected school from the spinner
 
-                ;
 
         if(email.isEmpty() || password.isEmpty() || name.isEmpty()){
             Toast.makeText(getApplicationContext(),"Please fill in all fields", Toast.LENGTH_LONG).show();
@@ -204,7 +202,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
             return false;
         }
 
-        if (school.trim().isEmpty()|| )
+
 
 
 
