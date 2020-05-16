@@ -32,6 +32,11 @@ public class LoginActivity extends AppCompatActivity {
         emailEditText = findViewById(R.id.loginEmailText);
         passwordEditText = findViewById(R.id.loginPasswordText);
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         mAuth = FirebaseAuth.getInstance();
     }
 

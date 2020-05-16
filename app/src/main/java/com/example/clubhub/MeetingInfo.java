@@ -49,7 +49,6 @@ public class MeetingInfo {
      * @param meetingStartTime String of the meeting start time
      * @param meetingEndTime String of the meeting end time
      */
-    @RequiresApi(api = Build.VERSION_CODES.N)
     public MeetingInfo(ArrayList<String> meetingDaysArray, String meetingStartTime, String meetingEndTime){
         this.meetingDays = new HashMap<>();
         initiateMeetingDays();
@@ -66,20 +65,10 @@ public class MeetingInfo {
      * @return true if this club meets of a given dya, false if not
      */
     public boolean meetsOnDay(String dayStr){
-        return meetingDays.keySet().contains(dayStr);
+        return meetingDays.containsKey(dayStr);
     }
 
-    // TODO Will need firebase?
 
-    /**
-     * Sets if this club meets on a given day
-     * @param dayStr the day's status to be set
-     * @param state true if this club meets on the given day, false if not
-     */
-    @RequiresApi(api = Build.VERSION_CODES.N)
-    public void setDayStatus(String dayStr, boolean state){
-        meetingDays.replace(dayStr, state);
-    }
 
     //region Private methods
 
@@ -87,12 +76,12 @@ public class MeetingInfo {
      * Used in initialization to add the given days as as meeting
      * @param newMeetingDays days to be added as meeting days
      */
-    @RequiresApi(api = Build.VERSION_CODES.N)
     public void addMeetingDaysFromArrayList(ArrayList<String> newMeetingDays){
         initiateMeetingDays();
         for(String day : newMeetingDays){
             if (allDays.contains(day)) {
-                meetingDays.replace(day, true);
+                meetingDays.remove(day);
+                meetingDays.put(day, true);
             }
         }
     }
